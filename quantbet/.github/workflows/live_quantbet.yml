@@ -1,0 +1,104 @@
+# quantbet v4.3-global live poller on GitHub Actions (read-only; Telegram notifications only).
+#
+# HONEST CAVEATS - read before enabling:
+#  * A GitHub-hosted job is hard-killed after 6 h (360 min). This workflow runs ~5h40m (timeout-minutes 350,
+#    inner `timeout 340m` for a clean shutdown + artifact upload) and is re-triggered by cron every 6 h, so
+#    expect a short gap (cron start delay is often 5-30 min, sometimes more, and is not guaranteed at peak times).
+#  * PRIVATE repo: the free plan includes 2,000 Linux minutes/month. 24/7 = ~43,800 min/month, so running
+#    this continuously is NOT $0 (it exhausts the free quota in ~1.4 days; overage is billed or jobs stop).
+#  * PUBLIC repo: Actions minutes are free/unlimited on standard runners, but the code, the frozen params and
+#    every log/artifact are public. Secrets stay secret. GitHub also disables scheduled workflows after
+#    60 days without repository activity.
+#  * Runner IPs are shared datacenter ranges; ESPN may 403 them. The polite_http layer backs off on 403/429
+#    (honest UA, caching, low concurrency) - nothing here evades bot protection, and nothing ever contacts bet365.
+#  * Cheaper 24/7 alternative (not set up): an Oracle Cloud "Always Free" Ampere/AMD VM running
+#    scripts/run_live.sh under systemd - persistent SQLite, no 6 h limit, $0 if you stay inside Always Free.
+#
+# Secrets (Settings -> Secrets and variables -> Actions): TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
+# If either is missing the job runs in --dry-run (notifications are only logged).
+name: live_quantbet
+
+on:
+  schedule:
+    - cron: "5 */6 * * *"      # 00:05, 06:05, 12:05, 18:05 UTC
+  workflow_dispatch:
+    inputs:
+      rules:
+        description: "alert rules"
+        default: "v4.3-global"
+        type: choice
+        options: ["v4.3-global", "v4.2"]
+      minutes:
+        description: "run length in minutes (max ~340)"
+        default: "340"
+
+concurrency:
+  group: live-quantbet
+  cancel-in-progress: false    # never kill a running poller; a new trigger queues behind it
+
+permissions:
+  contents: read
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      QB_MODE: free
+      QB_ALERT_RULES: ${{ inputs.rules || 'v4.3-global' }}
+      QB_LEAGUES_CONFIG_PATH: config/leagues.json
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      RUN_MINUTES: ${{ inputs.minutes || '340' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+
+      - name: "Restore state (SQLite: paper trades, HTTP cache, ESPN summaries, heartbeat)"
+        uses: actions/cache/restore@v4
+        with:
+          path: data/*.sqlite3
+          key: quantbet-state-${{ github.run_id }}
+          restore-keys: quantbet-state-
+
+      - name: Tests (frozen params must verify)
+        run: python -m pytest -q
+
+      - name: Run poller
+        run: |
+          mkdir -p logs data
+          MODE=--dry-run
+          if [ -n "${TELEGRAM_BOT_TOKEN}" ] && [ -n "${TELEGRAM_CHAT_ID}" ]; then MODE=--live; fi
+          echo "mode=${MODE} rules=${QB_ALERT_RULES} minutes=${RUN_MINUTES}"
+          # SIGINT first for a clean shutdown; exit code 124 (timeout reached) is the normal end.
+          timeout --signal=INT --kill-after=60s "${RUN_MINUTES}m" \
+            python scripts/live.py ${MODE} --rules "${QB_ALERT_RULES}" --cups --no-keepalive \
+            2>&1 | tee "logs/live_${GITHUB_RUN_ID}.log" || true
+
+      - name: Save state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data/*.sqlite3
+          key: quantbet-state-${{ github.run_id }}
+
+      - name: Upload logs and SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quantbet-${{ github.run_id }}
+          path: |
+            logs/
+            data/*.sqlite3
+          retention-days: 14
+          if-no-files-found: warn

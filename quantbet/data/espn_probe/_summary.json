@@ -1,0 +1,7095 @@
+{
+ "all": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": null,
+  "name": null,
+  "slug_echo": null,
+  "events": [
+   {
+    "id": "401879254",
+    "uid": "s:600~l:700~e:401879254",
+    "date": "2026-10-25T14:00Z",
+    "home": "Crystal Palace",
+    "away": "Newcastle United",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401878766",
+    "uid": "s:600~l:700~e:401878766",
+    "date": "2026-10-25T14:00Z",
+    "home": "Hull City",
+    "away": "Brentford",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "6",
+      "totalShots": "14"
+     }
+    }
+   },
+   {
+    "id": "401878765",
+    "uid": "s:600~l:700~e:401878765",
+    "date": "2026-10-25T14:00Z",
+    "home": "Liverpool",
+    "away": "Brighton & Hove Albion",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "1",
+      "totalShots": "17"
+     }
+    }
+   },
+   {
+    "id": "401879252",
+    "uid": "s:600~l:700~e:401879252",
+    "date": "2026-10-25T14:00Z",
+    "home": "Manchester United",
+    "away": "AFC Bournemouth",
+    "score": "0-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401878764",
+    "uid": "s:600~l:700~e:401878764",
+    "date": "2026-10-25T16:30Z",
+    "home": "Sunderland",
+    "away": "Leeds United",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401882835",
+    "uid": "s:600~l:740~e:401882835",
+    "date": "2026-10-25T13:00Z",
+    "home": "Athletic Club",
+    "away": "Getafe",
+    "score": "4-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "4",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "1",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401882833",
+    "uid": "s:600~l:740~e:401882833",
+    "date": "2026-10-25T15:15Z",
+    "home": "Celta Vigo",
+    "away": "Real Betis",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401882829",
+    "uid": "s:600~l:740~e:401882829",
+    "date": "2026-10-25T17:30Z",
+    "home": "Real Sociedad",
+    "away": "Levante",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+2'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "3",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     }
+    }
+   },
+   {
+    "id": "401882832",
+    "uid": "s:600~l:740~e:401882832",
+    "date": "2026-10-25T20:00Z",
+    "home": "Barcelona",
+    "away": "Real Madrid",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+8'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "6",
+      "totalShots": "18"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "761904",
+    "uid": "s:600~l:770~e:761904",
+    "date": "2026-10-26T01:00Z",
+    "home": "LAFC",
+    "away": "LA Galaxy",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401854031",
+    "uid": "s:600~l:8301~e:401854031",
+    "date": "2026-10-25T19:00Z",
+    "home": "Orlando Pride",
+    "away": "Gotham FC",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "8",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "6",
+      "totalShots": "9"
+     }
+    }
+   },
+   {
+    "id": "401854032",
+    "uid": "s:600~l:8301~e:401854032",
+    "date": "2026-10-25T21:00Z",
+    "home": "Kansas City Current",
+    "away": "Washington Spirit",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+8'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "3",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "3",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401854094",
+    "uid": "s:600~l:8301~e:401854094",
+    "date": "2026-10-25T23:00Z",
+    "home": "San Diego Wave FC",
+    "away": "Boston Legacy FC",
+    "score": "0-0",
+    "state": "in",
+    "status": "STATUS_FIRST_HALF",
+    "clock": "26'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "4"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "0",
+      "totalShots": "3"
+     }
+    }
+   },
+   {
+    "id": "401930375",
+    "uid": "s:600~l:24081~e:401930375",
+    "date": "2026-10-25T07:00Z",
+    "home": "Naegohyang",
+    "away": "Auckland United FC",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+10'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "1"
+     }
+    }
+   },
+   {
+    "id": "401875036",
+    "uid": "s:600~l:730~e:401875036",
+    "date": "2026-10-25T11:30Z",
+    "home": "Internazionale",
+    "away": "Fiorentina",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+11'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "11",
+      "totalShots": "33"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401874972",
+    "uid": "s:600~l:730~e:401874972",
+    "date": "2026-10-25T14:00Z",
+    "home": "Atalanta",
+    "away": "Frosinone",
+    "score": "4-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "8",
+      "shotsOnTarget": "9",
+      "totalShots": "22"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "10",
+      "totalShots": "24"
+     }
+    }
+   },
+   {
+    "id": "401874952",
+    "uid": "s:600~l:730~e:401874952",
+    "date": "2026-10-25T14:00Z",
+    "home": "Genoa",
+    "away": "Venezia",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "4",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "10",
+      "shotsOnTarget": "5",
+      "totalShots": "19"
+     }
+    }
+   },
+   {
+    "id": "401874772",
+    "uid": "s:600~l:730~e:401874772",
+    "date": "2026-10-25T17:00Z",
+    "home": "Lecce",
+    "away": "Juventus",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401874779",
+    "uid": "s:600~l:730~e:401874779",
+    "date": "2026-10-25T19:45Z",
+    "home": "Udinese",
+    "away": "AC Milan",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "7",
+      "totalShots": "19"
+     }
+    }
+   },
+   {
+    "id": "401884760",
+    "uid": "s:600~l:720~e:401884760",
+    "date": "2026-10-25T14:30Z",
+    "home": "TSG Hoffenheim",
+    "away": "Bayer Leverkusen",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+10'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "6",
+      "totalShots": "20"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "1",
+      "totalShots": "9"
+     }
+    }
+   },
+   {
+    "id": "401884759",
+    "uid": "s:600~l:720~e:401884759",
+    "date": "2026-10-25T16:30Z",
+    "home": "SC Freiburg",
+    "away": "Bayern Munich",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "9",
+      "totalShots": "17"
+     }
+    }
+   },
+   {
+    "id": "401876425",
+    "uid": "s:600~l:710~e:401876425",
+    "date": "2026-10-25T14:00Z",
+    "home": "AS Monaco",
+    "away": "Lille",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "6",
+      "totalShots": "20"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "4"
+     }
+    }
+   },
+   {
+    "id": "401876429",
+    "uid": "s:600~l:710~e:401876429",
+    "date": "2026-10-25T16:15Z",
+    "home": "AJ Auxerre",
+    "away": "Le Mans",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+10'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401876430",
+    "uid": "s:600~l:710~e:401876430",
+    "date": "2026-10-25T16:15Z",
+    "home": "Angers",
+    "away": "Lorient",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "8"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "1",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401876426",
+    "uid": "s:600~l:710~e:401876426",
+    "date": "2026-10-25T16:15Z",
+    "home": "Marseille",
+    "away": "Le Havre AC",
+    "score": "4-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+13'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "7",
+      "totalShots": "21"
+     }
+    }
+   },
+   {
+    "id": "401876424",
+    "uid": "s:600~l:710~e:401876424",
+    "date": "2026-10-25T16:15Z",
+    "home": "Stade Rennais",
+    "away": "Strasbourg",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "5",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401876423",
+    "uid": "s:600~l:710~e:401876423",
+    "date": "2026-10-25T16:15Z",
+    "home": "Toulouse",
+    "away": "Troyes",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "0",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401876923",
+    "uid": "s:600~l:760~e:401876923",
+    "date": "2026-10-25T23:00Z",
+    "home": "Atlas",
+    "away": "Puebla",
+    "score": "1-1",
+    "state": "in",
+    "status": "STATUS_FIRST_HALF",
+    "clock": "36'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "2",
+      "totalShots": "5"
+     }
+    }
+   },
+   {
+    "id": "401876921",
+    "uid": "s:600~l:760~e:401876921",
+    "date": "2026-10-26T01:00Z",
+    "home": "Quer\u00e9taro",
+    "away": "Cruz Azul",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401876922",
+    "uid": "s:600~l:760~e:401876922",
+    "date": "2026-10-26T01:05Z",
+    "home": "Am\u00e9rica",
+    "away": "Pachuca",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401876920",
+    "uid": "s:600~l:760~e:401876920",
+    "date": "2026-10-26T03:10Z",
+    "home": "Tijuana",
+    "away": "Santos",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401875570",
+    "uid": "s:600~l:725~e:401875570",
+    "date": "2026-10-25T11:15Z",
+    "home": "Fortuna Sittard",
+    "away": "Excelsior",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     }
+    }
+   },
+   {
+    "id": "401875569",
+    "uid": "s:600~l:725~e:401875569",
+    "date": "2026-10-25T13:30Z",
+    "home": "NEC Nijmegen",
+    "away": "FC Groningen",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "11",
+      "shotsOnTarget": "9",
+      "totalShots": "22"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "3",
+      "totalShots": "9"
+     }
+    }
+   },
+   {
+    "id": "401875568",
+    "uid": "s:600~l:725~e:401875568",
+    "date": "2026-10-25T13:30Z",
+    "home": "PSV Eindhoven",
+    "away": "Feyenoord Rotterdam",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "6",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "9",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401875567",
+    "uid": "s:600~l:725~e:401875567",
+    "date": "2026-10-25T15:45Z",
+    "home": "Sparta Rotterdam",
+    "away": "Ajax Amsterdam",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401875566",
+    "uid": "s:600~l:725~e:401875566",
+    "date": "2026-10-25T19:00Z",
+    "home": "AZ Alkmaar",
+    "away": "FC Twente",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401902883",
+    "uid": "s:600~l:8097~e:401902883",
+    "date": "2026-10-25T12:00Z",
+    "home": "Crystal Palace",
+    "away": "Chelsea",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "2",
+      "totalShots": "5"
+     },
+     "away": {
+      "wonCorners": "13",
+      "shotsOnTarget": "10",
+      "totalShots": "26"
+     }
+    }
+   },
+   {
+    "id": "401902885",
+    "uid": "s:600~l:8097~e:401902885",
+    "date": "2026-10-25T14:00Z",
+    "home": "Birmingham City",
+    "away": "Charlton Athletic",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "20"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401902882",
+    "uid": "s:600~l:8097~e:401902882",
+    "date": "2026-10-25T14:00Z",
+    "home": "Everton",
+    "away": "Aston Villa",
+    "score": "2-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401902881",
+    "uid": "s:600~l:8097~e:401902881",
+    "date": "2026-10-25T14:00Z",
+    "home": "Liverpool",
+    "away": "London City Lionesses",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "6",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401902886",
+    "uid": "s:600~l:8097~e:401902886",
+    "date": "2026-10-25T18:00Z",
+    "home": "Manchester United",
+    "away": "Manchester City",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "6",
+      "totalShots": "17"
+     }
+    }
+   },
+   {
+    "id": "401878618",
+    "uid": "s:600~l:23633~e:401878618",
+    "date": "2026-10-25T19:00Z",
+    "home": "DC Power FC",
+    "away": "Dallas Trinity FC",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401928702",
+    "uid": "s:600~l:20226~e:401928702",
+    "date": "2026-10-25T12:00Z",
+    "home": "Exeter City",
+    "away": "Hashtag United FC",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   },
+   {
+    "id": "401928645",
+    "uid": "s:600~l:20226~e:401928645",
+    "date": "2026-10-25T14:00Z",
+    "home": "Abingdon United",
+    "away": "Bristol Rovers",
+    "score": "0-6",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928697",
+    "uid": "s:600~l:20226~e:401928697",
+    "date": "2026-10-25T14:00Z",
+    "home": "AFC Portchester",
+    "away": "Oxford United",
+    "score": "0-5",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928727",
+    "uid": "s:600~l:20226~e:401928727",
+    "date": "2026-10-25T14:00Z",
+    "home": "Bedford",
+    "away": "Dussindale & Hellesdon",
+    "score": "5-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928643",
+    "uid": "s:600~l:20226~e:401928643",
+    "date": "2026-10-25T14:00Z",
+    "home": "Bournemouth",
+    "away": "Feniton",
+    "score": "4-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928644",
+    "uid": "s:600~l:20226~e:401928644",
+    "date": "2026-10-25T14:00Z",
+    "home": "Brentford",
+    "away": "Dartford",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928695",
+    "uid": "s:600~l:20226~e:401928695",
+    "date": "2026-10-25T14:00Z",
+    "home": "Durham Cestria",
+    "away": "Hull City",
+    "score": "3-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928699",
+    "uid": "s:600~l:20226~e:401928699",
+    "date": "2026-10-25T14:00Z",
+    "home": "Fulham",
+    "away": "Enfield Town",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928635",
+    "uid": "s:600~l:20226~e:401928635",
+    "date": "2026-10-25T14:00Z",
+    "home": "Grimsby Town",
+    "away": "Stockport County",
+    "score": "0-5",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928707",
+    "uid": "s:600~l:20226~e:401928707",
+    "date": "2026-10-25T14:00Z",
+    "home": "Gwalia United",
+    "away": "Yate Town",
+    "score": "5-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928646",
+    "uid": "s:600~l:20226~e:401928646",
+    "date": "2026-10-25T14:00Z",
+    "home": "Haringey Borough",
+    "away": "Dulwich Hamlet",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928630",
+    "uid": "s:600~l:20226~e:401928630",
+    "date": "2026-10-25T14:00Z",
+    "home": "Huddersfield Town",
+    "away": "Middlesbrough",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_POSTPONED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928631",
+    "uid": "s:600~l:20226~e:401928631",
+    "date": "2026-10-25T14:00Z",
+    "home": "Kidderminster",
+    "away": "Wroxham",
+    "score": "4-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928714",
+    "uid": "s:600~l:20226~e:401928714",
+    "date": "2026-10-25T14:00Z",
+    "home": "Leafield Athletic",
+    "away": "Mansfield Town",
+    "score": "4-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928637",
+    "uid": "s:600~l:20226~e:401928637",
+    "date": "2026-10-25T14:00Z",
+    "home": "Leeds Modernians",
+    "away": "Liverpool Feds",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928692",
+    "uid": "s:600~l:20226~e:401928692",
+    "date": "2026-10-25T14:00Z",
+    "home": "Leeds United",
+    "away": "Rotherham United",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_POSTPONED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928639",
+    "uid": "s:600~l:20226~e:401928639",
+    "date": "2026-10-25T14:00Z",
+    "home": "Lincoln FC",
+    "away": "Halifax FC",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928688",
+    "uid": "s:600~l:20226~e:401928688",
+    "date": "2026-10-25T14:00Z",
+    "home": "Luton Town",
+    "away": "Cambridge United WFC",
+    "score": "0-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928690",
+    "uid": "s:600~l:20226~e:401928690",
+    "date": "2026-10-25T14:00Z",
+    "home": "Lye Town",
+    "away": "Peterborough United",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_POSTPONED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928640",
+    "uid": "s:600~l:20226~e:401928640",
+    "date": "2026-10-25T14:00Z",
+    "home": "Maidenhead United",
+    "away": "Andover New Street",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928712",
+    "uid": "s:600~l:20226~e:401928712",
+    "date": "2026-10-25T14:00Z",
+    "home": "Milton Keynes Dons",
+    "away": "Nantwich Town",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928642",
+    "uid": "s:600~l:20226~e:401928642",
+    "date": "2026-10-25T14:00Z",
+    "home": "Moneyfields",
+    "away": "Saltdean United",
+    "score": "4-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928629",
+    "uid": "s:600~l:20226~e:401928629",
+    "date": "2026-10-25T14:00Z",
+    "home": "Northampton Town",
+    "away": "Stoke City",
+    "score": "0-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928713",
+    "uid": "s:600~l:20226~e:401928713",
+    "date": "2026-10-25T14:00Z",
+    "home": "Norwich City",
+    "away": "Redditch Borough",
+    "score": "5-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928706",
+    "uid": "s:600~l:20226~e:401928706",
+    "date": "2026-10-25T14:00Z",
+    "home": "Nottingham Trent University FC",
+    "away": "Loughborough",
+    "score": "2-5",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928703",
+    "uid": "s:600~l:20226~e:401928703",
+    "date": "2026-10-25T14:00Z",
+    "home": "Plymouth Argyle",
+    "away": "Millwall",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FINAL_PEN",
+    "clock": "120'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928689",
+    "uid": "s:600~l:20226~e:401928689",
+    "date": "2026-10-25T14:00Z",
+    "home": "Port Vale",
+    "away": "Boldmere St. Michael's",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928710",
+    "uid": "s:600~l:20226~e:401928710",
+    "date": "2026-10-25T14:00Z",
+    "home": "Portsmouth",
+    "away": "Cheltenham Town",
+    "score": "4-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928632",
+    "uid": "s:600~l:20226~e:401928632",
+    "date": "2026-10-25T14:00Z",
+    "home": "Preston North End",
+    "away": "i2i International",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_POSTPONED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928709",
+    "uid": "s:600~l:20226~e:401928709",
+    "date": "2026-10-25T14:00Z",
+    "home": "Queens Park Rangers",
+    "away": "Lewes",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928729",
+    "uid": "s:600~l:20226~e:401928729",
+    "date": "2026-10-25T14:00Z",
+    "home": "Royston Town",
+    "away": "Crewe Alexandra",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928693",
+    "uid": "s:600~l:20226~e:401928693",
+    "date": "2026-10-25T14:00Z",
+    "home": "South Shields",
+    "away": "SJR Workshop",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_POSTPONED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928708",
+    "uid": "s:600~l:20226~e:401928708",
+    "date": "2026-10-25T14:00Z",
+    "home": "St Agnes AFC",
+    "away": "Portishead Town",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928636",
+    "uid": "s:600~l:20226~e:401928636",
+    "date": "2026-10-25T14:00Z",
+    "home": "Stockton",
+    "away": "AFC Fylde",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928691",
+    "uid": "s:600~l:20226~e:401928691",
+    "date": "2026-10-25T14:00Z",
+    "home": "Sutton Coldfield Town",
+    "away": "Derby County",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FINAL_PEN",
+    "clock": "120'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928633",
+    "uid": "s:600~l:20226~e:401928633",
+    "date": "2026-10-25T14:00Z",
+    "home": "Thornaby",
+    "away": "Chorley",
+    "score": "4-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928638",
+    "uid": "s:600~l:20226~e:401928638",
+    "date": "2026-10-25T14:00Z",
+    "home": "West Bromwich Albion",
+    "away": "Notts County",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928698",
+    "uid": "s:600~l:20226~e:401928698",
+    "date": "2026-10-25T14:00Z",
+    "home": "Winchester City Flyers",
+    "away": "Keynsham Town",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928705",
+    "uid": "s:600~l:20226~e:401928705",
+    "date": "2026-10-25T15:00Z",
+    "home": "Actonians",
+    "away": "Marine Academy Plymouth",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FINAL_PEN",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928704",
+    "uid": "s:600~l:20226~e:401928704",
+    "date": "2026-10-25T15:00Z",
+    "home": "Barking",
+    "away": "Bromley",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928700",
+    "uid": "s:600~l:20226~e:401928700",
+    "date": "2026-10-25T15:00Z",
+    "home": "Hammersmith",
+    "away": "AFC Wimbledon",
+    "score": "0-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928711",
+    "uid": "s:600~l:20226~e:401928711",
+    "date": "2026-10-25T15:00Z",
+    "home": "Harpenden Town",
+    "away": "Chesterfield",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FINAL_PEN",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928728",
+    "uid": "s:600~l:20226~e:401928728",
+    "date": "2026-10-25T15:00Z",
+    "home": "Rugby Borough",
+    "away": "Sporting Khalsa",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928701",
+    "uid": "s:600~l:20226~e:401928701",
+    "date": "2026-10-25T15:00Z",
+    "home": "Tooting Bec",
+    "away": "Chatham Town",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401882482",
+    "uid": "s:600~l:20956~e:401882482",
+    "date": "2026-10-25T11:45Z",
+    "home": "Deportivo",
+    "away": "Alav\u00e9s",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+15'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "10",
+      "shotsOnTarget": "4",
+      "totalShots": "18"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "7",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401882480",
+    "uid": "s:600~l:20956~e:401882480",
+    "date": "2026-10-25T16:00Z",
+    "home": "Eibar",
+    "away": "Madrid CFF",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401878360",
+    "uid": "s:600~l:735~e:401878360",
+    "date": "2026-10-25T12:00Z",
+    "home": "Hibernian",
+    "away": "Celtic",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "2",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401878359",
+    "uid": "s:600~l:735~e:401878359",
+    "date": "2026-10-25T14:00Z",
+    "home": "Motherwell",
+    "away": "Heart of Midlothian",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "14"
+     }
+    }
+   },
+   {
+    "id": "401892151",
+    "uid": "s:600~l:3906~e:401892151",
+    "date": "2026-10-25T04:00Z",
+    "home": "Sydney FC",
+    "away": "Adelaide United FC",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401913245",
+    "uid": "s:600~l:18992~e:401913245",
+    "date": "2026-10-25T06:45Z",
+    "home": "Sydney FC ",
+    "away": "Melbourne City",
+    "score": "0-5",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "2",
+      "totalShots": "4"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "12",
+      "totalShots": "18"
+     }
+    }
+   },
+   {
+    "id": "401885418",
+    "uid": "s:600~l:715~e:401885418",
+    "date": "2026-10-25T15:30Z",
+    "home": "Estoril",
+    "away": "Moreirense",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "7",
+      "totalShots": "26"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401885416",
+    "uid": "s:600~l:715~e:401885416",
+    "date": "2026-10-25T18:00Z",
+    "home": "C.D. Nacional",
+    "away": "Braga",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "8"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "2",
+      "totalShots": "20"
+     }
+    }
+   },
+   {
+    "id": "401885415",
+    "uid": "s:600~l:715~e:401885415",
+    "date": "2026-10-25T18:00Z",
+    "home": "Rio Ave",
+    "away": "FC Famalicao",
+    "score": "0-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401885413",
+    "uid": "s:600~l:715~e:401885413",
+    "date": "2026-10-25T20:30Z",
+    "home": "Sporting CP",
+    "away": "Acad\u00e9mico de Viseu",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "11",
+      "shotsOnTarget": "4",
+      "totalShots": "28"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "3",
+      "totalShots": "9"
+     }
+    }
+   },
+   {
+    "id": "401888266",
+    "uid": "s:600~l:3946~e:401888266",
+    "date": "2026-10-25T13:00Z",
+    "home": "Konyaspor",
+    "away": "Genclerbirligi",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "9",
+      "shotsOnTarget": "7",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401888376",
+    "uid": "s:600~l:3946~e:401888376",
+    "date": "2026-10-25T16:00Z",
+    "home": "Goztepe",
+    "away": "\u00c7orum FK",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "7",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401886329",
+    "uid": "s:600~l:3932~e:401886329",
+    "date": "2026-10-25T18:00Z",
+    "home": "Tlaxcala FC",
+    "away": "Correcaminos UAT",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   },
+   {
+    "id": "401886333",
+    "uid": "s:600~l:3932~e:401886333",
+    "date": "2026-10-25T23:00Z",
+    "home": "Tapat\u00edo",
+    "away": "Club Atl\u00e9tico Morelia",
+    "score": "0-1",
+    "state": "in",
+    "status": "STATUS_FIRST_HALF",
+    "clock": "36'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   }
+  ]
+ },
+ "usa.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "770",
+  "name": "MLS",
+  "slug_echo": "usa.1",
+  "events": [
+   {
+    "id": "761904",
+    "uid": "s:600~l:770~e:761904",
+    "date": "2026-10-26T01:00Z",
+    "home": "LAFC",
+    "away": "LA Galaxy",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "mex.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "760",
+  "name": "Mexican Liga BBVA MX",
+  "slug_echo": "mex.1",
+  "events": [
+   {
+    "id": "401876923",
+    "uid": "s:600~l:760~e:401876923",
+    "date": "2026-10-25T23:00Z",
+    "home": "Atlas",
+    "away": "Puebla",
+    "score": "1-1",
+    "state": "in",
+    "status": "STATUS_FIRST_HALF",
+    "clock": "36'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "2",
+      "totalShots": "5"
+     }
+    }
+   },
+   {
+    "id": "401876921",
+    "uid": "s:600~l:760~e:401876921",
+    "date": "2026-10-26T01:00Z",
+    "home": "Quer\u00e9taro",
+    "away": "Cruz Azul",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401876922",
+    "uid": "s:600~l:760~e:401876922",
+    "date": "2026-10-26T01:05Z",
+    "home": "Am\u00e9rica",
+    "away": "Pachuca",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401876920",
+    "uid": "s:600~l:760~e:401876920",
+    "date": "2026-10-26T03:10Z",
+    "home": "Tijuana",
+    "away": "Santos",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "bra.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "630",
+  "name": "Brazilian Serie A",
+  "slug_echo": "bra.1",
+  "events": [
+   {
+    "id": "401841279",
+    "uid": "s:600~l:630~e:401841279",
+    "date": "2026-10-26T22:30Z",
+    "home": "Coritiba",
+    "away": "Gr\u00eamio",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401841286",
+    "uid": "s:600~l:630~e:401841286",
+    "date": "2026-10-26T23:00Z",
+    "home": "Flamengo",
+    "away": "Atl\u00e9tico-MG",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "bra.2": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "4007",
+  "name": "Brazilian Serie B",
+  "slug_echo": "bra.2",
+  "events": [
+   {
+    "id": "401860405",
+    "uid": "s:600~l:4007~e:401860405",
+    "date": "2026-10-26T22:30Z",
+    "home": "Am\u00e9rica Mineiro",
+    "away": "Cuiab\u00e1",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401860411",
+    "uid": "s:600~l:4007~e:401860411",
+    "date": "2026-10-26T23:30Z",
+    "home": "Juventude",
+    "away": "N\u00e1utico",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "arg.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "745",
+  "name": "Argentine Liga Profesional de F\u00fatbol",
+  "slug_echo": "arg.1",
+  "events": [
+   {
+    "id": "401841629",
+    "uid": "s:600~l:745~e:401841629",
+    "date": "2026-10-25T17:45Z",
+    "home": "Aldosivi",
+    "away": "Belgrano (C\u00f3rdoba)",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "5",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401841636",
+    "uid": "s:600~l:745~e:401841636",
+    "date": "2026-10-25T20:00Z",
+    "home": "Independiente",
+    "away": "Boca Juniors",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "5",
+      "totalShots": "23"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401841634",
+    "uid": "s:600~l:745~e:401841634",
+    "date": "2026-10-25T22:15Z",
+    "home": "River Plate",
+    "away": "Racing Club",
+    "score": "1-0",
+    "state": "in",
+    "status": "STATUS_SECOND_HALF",
+    "clock": "56'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "3",
+      "totalShots": "4"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401841640",
+    "uid": "s:600~l:745~e:401841640",
+    "date": "2026-10-26T00:30Z",
+    "home": "Barracas Central",
+    "away": "Estudiantes de R\u00edo Cuarto",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   },
+   {
+    "id": "401841639",
+    "uid": "s:600~l:745~e:401841639",
+    "date": "2026-10-26T00:30Z",
+    "home": "Central C\u00f3rdoba (Santiago del Estero)",
+    "away": "V\u00e9lez Sarsfield",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   }
+  ]
+ },
+ "col.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "650",
+  "name": "Colombian Primera A",
+  "slug_echo": "col.1",
+  "events": [
+   {
+    "id": "401877906",
+    "uid": "s:600~l:650~e:401877906",
+    "date": "2026-10-25T19:00Z",
+    "home": "Fortaleza CEIF",
+    "away": "Deportivo Cali",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "3",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "3",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401878036",
+    "uid": "s:600~l:650~e:401878036",
+    "date": "2026-10-25T21:05Z",
+    "home": "Alianza FC",
+    "away": "Internacional de Bogot\u00e1",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "8",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "1",
+      "totalShots": "4"
+     }
+    }
+   },
+   {
+    "id": "401878052",
+    "uid": "s:600~l:650~e:401878052",
+    "date": "2026-10-25T23:10Z",
+    "home": "Atl\u00e9tico Nacional",
+    "away": "Independiente Medell\u00edn",
+    "score": "0-0",
+    "state": "in",
+    "status": "STATUS_FIRST_HALF",
+    "clock": "24'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "1",
+      "totalShots": "1"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "3"
+     }
+    }
+   },
+   {
+    "id": "401877918",
+    "uid": "s:600~l:650~e:401877918",
+    "date": "2026-10-26T01:15Z",
+    "home": "Deportes Tolima",
+    "away": "Deportivo Pasto",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "chi.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "640",
+  "name": "Chilean Primera Divisi\u00f3n",
+  "slug_echo": "chi.1",
+  "events": [
+   {
+    "id": "401850675",
+    "uid": "s:600~l:640~e:401850675",
+    "date": "2026-10-25T15:30Z",
+    "home": "\u00d1ublense",
+    "away": "Coquimbo Unido",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+10'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "3",
+      "totalShots": "9"
+     }
+    }
+   },
+   {
+    "id": "401850669",
+    "uid": "s:600~l:640~e:401850669",
+    "date": "2026-10-25T18:00Z",
+    "home": "Uni\u00f3n La Calera",
+    "away": "Universidad Cat\u00f3lica",
+    "score": "3-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+8'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "9"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "3",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401850672",
+    "uid": "s:600~l:640~e:401850672",
+    "date": "2026-10-25T20:30Z",
+    "home": "Palestino",
+    "away": "Colo Colo",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "6",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "3",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401850670",
+    "uid": "s:600~l:640~e:401850670",
+    "date": "2026-10-25T23:00Z",
+    "home": "Universidad de Concepci\u00f3n",
+    "away": "Deportes Limache",
+    "score": "0-1",
+    "state": "in",
+    "status": "STATUS_IN_PROGRESS",
+    "clock": "34'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "1",
+      "totalShots": "5"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "1",
+      "totalShots": "1"
+     }
+    }
+   }
+  ]
+ },
+ "conmebol.libertadores": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "783",
+  "name": "CONMEBOL Libertadores",
+  "slug_echo": "conmebol.libertadores",
+  "events": [
+   {
+    "id": "401912521",
+    "uid": "s:600~l:783~e:401912521",
+    "date": "2026-10-23T00:30Z",
+    "home": "Flamengo",
+    "away": "Estudiantes de La Plata",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FINAL_PEN",
+    "clock": "95'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "3",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     }
+    }
+   }
+  ]
+ },
+ "conmebol.sudamericana": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "5454",
+  "name": "CONMEBOL Sudamericana",
+  "slug_echo": "conmebol.sudamericana",
+  "events": [
+   {
+    "id": "401913956",
+    "uid": "s:600~l:5454~e:401913956",
+    "date": "2026-10-21T22:00Z",
+    "home": "Montevideo City Torque",
+    "away": "Atl\u00e9tico-MG",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "9",
+      "shotsOnTarget": "7",
+      "totalShots": "31"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "4"
+     }
+    }
+   }
+  ]
+ },
+ "aus.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3906",
+  "name": "Australian A-League Men",
+  "slug_echo": "aus.1",
+  "events": [
+   {
+    "id": "401892151",
+    "uid": "s:600~l:3906~e:401892151",
+    "date": "2026-10-25T04:00Z",
+    "home": "Sydney FC",
+    "away": "Adelaide United FC",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "12"
+     }
+    }
+   }
+  ]
+ },
+ "jpn.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "750",
+  "name": "Japanese J.League",
+  "slug_echo": "jpn.1",
+  "events": [
+   {
+    "id": "401877568",
+    "uid": "s:600~l:750~e:401877568",
+    "date": "2026-10-25T05:00Z",
+    "home": "Nagoya Grampus",
+    "away": "Yokohama F. Marinos",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "7",
+      "totalShots": "21"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "7",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401877566",
+    "uid": "s:600~l:750~e:401877566",
+    "date": "2026-10-25T06:00Z",
+    "home": "Cerezo Osaka",
+    "away": "JEF United Ichihara-Chiba",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+10'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "25"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401877586",
+    "uid": "s:600~l:750~e:401877586",
+    "date": "2026-10-25T06:00Z",
+    "home": "Urawa Red Diamonds",
+    "away": "V-Varen Nagasaki",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "1",
+      "totalShots": "6"
+     }
+    }
+   },
+   {
+    "id": "401877585",
+    "uid": "s:600~l:750~e:401877585",
+    "date": "2026-10-25T07:00Z",
+    "home": "FC Tokyo",
+    "away": "Mito Hollyhock",
+    "score": "6-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "11",
+      "totalShots": "23"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401877569",
+    "uid": "s:600~l:750~e:401877569",
+    "date": "2026-10-25T07:00Z",
+    "home": "Kawasaki Frontale",
+    "away": "Fagiano Okayama",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     },
+     "away": {
+      "wonCorners": "8",
+      "shotsOnTarget": "2",
+      "totalShots": "20"
+     }
+    }
+   }
+  ]
+ },
+ "kor.1": {
+  "status": 400,
+  "ok": false,
+  "error": "HTTP 400",
+  "from_cache": false
+ },
+ "chn.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "8376",
+  "name": "Chinese Super League",
+  "slug_echo": "chn.1",
+  "events": [
+   {
+    "id": "401861487",
+    "uid": "s:600~l:8376~e:401861487",
+    "date": "2026-10-24T07:30Z",
+    "home": "Chengdu Rongcheng",
+    "away": "Dalian Yingbo",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "2",
+      "totalShots": "5"
+     }
+    }
+   },
+   {
+    "id": "401861513",
+    "uid": "s:600~l:8376~e:401861513",
+    "date": "2026-10-24T07:30Z",
+    "home": "Chongqing Tonglianglong",
+    "away": "Qingdao Hainiu",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+2'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "8",
+      "totalShots": "18"
+     },
+     "away": {
+      "wonCorners": "8",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401861488",
+    "uid": "s:600~l:8376~e:401861488",
+    "date": "2026-10-24T07:30Z",
+    "home": "Henan",
+    "away": "Beijing Guoan",
+    "score": "3-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+12'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "7",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "7",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401861512",
+    "uid": "s:600~l:8376~e:401861512",
+    "date": "2026-10-24T07:30Z",
+    "home": "Liaoning Tieren",
+    "away": "Zhejiang Professional FC",
+    "score": "2-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "5",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "8",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401861483",
+    "uid": "s:600~l:8376~e:401861483",
+    "date": "2026-10-24T07:30Z",
+    "home": "Qingdao West Coast",
+    "away": "Yunnan Yukun",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "8",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401861484",
+    "uid": "s:600~l:8376~e:401861484",
+    "date": "2026-10-24T07:30Z",
+    "home": "Shenzhen Xinpengcheng",
+    "away": "SHANGHAI SHENHUA FC",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+16'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "4",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "20"
+     }
+    }
+   },
+   {
+    "id": "401861485",
+    "uid": "s:600~l:8376~e:401861485",
+    "date": "2026-10-24T07:30Z",
+    "home": "Tianjin Jinmen Tiger",
+    "away": "Shanghai Port FC",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401861486",
+    "uid": "s:600~l:8376~e:401861486",
+    "date": "2026-10-24T07:30Z",
+    "home": "Wuhan Three Towns",
+    "away": "Shandong Taishan",
+    "score": "3-5",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "5",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "9",
+      "totalShots": "18"
+     }
+    }
+   }
+  ]
+ },
+ "afc.champions": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3902",
+  "name": "AFC Champions League Elite",
+  "slug_echo": "afc.champions",
+  "events": [
+   {
+    "id": "401912644",
+    "uid": "s:600~l:3902~e:401912644",
+    "date": "2026-10-26T13:45Z",
+    "home": "Neftchi Fergana",
+    "away": "Al Ittihad",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401912643",
+    "uid": "s:600~l:3902~e:401912643",
+    "date": "2026-10-26T16:00Z",
+    "home": "Al Ahli",
+    "away": "Al-Gharafa",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401912642",
+    "uid": "s:600~l:3902~e:401912642",
+    "date": "2026-10-26T16:00Z",
+    "home": "Al Ain",
+    "away": "Tractor",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401912622",
+    "uid": "s:600~l:3902~e:401912622",
+    "date": "2026-10-26T18:15Z",
+    "home": "Al Nassr",
+    "away": "Al Wasl",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_POSTPONED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401912640",
+    "uid": "s:600~l:3902~e:401912640",
+    "date": "2026-10-26T18:15Z",
+    "home": "Al Qadsiah",
+    "away": "Al Sadd",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401912641",
+    "uid": "s:600~l:3902~e:401912641",
+    "date": "2026-10-26T18:15Z",
+    "home": "Al-Quwa Al-Jawiya",
+    "away": "Pakhtakor",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "eng.2": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3914",
+  "name": "English League Championship",
+  "slug_echo": "eng.2",
+  "events": [
+   {
+    "id": "401880205",
+    "uid": "s:600~l:3914~e:401880205",
+    "date": "2026-10-24T11:30Z",
+    "home": "Charlton Athletic",
+    "away": "Norwich City",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401880203",
+    "uid": "s:600~l:3914~e:401880203",
+    "date": "2026-10-24T11:30Z",
+    "home": "Portsmouth",
+    "away": "Millwall",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "1",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401880200",
+    "uid": "s:600~l:3914~e:401880200",
+    "date": "2026-10-24T11:30Z",
+    "home": "Sheffield United",
+    "away": "Derby County",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "10",
+      "totalShots": "25"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401880208",
+    "uid": "s:600~l:3914~e:401880208",
+    "date": "2026-10-24T14:00Z",
+    "home": "Blackburn Rovers",
+    "away": "Wrexham",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "1",
+      "totalShots": "23"
+     }
+    }
+   },
+   {
+    "id": "401880206",
+    "uid": "s:600~l:3914~e:401880206",
+    "date": "2026-10-24T14:00Z",
+    "home": "Cardiff City",
+    "away": "Birmingham City",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401880204",
+    "uid": "s:600~l:3914~e:401880204",
+    "date": "2026-10-24T14:00Z",
+    "home": "Lincoln City",
+    "away": "Burnley",
+    "score": "4-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "7",
+      "totalShots": "21"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401880202",
+    "uid": "s:600~l:3914~e:401880202",
+    "date": "2026-10-24T14:00Z",
+    "home": "Preston North End",
+    "away": "West Bromwich Albion",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "4",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "5",
+      "totalShots": "20"
+     }
+    }
+   },
+   {
+    "id": "401880201",
+    "uid": "s:600~l:3914~e:401880201",
+    "date": "2026-10-24T14:00Z",
+    "home": "Queens Park Rangers",
+    "away": "Swansea City",
+    "score": "5-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "8",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401880199",
+    "uid": "s:600~l:3914~e:401880199",
+    "date": "2026-10-24T14:00Z",
+    "home": "Stoke City",
+    "away": "Bristol City",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "1",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "0",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401880198",
+    "uid": "s:600~l:3914~e:401880198",
+    "date": "2026-10-24T14:00Z",
+    "home": "West Ham United",
+    "away": "Southampton",
+    "score": "2-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "14",
+      "shotsOnTarget": "10",
+      "totalShots": "28"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "7",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401880197",
+    "uid": "s:600~l:3914~e:401880197",
+    "date": "2026-10-24T14:00Z",
+    "home": "Wolverhampton Wanderers",
+    "away": "Watford",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "14",
+      "shotsOnTarget": "3",
+      "totalShots": "24"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "0",
+      "totalShots": "4"
+     }
+    }
+   }
+  ]
+ },
+ "eng.3": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3915",
+  "name": "English League One",
+  "slug_echo": "eng.3",
+  "events": [
+   {
+    "id": "401880834",
+    "uid": "s:600~l:3915~e:401880834",
+    "date": "2026-10-27T19:45Z",
+    "home": "Leicester City",
+    "away": "Wigan Athletic",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401880820",
+    "uid": "s:600~l:3915~e:401880820",
+    "date": "2026-10-27T19:45Z",
+    "home": "Luton Town",
+    "away": "Doncaster Rovers",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   },
+   {
+    "id": "401880832",
+    "uid": "s:600~l:3915~e:401880832",
+    "date": "2026-10-27T19:45Z",
+    "home": "Milton Keynes Dons",
+    "away": "Bromley",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   },
+   {
+    "id": "401880819",
+    "uid": "s:600~l:3915~e:401880819",
+    "date": "2026-10-27T19:45Z",
+    "home": "Oxford United",
+    "away": "Stockport County",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401880816",
+    "uid": "s:600~l:3915~e:401880816",
+    "date": "2026-10-27T19:45Z",
+    "home": "Sheffield Wednesday",
+    "away": "Cambridge United",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "esp.2": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3921",
+  "name": "Spanish LALIGA 2",
+  "slug_echo": "esp.2",
+  "events": [
+   {
+    "id": "401883127",
+    "uid": "s:600~l:3921~e:401883127",
+    "date": "2026-10-25T13:00Z",
+    "home": "CD Sabadell",
+    "away": "Tenerife",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "3",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401883132",
+    "uid": "s:600~l:3921~e:401883132",
+    "date": "2026-10-25T15:15Z",
+    "home": "Albacete",
+    "away": "Eldense",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "10",
+      "shotsOnTarget": "4",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "1",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401883130",
+    "uid": "s:600~l:3921~e:401883130",
+    "date": "2026-10-25T15:15Z",
+    "home": "C\u00e1diz",
+    "away": "Ceuta",
+    "score": "3-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "10",
+      "shotsOnTarget": "5",
+      "totalShots": "24"
+     }
+    }
+   },
+   {
+    "id": "401883129",
+    "uid": "s:600~l:3921~e:401883129",
+    "date": "2026-10-25T17:30Z",
+    "home": "Castell\u00f3n",
+    "away": "Sporting Gij\u00f3n",
+    "score": "4-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "6",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     }
+    }
+   }
+  ]
+ },
+ "ger.2": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3927",
+  "name": "German 2. Bundesliga",
+  "slug_echo": "ger.2",
+  "events": [
+   {
+    "id": "401885078",
+    "uid": "s:600~l:3927~e:401885078",
+    "date": "2026-10-25T12:30Z",
+    "home": "Holstein Kiel",
+    "away": "Dynamo Dresden",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "10",
+      "shotsOnTarget": "4",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401885076",
+    "uid": "s:600~l:3927~e:401885076",
+    "date": "2026-10-25T12:30Z",
+    "home": "TSV Eintracht Braunschweig",
+    "away": "Hannover 96",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "8",
+      "shotsOnTarget": "4",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "6",
+      "totalShots": "14"
+     }
+    }
+   },
+   {
+    "id": "401885075",
+    "uid": "s:600~l:3927~e:401885075",
+    "date": "2026-10-25T12:30Z",
+    "home": "VfL Osnabruck",
+    "away": "SpVgg Greuther F\u00fcrth",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "9",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "1",
+      "totalShots": "13"
+     }
+    }
+   }
+  ]
+ },
+ "ita.2": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3931",
+  "name": "Italian Serie B",
+  "slug_echo": "ita.2",
+  "events": [
+   {
+    "id": "401899582",
+    "uid": "s:600~l:3931~e:401899582",
+    "date": "2026-10-25T14:00Z",
+    "home": "Palermo",
+    "away": "Carrarese",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "7",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401899584",
+    "uid": "s:600~l:3931~e:401899584",
+    "date": "2026-10-25T16:15Z",
+    "home": "Hellas Verona",
+    "away": "Pisa",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "8",
+      "shotsOnTarget": "4",
+      "totalShots": "20"
+     }
+    }
+   }
+  ]
+ },
+ "fra.2": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3926",
+  "name": "French Ligue 2",
+  "slug_echo": "fra.2",
+  "events": [
+   {
+    "id": "401876718",
+    "uid": "s:600~l:3926~e:401876718",
+    "date": "2026-10-26T19:45Z",
+    "home": "Boulogne",
+    "away": "Stade de Reims",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401876714",
+    "uid": "s:600~l:3926~e:401876714",
+    "date": "2026-10-26T19:45Z",
+    "home": "Montpellier",
+    "away": "Red Star FC 93",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "ned.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "725",
+  "name": "Dutch Eredivisie",
+  "slug_echo": "ned.1",
+  "events": [
+   {
+    "id": "401875570",
+    "uid": "s:600~l:725~e:401875570",
+    "date": "2026-10-25T11:15Z",
+    "home": "Fortuna Sittard",
+    "away": "Excelsior",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     }
+    }
+   },
+   {
+    "id": "401875569",
+    "uid": "s:600~l:725~e:401875569",
+    "date": "2026-10-25T13:30Z",
+    "home": "NEC Nijmegen",
+    "away": "FC Groningen",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "11",
+      "shotsOnTarget": "9",
+      "totalShots": "22"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "3",
+      "totalShots": "9"
+     }
+    }
+   },
+   {
+    "id": "401875568",
+    "uid": "s:600~l:725~e:401875568",
+    "date": "2026-10-25T13:30Z",
+    "home": "PSV Eindhoven",
+    "away": "Feyenoord Rotterdam",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "6",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "9",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401875567",
+    "uid": "s:600~l:725~e:401875567",
+    "date": "2026-10-25T15:45Z",
+    "home": "Sparta Rotterdam",
+    "away": "Ajax Amsterdam",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401875566",
+    "uid": "s:600~l:725~e:401875566",
+    "date": "2026-10-25T19:00Z",
+    "home": "AZ Alkmaar",
+    "away": "FC Twente",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "16"
+     }
+    }
+   }
+  ]
+ },
+ "por.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "715",
+  "name": "Portuguese Primeira Liga",
+  "slug_echo": "por.1",
+  "events": [
+   {
+    "id": "401885418",
+    "uid": "s:600~l:715~e:401885418",
+    "date": "2026-10-25T15:30Z",
+    "home": "Estoril",
+    "away": "Moreirense",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "7",
+      "totalShots": "26"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401885416",
+    "uid": "s:600~l:715~e:401885416",
+    "date": "2026-10-25T18:00Z",
+    "home": "C.D. Nacional",
+    "away": "Braga",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "8"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "2",
+      "totalShots": "20"
+     }
+    }
+   },
+   {
+    "id": "401885415",
+    "uid": "s:600~l:715~e:401885415",
+    "date": "2026-10-25T18:00Z",
+    "home": "Rio Ave",
+    "away": "FC Famalicao",
+    "score": "0-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401885413",
+    "uid": "s:600~l:715~e:401885413",
+    "date": "2026-10-25T20:30Z",
+    "home": "Sporting CP",
+    "away": "Acad\u00e9mico de Viseu",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "11",
+      "shotsOnTarget": "4",
+      "totalShots": "28"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "3",
+      "totalShots": "9"
+     }
+    }
+   }
+  ]
+ },
+ "bel.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3901",
+  "name": "Belgian Pro League",
+  "slug_echo": "bel.1",
+  "events": [
+   {
+    "id": "401878963",
+    "uid": "s:600~l:3901~e:401878963",
+    "date": "2026-10-25T12:30Z",
+    "home": "Racing Genk",
+    "away": "Standard Liege",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "11",
+      "shotsOnTarget": "6",
+      "totalShots": "24"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "2",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401878964",
+    "uid": "s:600~l:3901~e:401878964",
+    "date": "2026-10-25T15:00Z",
+    "home": "Club Brugge",
+    "away": "Sint-Truidense",
+    "score": "3-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401878962",
+    "uid": "s:600~l:3901~e:401878962",
+    "date": "2026-10-25T17:30Z",
+    "home": "KAA Gent",
+    "away": "Anderlecht",
+    "score": "4-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "7",
+      "totalShots": "8"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "19"
+     }
+    }
+   },
+   {
+    "id": "401878961",
+    "uid": "s:600~l:3901~e:401878961",
+    "date": "2026-10-25T18:15Z",
+    "home": "Union St.-Gilloise",
+    "away": "Cercle Brugge KSV",
+    "score": "5-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "13",
+      "shotsOnTarget": "12",
+      "totalShots": "23"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "5"
+     }
+    }
+   }
+  ]
+ },
+ "tur.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3946",
+  "name": "Turkish Super Lig",
+  "slug_echo": "tur.1",
+  "events": [
+   {
+    "id": "401888266",
+    "uid": "s:600~l:3946~e:401888266",
+    "date": "2026-10-25T13:00Z",
+    "home": "Konyaspor",
+    "away": "Genclerbirligi",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "9",
+      "shotsOnTarget": "7",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401888376",
+    "uid": "s:600~l:3946~e:401888376",
+    "date": "2026-10-25T16:00Z",
+    "home": "Goztepe",
+    "away": "\u00c7orum FK",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "7",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     }
+    }
+   }
+  ]
+ },
+ "sco.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "735",
+  "name": "Scottish Premiership",
+  "slug_echo": "sco.1",
+  "events": [
+   {
+    "id": "401878360",
+    "uid": "s:600~l:735~e:401878360",
+    "date": "2026-10-25T12:00Z",
+    "home": "Hibernian",
+    "away": "Celtic",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "2",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401878359",
+    "uid": "s:600~l:735~e:401878359",
+    "date": "2026-10-25T14:00Z",
+    "home": "Motherwell",
+    "away": "Heart of Midlothian",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "14"
+     }
+    }
+   }
+  ]
+ },
+ "den.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3913",
+  "name": "Danish Superliga",
+  "slug_echo": "den.1",
+  "events": [
+   {
+    "id": "401874547",
+    "uid": "s:600~l:3913~e:401874547",
+    "date": "2026-10-25T13:00Z",
+    "home": "FC Midtjylland",
+    "away": "Lyngby Boldklub",
+    "score": "3-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "7",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401874735",
+    "uid": "s:600~l:3913~e:401874735",
+    "date": "2026-10-25T13:00Z",
+    "home": "Silkeborg IF",
+    "away": "FC Nordsj\u00e6lland",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "5",
+      "totalShots": "8"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401874546",
+    "uid": "s:600~l:3913~e:401874546",
+    "date": "2026-10-25T15:00Z",
+    "home": "AC Horsens",
+    "away": "S\u00f8nderjyske Fodbold",
+    "score": "5-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "8",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "6",
+      "totalShots": "19"
+     }
+    }
+   },
+   {
+    "id": "401874553",
+    "uid": "s:600~l:3913~e:401874553",
+    "date": "2026-10-25T17:00Z",
+    "home": "AGF",
+    "away": "Viborg FF",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "10",
+      "shotsOnTarget": "4",
+      "totalShots": "20"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     }
+    }
+   }
+  ]
+ },
+ "nor.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3960",
+  "name": "Norwegian Eliteserien",
+  "slug_echo": "nor.1",
+  "events": [
+   {
+    "id": "401843373",
+    "uid": "s:600~l:3960~e:401843373",
+    "date": "2026-10-25T13:30Z",
+    "home": "Viking FK",
+    "away": "Tromso",
+    "score": "3-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "5",
+      "totalShots": "9"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "4",
+      "totalShots": "19"
+     }
+    }
+   },
+   {
+    "id": "401843366",
+    "uid": "s:600~l:3960~e:401843366",
+    "date": "2026-10-25T16:00Z",
+    "home": "IK Start",
+    "away": "Sandefjord",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "0",
+      "totalShots": "18"
+     }
+    }
+   },
+   {
+    "id": "401843370",
+    "uid": "s:600~l:3960~e:401843370",
+    "date": "2026-10-25T16:00Z",
+    "home": "Kristiansund BK",
+    "away": "KFUM Oslo",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+12'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "9",
+      "totalShots": "25"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "3",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401843369",
+    "uid": "s:600~l:3960~e:401843369",
+    "date": "2026-10-25T16:00Z",
+    "home": "Lillestrom",
+    "away": "SK Brann",
+    "score": "3-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "6",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "8",
+      "shotsOnTarget": "4",
+      "totalShots": "14"
+     }
+    }
+   },
+   {
+    "id": "401843367",
+    "uid": "s:600~l:3960~e:401843367",
+    "date": "2026-10-25T16:00Z",
+    "home": "Sarpsborg FK",
+    "away": "Aalesund",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "20",
+      "shotsOnTarget": "6",
+      "totalShots": "34"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401843368",
+    "uid": "s:600~l:3960~e:401843368",
+    "date": "2026-10-25T18:15Z",
+    "home": "Molde",
+    "away": "Fredrikstad",
+    "score": "5-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "10",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "6",
+      "totalShots": "14"
+     }
+    }
+   }
+  ]
+ },
+ "swe.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3945",
+  "name": "Swedish Allsvenskan",
+  "slug_echo": "swe.1",
+  "events": [
+   {
+    "id": "401842857",
+    "uid": "s:600~l:3945~e:401842857",
+    "date": "2026-10-25T13:00Z",
+    "home": "GAIS",
+    "away": "IFK G\u00f6teborg",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "8",
+      "shotsOnTarget": "4",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "18"
+     }
+    }
+   },
+   {
+    "id": "401842854",
+    "uid": "s:600~l:3945~e:401842854",
+    "date": "2026-10-25T15:30Z",
+    "home": "Mj\u00e4llby AIF",
+    "away": "Hammarby IF",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "5"
+     },
+     "away": {
+      "wonCorners": "8",
+      "shotsOnTarget": "3",
+      "totalShots": "19"
+     }
+    }
+   }
+  ]
+ },
+ "aut.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3907",
+  "name": "Austrian Bundesliga",
+  "slug_echo": "aut.1",
+  "events": [
+   {
+    "id": "401881767",
+    "uid": "s:600~l:3907~e:401881767",
+    "date": "2026-10-25T13:30Z",
+    "home": "SK Sturm Graz",
+    "away": "SV Josko Ried",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   },
+   {
+    "id": "401881766",
+    "uid": "s:600~l:3907~e:401881766",
+    "date": "2026-10-25T16:00Z",
+    "home": "LASK Linz",
+    "away": "RB Salzburg",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   }
+  ]
+ },
+ "sui.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3944",
+  "name": "Swiss Super League",
+  "slug_echo": "sui.1",
+  "events": [
+   {
+    "id": "743175",
+    "uid": "s:600~l:3944~e:743175",
+    "date": "2025-09-28T12:00Z",
+    "home": "Young Boys",
+    "away": "FC Thun",
+    "score": "4-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "19"
+     }
+    }
+   },
+   {
+    "id": "743171",
+    "uid": "s:600~l:3944~e:743171",
+    "date": "2025-09-28T14:30Z",
+    "home": "FC Basel",
+    "away": "FC Luzern",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+8'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "26"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "743174",
+    "uid": "s:600~l:3944~e:743174",
+    "date": "2025-09-28T14:30Z",
+    "home": "FC Sion",
+    "away": "Lausanne Sports",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "12",
+      "shotsOnTarget": "8",
+      "totalShots": "18"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     }
+    }
+   }
+  ]
+ },
+ "gre.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3955",
+  "name": "Greek Super League",
+  "slug_echo": "gre.1",
+  "events": [
+   {
+    "id": "401896815",
+    "uid": "s:600~l:3955~e:401896815",
+    "date": "2026-10-25T14:00Z",
+    "home": "Olympiacos",
+    "away": "Kalamata",
+    "score": "5-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+1'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "0",
+      "totalShots": "0"
+     }
+    }
+   },
+   {
+    "id": "401896741",
+    "uid": "s:600~l:3955~e:401896741",
+    "date": "2026-10-25T16:00Z",
+    "home": "Volos NFC",
+    "away": "Panathinaikos",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "0",
+      "totalShots": "3"
+     },
+     "away": {
+      "wonCorners": "11",
+      "shotsOnTarget": "6",
+      "totalShots": "23"
+     }
+    }
+   },
+   {
+    "id": "401896742",
+    "uid": "s:600~l:3955~e:401896742",
+    "date": "2026-10-25T17:30Z",
+    "home": "Aris",
+    "away": "Atromitos",
+    "score": "3-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401896740",
+    "uid": "s:600~l:3955~e:401896740",
+    "date": "2026-10-25T18:00Z",
+    "home": "OFI Crete",
+    "away": "PAOK",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "7",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "8",
+      "totalShots": "26"
+     }
+    }
+   }
+  ]
+ },
+ "eng.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "700",
+  "name": "English Premier League",
+  "slug_echo": "eng.1",
+  "events": [
+   {
+    "id": "401879254",
+    "uid": "s:600~l:700~e:401879254",
+    "date": "2026-10-25T14:00Z",
+    "home": "Crystal Palace",
+    "away": "Newcastle United",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+9'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401878766",
+    "uid": "s:600~l:700~e:401878766",
+    "date": "2026-10-25T14:00Z",
+    "home": "Hull City",
+    "away": "Brentford",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "6",
+      "totalShots": "14"
+     }
+    }
+   },
+   {
+    "id": "401878765",
+    "uid": "s:600~l:700~e:401878765",
+    "date": "2026-10-25T14:00Z",
+    "home": "Liverpool",
+    "away": "Brighton & Hove Albion",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "1",
+      "totalShots": "17"
+     }
+    }
+   },
+   {
+    "id": "401879252",
+    "uid": "s:600~l:700~e:401879252",
+    "date": "2026-10-25T14:00Z",
+    "home": "Manchester United",
+    "away": "AFC Bournemouth",
+    "score": "0-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401878764",
+    "uid": "s:600~l:700~e:401878764",
+    "date": "2026-10-25T16:30Z",
+    "home": "Sunderland",
+    "away": "Leeds United",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "11"
+     }
+    }
+   }
+  ]
+ },
+ "esp.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "740",
+  "name": "Spanish LALIGA",
+  "slug_echo": "esp.1",
+  "events": [
+   {
+    "id": "401882835",
+    "uid": "s:600~l:740~e:401882835",
+    "date": "2026-10-25T13:00Z",
+    "home": "Athletic Club",
+    "away": "Getafe",
+    "score": "4-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "4",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "1",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401882833",
+    "uid": "s:600~l:740~e:401882833",
+    "date": "2026-10-25T15:15Z",
+    "home": "Celta Vigo",
+    "away": "Real Betis",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401882829",
+    "uid": "s:600~l:740~e:401882829",
+    "date": "2026-10-25T17:30Z",
+    "home": "Real Sociedad",
+    "away": "Levante",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+2'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "3",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     }
+    }
+   },
+   {
+    "id": "401882832",
+    "uid": "s:600~l:740~e:401882832",
+    "date": "2026-10-25T20:00Z",
+    "home": "Barcelona",
+    "away": "Real Madrid",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+8'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "6",
+      "totalShots": "18"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "10"
+     }
+    }
+   }
+  ]
+ },
+ "ger.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "720",
+  "name": "German Bundesliga",
+  "slug_echo": "ger.1",
+  "events": [
+   {
+    "id": "401884760",
+    "uid": "s:600~l:720~e:401884760",
+    "date": "2026-10-25T14:30Z",
+    "home": "TSG Hoffenheim",
+    "away": "Bayer Leverkusen",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+10'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "6",
+      "totalShots": "20"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "1",
+      "totalShots": "9"
+     }
+    }
+   },
+   {
+    "id": "401884759",
+    "uid": "s:600~l:720~e:401884759",
+    "date": "2026-10-25T16:30Z",
+    "home": "SC Freiburg",
+    "away": "Bayern Munich",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "9",
+      "totalShots": "17"
+     }
+    }
+   }
+  ]
+ },
+ "ita.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "730",
+  "name": "Italian Serie A",
+  "slug_echo": "ita.1",
+  "events": [
+   {
+    "id": "401875036",
+    "uid": "s:600~l:730~e:401875036",
+    "date": "2026-10-25T11:30Z",
+    "home": "Internazionale",
+    "away": "Fiorentina",
+    "score": "2-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+11'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "11",
+      "totalShots": "33"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "7"
+     }
+    }
+   },
+   {
+    "id": "401874972",
+    "uid": "s:600~l:730~e:401874972",
+    "date": "2026-10-25T14:00Z",
+    "home": "Atalanta",
+    "away": "Frosinone",
+    "score": "4-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "8",
+      "shotsOnTarget": "9",
+      "totalShots": "22"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "10",
+      "totalShots": "24"
+     }
+    }
+   },
+   {
+    "id": "401874952",
+    "uid": "s:600~l:730~e:401874952",
+    "date": "2026-10-25T14:00Z",
+    "home": "Genoa",
+    "away": "Venezia",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "4",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "10",
+      "shotsOnTarget": "5",
+      "totalShots": "19"
+     }
+    }
+   },
+   {
+    "id": "401874772",
+    "uid": "s:600~l:730~e:401874772",
+    "date": "2026-10-25T17:00Z",
+    "home": "Lecce",
+    "away": "Juventus",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401874779",
+    "uid": "s:600~l:730~e:401874779",
+    "date": "2026-10-25T19:45Z",
+    "home": "Udinese",
+    "away": "AC Milan",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "7",
+      "totalShots": "19"
+     }
+    }
+   }
+  ]
+ },
+ "fra.1": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "710",
+  "name": "French Ligue 1",
+  "slug_echo": "fra.1",
+  "events": [
+   {
+    "id": "401876425",
+    "uid": "s:600~l:710~e:401876425",
+    "date": "2026-10-25T14:00Z",
+    "home": "AS Monaco",
+    "away": "Lille",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "6",
+      "totalShots": "20"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "4"
+     }
+    }
+   },
+   {
+    "id": "401876429",
+    "uid": "s:600~l:710~e:401876429",
+    "date": "2026-10-25T16:15Z",
+    "home": "AJ Auxerre",
+    "away": "Le Mans",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+10'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401876430",
+    "uid": "s:600~l:710~e:401876430",
+    "date": "2026-10-25T16:15Z",
+    "home": "Angers",
+    "away": "Lorient",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "8"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "1",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401876426",
+    "uid": "s:600~l:710~e:401876426",
+    "date": "2026-10-25T16:15Z",
+    "home": "Marseille",
+    "away": "Le Havre AC",
+    "score": "4-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+13'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "7",
+      "totalShots": "21"
+     }
+    }
+   },
+   {
+    "id": "401876424",
+    "uid": "s:600~l:710~e:401876424",
+    "date": "2026-10-25T16:15Z",
+    "home": "Stade Rennais",
+    "away": "Strasbourg",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "5",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401876423",
+    "uid": "s:600~l:710~e:401876423",
+    "date": "2026-10-25T16:15Z",
+    "home": "Toulouse",
+    "away": "Troyes",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "0",
+      "totalShots": "8"
+     }
+    }
+   }
+  ]
+ },
+ "uefa.champions": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "775",
+  "name": "UEFA Champions League",
+  "slug_echo": "uefa.champions",
+  "events": [
+   {
+    "id": "401915395",
+    "uid": "s:600~l:775~e:401915395",
+    "date": "2026-10-21T16:45Z",
+    "home": "Como",
+    "away": "Manchester United",
+    "score": "4-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "8",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401915396",
+    "uid": "s:600~l:775~e:401915396",
+    "date": "2026-10-21T16:45Z",
+    "home": "Lille",
+    "away": "Galatasaray",
+    "score": "2-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "15"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401915394",
+    "uid": "s:600~l:775~e:401915394",
+    "date": "2026-10-21T19:00Z",
+    "home": "Aston Villa",
+    "away": "Viking FK",
+    "score": "3-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "8",
+      "shotsOnTarget": "10",
+      "totalShots": "21"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "3",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401915312",
+    "uid": "s:600~l:775~e:401915312",
+    "date": "2026-10-21T19:00Z",
+    "home": "Bayern Munich",
+    "away": "Arsenal",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "14"
+     }
+    }
+   },
+   {
+    "id": "401915388",
+    "uid": "s:600~l:775~e:401915388",
+    "date": "2026-10-21T19:00Z",
+    "home": "Club Brugge",
+    "away": "Lens",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+2'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "7",
+      "totalShots": "19"
+     }
+    }
+   },
+   {
+    "id": "401915390",
+    "uid": "s:600~l:775~e:401915390",
+    "date": "2026-10-21T19:00Z",
+    "home": "Internazionale",
+    "away": "Shakhtar Donetsk",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401915389",
+    "uid": "s:600~l:775~e:401915389",
+    "date": "2026-10-21T19:00Z",
+    "home": "Real Betis",
+    "away": "Feyenoord Rotterdam",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "10",
+      "totalShots": "23"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401915313",
+    "uid": "s:600~l:775~e:401915313",
+    "date": "2026-10-21T19:00Z",
+    "home": "Real Madrid",
+    "away": "RB Leipzig",
+    "score": "4-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "11",
+      "totalShots": "18"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "6",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401915391",
+    "uid": "s:600~l:775~e:401915391",
+    "date": "2026-10-21T19:00Z",
+    "home": "Sporting CP",
+    "away": "LASK Linz",
+    "score": "2-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+8'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "7",
+      "totalShots": "11"
+     }
+    }
+   }
+  ]
+ },
+ "uefa.europa": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "776",
+  "name": "UEFA Europa League",
+  "slug_echo": "uefa.europa",
+  "events": [
+   {
+    "id": "401915548",
+    "uid": "s:600~l:776~e:401915548",
+    "date": "2026-10-22T16:45Z",
+    "home": "Ararat-Armenia",
+    "away": "AZ Alkmaar",
+    "score": "0-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+2'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "4",
+      "totalShots": "9"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "9",
+      "totalShots": "17"
+     }
+    }
+   },
+   {
+    "id": "401915556",
+    "uid": "s:600~l:776~e:401915556",
+    "date": "2026-10-22T16:45Z",
+    "home": "Dinamo Zagreb",
+    "away": "NEC Nijmegen",
+    "score": "2-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "10",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "5",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401915558",
+    "uid": "s:600~l:776~e:401915558",
+    "date": "2026-10-22T16:45Z",
+    "home": "Ferencvaros",
+    "away": "Torreense",
+    "score": "4-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "4",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401915547",
+    "uid": "s:600~l:776~e:401915547",
+    "date": "2026-10-22T16:45Z",
+    "home": "Juventus",
+    "away": "Stade Rennais",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+8'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "5",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401915546",
+    "uid": "s:600~l:776~e:401915546",
+    "date": "2026-10-22T16:45Z",
+    "home": "Lech Poznan",
+    "away": "Sunderland",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "6",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "11",
+      "totalShots": "25"
+     }
+    }
+   },
+   {
+    "id": "401915559",
+    "uid": "s:600~l:776~e:401915559",
+    "date": "2026-10-22T16:45Z",
+    "home": "OFI Crete",
+    "away": "Bayer Leverkusen",
+    "score": "0-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+2'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "6"
+     },
+     "away": {
+      "wonCorners": "10",
+      "shotsOnTarget": "15",
+      "totalShots": "33"
+     }
+    }
+   },
+   {
+    "id": "401915557",
+    "uid": "s:600~l:776~e:401915557",
+    "date": "2026-10-22T16:45Z",
+    "home": "SK Sturm Graz",
+    "away": "Marseille",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "5",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "1",
+      "totalShots": "14"
+     }
+    }
+   },
+   {
+    "id": "401915545",
+    "uid": "s:600~l:776~e:401915545",
+    "date": "2026-10-22T16:45Z",
+    "home": "Union St.-Gilloise",
+    "away": "Hapoel Be'er",
+    "score": "4-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "15",
+      "totalShots": "29"
+     },
+     "away": {
+      "wonCorners": "0",
+      "shotsOnTarget": "4",
+      "totalShots": "6"
+     }
+    }
+   },
+   {
+    "id": "401915552",
+    "uid": "s:600~l:776~e:401915552",
+    "date": "2026-10-22T19:00Z",
+    "home": "AFC Bournemouth",
+    "away": "AC Milan",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "7",
+      "totalShots": "20"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "0",
+      "totalShots": "3"
+     }
+    }
+   },
+   {
+    "id": "401915553",
+    "uid": "s:600~l:776~e:401915553",
+    "date": "2026-10-22T19:00Z",
+    "home": "Besiktas",
+    "away": "Crystal Palace",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "5"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "3",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401915555",
+    "uid": "s:600~l:776~e:401915555",
+    "date": "2026-10-22T19:00Z",
+    "home": "Celtic",
+    "away": "Celta Vigo",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "4",
+      "totalShots": "8"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "4",
+      "totalShots": "22"
+     }
+    }
+   },
+   {
+    "id": "401915542",
+    "uid": "s:600~l:776~e:401915542",
+    "date": "2026-10-22T19:00Z",
+    "home": "Jagiellonia Bialystok",
+    "away": "Anderlecht",
+    "score": "0-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "1",
+      "totalShots": "6"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "8",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401915540",
+    "uid": "s:600~l:776~e:401915540",
+    "date": "2026-10-22T19:00Z",
+    "home": "Lillestrom",
+    "away": "Real Sociedad",
+    "score": "0-6",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "2",
+      "totalShots": "14"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "8",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401915541",
+    "uid": "s:600~l:776~e:401915541",
+    "date": "2026-10-22T19:00Z",
+    "home": "NK Celje",
+    "away": "RB Salzburg",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "3",
+      "totalShots": "9"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "15"
+     }
+    }
+   },
+   {
+    "id": "401915554",
+    "uid": "s:600~l:776~e:401915554",
+    "date": "2026-10-22T19:00Z",
+    "home": "Olympiacos",
+    "away": "Sparta Prague",
+    "score": "1-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "14",
+      "shotsOnTarget": "3",
+      "totalShots": "23"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "1",
+      "totalShots": "14"
+     }
+    }
+   },
+   {
+    "id": "401915544",
+    "uid": "s:600~l:776~e:401915544",
+    "date": "2026-10-22T19:00Z",
+    "home": "Omonia Nicosia",
+    "away": "Benfica",
+    "score": "1-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "5",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "10",
+      "totalShots": "23"
+     }
+    }
+   },
+   {
+    "id": "401915543",
+    "uid": "s:600~l:776~e:401915543",
+    "date": "2026-10-22T19:00Z",
+    "home": "TSG Hoffenheim",
+    "away": "Lyon",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+2'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "11",
+      "shotsOnTarget": "8",
+      "totalShots": "21"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "2",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401915539",
+    "uid": "s:600~l:776~e:401915539",
+    "date": "2026-10-22T19:00Z",
+    "home": "Viktoria Plzen",
+    "away": "Levski Sofia",
+    "score": "1-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "2",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "3",
+      "totalShots": "6"
+     }
+    }
+   }
+  ]
+ },
+ "uefa.europa.conf": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "20296",
+  "name": "UEFA Conference League",
+  "slug_echo": "uefa.europa.conf",
+  "events": [
+   {
+    "id": "401915846",
+    "uid": "s:600~l:20296~e:401915846",
+    "date": "2026-10-22T14:30Z",
+    "home": "Kairat Almaty",
+    "away": "Panathinaikos",
+    "score": "1-5",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "6",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401915844",
+    "uid": "s:600~l:20296~e:401915844",
+    "date": "2026-10-22T16:45Z",
+    "home": "FC Nordsj\u00e6lland",
+    "away": "CSKA Sofia",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+7'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "6",
+      "totalShots": "13"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "7",
+      "totalShots": "18"
+     }
+    }
+   },
+   {
+    "id": "401915840",
+    "uid": "s:600~l:20296~e:401915840",
+    "date": "2026-10-22T16:45Z",
+    "home": "Getafe",
+    "away": "FC Lugano",
+    "score": "2-5",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "15",
+      "shotsOnTarget": "8",
+      "totalShots": "26"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "7",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401915845",
+    "uid": "s:600~l:20296~e:401915845",
+    "date": "2026-10-22T16:45Z",
+    "home": "Iberia 1999",
+    "away": "Mj\u00e4llby AIF",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "1",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "5",
+      "totalShots": "23"
+     }
+    }
+   },
+   {
+    "id": "401915839",
+    "uid": "s:600~l:20296~e:401915839",
+    "date": "2026-10-22T16:45Z",
+    "home": "Inter D'Escaldes",
+    "away": "CSU Craiova",
+    "score": "1-3",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "3",
+      "shotsOnTarget": "5",
+      "totalShots": "7"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "7",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401915842",
+    "uid": "s:600~l:20296~e:401915842",
+    "date": "2026-10-22T16:45Z",
+    "home": "Jablonec",
+    "away": "Brighton & Hove Albion",
+    "score": "0-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "4",
+      "totalShots": "9"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "4",
+      "totalShots": "26"
+     }
+    }
+   },
+   {
+    "id": "401915841",
+    "uid": "s:600~l:20296~e:401915841",
+    "date": "2026-10-22T16:45Z",
+    "home": "Kauno Zalgiris",
+    "away": "SK Brann",
+    "score": "1-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "8",
+      "totalShots": "21"
+     }
+    }
+   },
+   {
+    "id": "401915838",
+    "uid": "s:600~l:20296~e:401915838",
+    "date": "2026-10-22T16:45Z",
+    "home": "Pafos",
+    "away": "Riga FC",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "10",
+      "shotsOnTarget": "4",
+      "totalShots": "17"
+     },
+     "away": {
+      "wonCorners": "4",
+      "shotsOnTarget": "3",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401915843",
+    "uid": "s:600~l:20296~e:401915843",
+    "date": "2026-10-22T16:45Z",
+    "home": "Red Star Belgrade",
+    "away": "F.C. K\u00f8benhavn",
+    "score": "2-2",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "4",
+      "shotsOnTarget": "5",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "2",
+      "totalShots": "8"
+     }
+    }
+   },
+   {
+    "id": "401915745",
+    "uid": "s:600~l:20296~e:401915745",
+    "date": "2026-10-22T16:45Z",
+    "home": "Trabzonspor",
+    "away": "Heart of Midlothian",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "5",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "1",
+      "shotsOnTarget": "1",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401915744",
+    "uid": "s:600~l:20296~e:401915744",
+    "date": "2026-10-22T19:00Z",
+    "home": "AGF",
+    "away": "Egnatia",
+    "score": "1-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "5",
+      "shotsOnTarget": "2",
+      "totalShots": "9"
+     },
+     "away": {
+      "wonCorners": "5",
+      "shotsOnTarget": "7",
+      "totalShots": "13"
+     }
+    }
+   },
+   {
+    "id": "401915837",
+    "uid": "s:600~l:20296~e:401915837",
+    "date": "2026-10-22T19:00Z",
+    "home": "Ajax Amsterdam",
+    "away": "Atalanta",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "8",
+      "shotsOnTarget": "7",
+      "totalShots": "21"
+     },
+     "away": {
+      "wonCorners": "9",
+      "shotsOnTarget": "1",
+      "totalShots": "16"
+     }
+    }
+   },
+   {
+    "id": "401915836",
+    "uid": "s:600~l:20296~e:401915836",
+    "date": "2026-10-22T19:00Z",
+    "home": "AS Monaco",
+    "away": "SC Freiburg",
+    "score": "3-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+3'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "7",
+      "totalShots": "11"
+     },
+     "away": {
+      "wonCorners": "11",
+      "shotsOnTarget": "1",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401915743",
+    "uid": "s:600~l:20296~e:401915743",
+    "date": "2026-10-22T19:00Z",
+    "home": "Borac Banja Luka",
+    "away": "KuPS Kuopio",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "10",
+      "shotsOnTarget": "12",
+      "totalShots": "24"
+     },
+     "away": {
+      "wonCorners": "2",
+      "shotsOnTarget": "3",
+      "totalShots": "12"
+     }
+    }
+   },
+   {
+    "id": "401915832",
+    "uid": "s:600~l:20296~e:401915832",
+    "date": "2026-10-22T19:00Z",
+    "home": "Braga",
+    "away": "KAA Gent",
+    "score": "2-0",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "10",
+      "totalShots": "22"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "1",
+      "totalShots": "10"
+     }
+    }
+   },
+   {
+    "id": "401915835",
+    "uid": "s:600~l:20296~e:401915835",
+    "date": "2026-10-22T19:00Z",
+    "home": "FC Midtjylland",
+    "away": "Sint-Truidense",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+4'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "6",
+      "shotsOnTarget": "4",
+      "totalShots": "19"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "7",
+      "totalShots": "18"
+     }
+    }
+   },
+   {
+    "id": "401915834",
+    "uid": "s:600~l:20296~e:401915834",
+    "date": "2026-10-22T19:00Z",
+    "home": "FC Thun",
+    "away": "Hajduk Split",
+    "score": "0-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "2",
+      "shotsOnTarget": "4",
+      "totalShots": "12"
+     },
+     "away": {
+      "wonCorners": "3",
+      "shotsOnTarget": "4",
+      "totalShots": "11"
+     }
+    }
+   },
+   {
+    "id": "401915833",
+    "uid": "s:600~l:20296~e:401915833",
+    "date": "2026-10-22T19:00Z",
+    "home": "Lincoln Red Imps",
+    "away": "FC Twente",
+    "score": "1-4",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+5'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "1",
+      "shotsOnTarget": "2",
+      "totalShots": "5"
+     },
+     "away": {
+      "wonCorners": "6",
+      "shotsOnTarget": "8",
+      "totalShots": "26"
+     }
+    }
+   }
+  ]
+ },
+ "eng.league_cup": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3920",
+  "name": "English Carabao Cup",
+  "slug_echo": "eng.league_cup",
+  "events": [
+   {
+    "id": "401921833",
+    "uid": "s:600~l:3920~e:401921833",
+    "date": "2026-10-27T19:45Z",
+    "home": "Bradford City",
+    "away": "Peterborough United",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401921835",
+    "uid": "s:600~l:3920~e:401921835",
+    "date": "2026-10-27T20:00Z",
+    "home": "Fleetwood Town",
+    "away": "Arsenal",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "eng.fa": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3918",
+  "name": "English FA Cup",
+  "slug_echo": "eng.fa",
+  "events": [
+   {
+    "id": "401931109",
+    "uid": "s:600~l:3918~e:401931109",
+    "date": "2026-11-06T19:45Z",
+    "home": "Oxford City",
+    "away": "Leicester City",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "esp.copa_del_rey": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3951",
+  "name": "Spanish Copa del Rey",
+  "slug_echo": "esp.copa_del_rey",
+  "events": [
+   {
+    "id": "401928493",
+    "uid": "s:600~l:3951~e:401928493",
+    "date": "2026-10-27T17:30Z",
+    "home": "CD Cuarte",
+    "away": "Girona",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928501",
+    "uid": "s:600~l:3951~e:401928501",
+    "date": "2026-10-27T18:00Z",
+    "home": "Atl\u00e9tico Pinatarense",
+    "away": "Elche",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928520",
+    "uid": "s:600~l:3951~e:401928520",
+    "date": "2026-10-27T18:00Z",
+    "home": "CF Calamocha",
+    "away": "CE Europa",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928495",
+    "uid": "s:600~l:3951~e:401928495",
+    "date": "2026-10-27T18:00Z",
+    "home": "Sestao",
+    "away": "Espanyol",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928521",
+    "uid": "s:600~l:3951~e:401928521",
+    "date": "2026-10-27T18:45Z",
+    "home": "UD Castellonense",
+    "away": "Almer\u00eda",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928549",
+    "uid": "s:600~l:3951~e:401928549",
+    "date": "2026-10-27T19:00Z",
+    "home": "Alcal\u00e1",
+    "away": "Las Palmas",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928509",
+    "uid": "s:600~l:3951~e:401928509",
+    "date": "2026-10-27T19:00Z",
+    "home": "Atl\u00e9tico Tordesillas",
+    "away": "Mirand\u00e9s",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928534",
+    "uid": "s:600~l:3951~e:401928534",
+    "date": "2026-10-27T19:00Z",
+    "home": "Ciudad De Lucena",
+    "away": "Rayo Majadahonda",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928508",
+    "uid": "s:600~l:3951~e:401928508",
+    "date": "2026-10-27T19:00Z",
+    "home": "Gimnastica Segoviana",
+    "away": "Cultural Leonesa",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928510",
+    "uid": "s:600~l:3951~e:401928510",
+    "date": "2026-10-27T19:00Z",
+    "home": "Llanera",
+    "away": "Ponferradina",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928553",
+    "uid": "s:600~l:3951~e:401928553",
+    "date": "2026-10-27T19:30Z",
+    "home": "Don Benito",
+    "away": "CD Extremadura",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928502",
+    "uid": "s:600~l:3951~e:401928502",
+    "date": "2026-10-27T19:30Z",
+    "home": "Manresa",
+    "away": "Sant Andreu",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928488",
+    "uid": "s:600~l:3951~e:401928488",
+    "date": "2026-10-27T20:00Z",
+    "home": "Arosa",
+    "away": "Pontevedra",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928547",
+    "uid": "s:600~l:3951~e:401928547",
+    "date": "2026-10-27T20:00Z",
+    "home": "Atl\u00e9tico Paso",
+    "away": "C\u00f3rdoba",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928503",
+    "uid": "s:600~l:3951~e:401928503",
+    "date": "2026-10-27T20:00Z",
+    "home": "CD Tudelano",
+    "away": "Real Zaragoza",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928522",
+    "uid": "s:600~l:3951~e:401928522",
+    "date": "2026-10-27T20:00Z",
+    "home": "Manacor",
+    "away": "Villarreal",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928533",
+    "uid": "s:600~l:3951~e:401928533",
+    "date": "2026-10-27T20:00Z",
+    "home": "Recreativo Huelva",
+    "away": "Rayo Vallecano",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401928499",
+    "uid": "s:600~l:3951~e:401928499",
+    "date": "2026-10-27T20:00Z",
+    "home": "Sporting de Alc\u00e1zar",
+    "away": "M\u00e1laga",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "ger.dfb_pokal": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3954",
+  "name": "German Cup",
+  "slug_echo": "ger.dfb_pokal",
+  "events": [
+   {
+    "id": "401916920",
+    "uid": "s:600~l:3954~e:401916920",
+    "date": "2026-10-27T17:00Z",
+    "home": "Hamburg SV",
+    "away": "Eintracht Frankfurt",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401917027",
+    "uid": "s:600~l:3954~e:401917027",
+    "date": "2026-10-27T17:00Z",
+    "home": "Rot-Weiss Essen",
+    "away": "RB Leipzig",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401917028",
+    "uid": "s:600~l:3954~e:401917028",
+    "date": "2026-10-27T17:00Z",
+    "home": "SG Sonnenhof Gro\u00dfaspach",
+    "away": "FC Augsburg",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401917029",
+    "uid": "s:600~l:3954~e:401917029",
+    "date": "2026-10-27T17:00Z",
+    "home": "VfL Bochum",
+    "away": "Mainz",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401917030",
+    "uid": "s:600~l:3954~e:401917030",
+    "date": "2026-10-27T19:45Z",
+    "home": "Borussia Dortmund",
+    "away": "Werder Bremen",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401917031",
+    "uid": "s:600~l:3954~e:401917031",
+    "date": "2026-10-27T19:45Z",
+    "home": "Borussia M\u00f6nchengladbach",
+    "away": "Karlsruher SC",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401917026",
+    "uid": "s:600~l:3954~e:401917026",
+    "date": "2026-10-27T19:45Z",
+    "home": "FC Cologne",
+    "away": "1. FC Union Berlin",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   },
+   {
+    "id": "401916923",
+    "uid": "s:600~l:3954~e:401916923",
+    "date": "2026-10-27T19:45Z",
+    "home": "SV Elversberg",
+    "away": "SV Darmstadt 98",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "ita.coppa_italia": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3956",
+  "name": "Coppa Italia",
+  "slug_echo": "ita.coppa_italia",
+  "events": [
+   {
+    "id": "401912257",
+    "uid": "s:600~l:3956~e:401912257",
+    "date": "2026-12-01T20:00Z",
+    "home": "Internazionale",
+    "away": "Genoa",
+    "score": "0-0",
+    "state": "pre",
+    "status": "STATUS_SCHEDULED",
+    "clock": "0'",
+    "stats_keys": false,
+    "stats": {
+     "home": {},
+     "away": {}
+    }
+   }
+  ]
+ },
+ "fra.coupe_de_france": {
+  "status": 200,
+  "ok": true,
+  "error": null,
+  "from_cache": false,
+  "league_id": "3952",
+  "name": "Coupe de France",
+  "slug_echo": "fra.coupe_de_france",
+  "events": [
+   {
+    "id": "401863529",
+    "uid": "s:600~l:3952~e:401863529",
+    "date": "2026-05-22T19:00Z",
+    "home": "Lens",
+    "away": "Nice",
+    "score": "3-1",
+    "state": "post",
+    "status": "STATUS_FULL_TIME",
+    "clock": "90'+6'",
+    "stats_keys": true,
+    "stats": {
+     "home": {
+      "wonCorners": "9",
+      "shotsOnTarget": "4",
+      "totalShots": "16"
+     },
+     "away": {
+      "wonCorners": "7",
+      "shotsOnTarget": "6",
+      "totalShots": "17"
+     }
+    }
+   }
+  ]
+ }
+}

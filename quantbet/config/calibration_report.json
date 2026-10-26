@@ -1,0 +1,116 @@
+{
+  "premier league": {
+    "league": "premier league",
+    "n_matches": 380,
+    "home_goals": 1.5263157894736843,
+    "away_goals": 1.2236842105263157,
+    "home_corners": 5.394736842105263,
+    "away_corners": 4.602631578947369,
+    "goal_correlation": 0.0,
+    "corner_dispersion_mle": 149.5603061319387,
+    "corner_dispersion_mom": 149.13716609718813,
+    "corner_dispersion_conditional": 499.99732125747033,
+    "total_goals_var": 2.467678100263852,
+    "total_corners_var": 10.667539230662408
+  },
+  "all": {
+    "league": "all",
+    "n_matches": 380,
+    "home_goals": 1.5263157894736843,
+    "away_goals": 1.2236842105263157,
+    "home_corners": 5.394736842105263,
+    "away_corners": 4.602631578947369,
+    "goal_correlation": 0.0,
+    "corner_dispersion_mle": 149.5603061319387,
+    "corner_dispersion_mom": 149.13716609718813,
+    "corner_dispersion_conditional": 499.99732125747033,
+    "total_goals_var": 2.467678100263852,
+    "total_corners_var": 10.667539230662408
+  },
+  "bet365_open_vs_pinnacle_close_mean_ev": {
+    "ev_H": -0.0656,
+    "ev_D": -0.0458,
+    "ev_A": -0.0673,
+    "ev_O25": -0.0492,
+    "ev_U25": -0.0489
+  },
+  "v4_2": {
+    "football_data": {
+      "files": [
+        "D1_2122.csv",
+        "D1_2223.csv",
+        "D1_2324.csv",
+        "D1_2425.csv",
+        "E0_2122.csv",
+        "E0_2223.csv",
+        "E0_2324.csv",
+        "E0_2425.csv",
+        "F1_2122.csv",
+        "F1_2223.csv",
+        "F1_2324.csv",
+        "F1_2425.csv",
+        "I1_2122.csv",
+        "I1_2223.csv",
+        "I1_2324.csv",
+        "I1_2425.csv",
+        "SP1_2122.csv",
+        "SP1_2223.csv",
+        "SP1_2324.csv",
+        "SP1_2425.csv"
+      ],
+      "matches": 7155,
+      "half_time_corner_columns": [],
+      "corner_columns": [
+        "AC",
+        "HC"
+      ],
+      "has_half_time_corners": false,
+      "lambda_pre_source": "de-vigged closing O/U 2.5 (PC>2.5 then AvgC>2.5), Poisson total",
+      "second_half_goal_share": 0.5494,
+      "all_obs_over_exp_h2": 1.007,
+      "ht_diff_0": {
+        "n": 2849,
+        "obs_over_exp_h2": 0.977
+      },
+      "ht_diff_1": {
+        "n": 3083,
+        "obs_over_exp_h2": 1.02
+      },
+      "ht_diff_ge2": {
+        "n": 1223,
+        "obs_over_exp_h2": 1.04
+      },
+      "goal_lead_dampener": 1.033,
+      "goal_lead_dampener_ci90": [
+        1.0,
+        1.065
+      ],
+      "n_lead_matches": 1223
+    },
+    "statsbomb": {
+      "source": "StatsBomb open data (github.com/statsbomb/open-data), Bundesliga 2015/16, EPL 2015/16, La Liga 2015/16, Ligue 1 2015/16, Serie A 2015/16",
+      "matches": 354,
+      "h1_corners": 1706,
+      "h2_corners": 1914,
+      "h1_minutes": 16369.7,
+      "h2_minutes": 17261.5,
+      "h2_share_of_corners": 0.5287,
+      "h1_share_of_corners": 0.4713,
+      "h2_h1_per_minute_ratio": 1.064,
+      "h2_h1_ci90": [
+        1.011,
+        1.122
+      ],
+      "corner_lead_dampener_raw": 0.952,
+      "corner_lead_dampener_ci90": [
+        0.899,
+        1.004
+      ],
+      "n_lead_matches": 163,
+      "lead_minutes": 4825.5,
+      "lead_corners_observed": 509,
+      "lead_corners_expected": 534.8,
+      "note": "corner lead dampener uses each match's own total corners as the baseline, which already includes the lead period (biases toward 1); indicative only"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# Core (free mode)
+aiohttp>=3.9,<4
+aiosqlite>=0.20
+numpy>=1.26
+scipy>=1.11
+pandas>=2.1
+pydantic>=2.6,<3
+pydantic-settings>=2.2
+rapidfuzz>=3.6
+# Optional plain HTTP backend (QB_HTTP_BACKEND=curl_cffi). Never used with `impersonate`.
+curl_cffi>=0.7
+# Parsing HTML error/challenge pages in logs (no scraping of bookmaker sites)
+beautifulsoup4>=4.12
+# Telegram: notifier uses the Bot API over aiohttp; python-telegram-bot is optional for extensions
+python-telegram-bot>=21
+# Optional: read tip channels you are a member of (auditor.TelethonTipListener)
+telethon>=1.36
+# Paid-mode WebSocket client (disabled by default)
+websockets>=12
+# dev / tests
+pytest>=8
+pytest-asyncio>=0.23

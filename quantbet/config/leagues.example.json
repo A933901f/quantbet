@@ -1,0 +1,461 @@
+{
+ "_doc": "v4.3-global league registry. tier: TIER_1/2/3 (stake multiplier and card tag, see global.tier_kelly_mult in the v4.3-global freeze). corner_baseline / goals_baseline = league-average totals per match used when a match has no team-table ratings (missing -> defaults). Unlisted leagues seen live on soccer/all are auto-discovered as TIER_3 (subject to the live-stats integrity gate). Tier/baseline values are frozen into the v4.3-global params hash: edit, then re-run scripts/freeze_params.py --rules v4.3-global. goals_baseline: Football-Data 2025(/26) league average where a CSV exists, else defaults.goals_baseline. fd_corners_avg_2025_26 is informational only (not used).",
+ "defaults": {
+  "tier": "TIER_3",
+  "corner_baseline": 9.8,
+  "goals_baseline": 2.7
+ },
+ "auto_discovery": {
+  "enabled": true,
+  "tier": "TIER_3"
+ },
+ "leagues": [
+  {
+   "slug": "eng.1",
+   "name": "English Premier League",
+   "region": "europe",
+   "tier": "TIER_1",
+   "espn_id": "700",
+   "corner_baseline": 10.4,
+   "goals_baseline": 2.75,
+   "football_data": "E0",
+   "goals_baseline_source": "football-data E0 2025(/26), n=380",
+   "corner_baseline_source": "v4.2 LEAGUE_DEFAULTS (unchanged)",
+   "fd_corners_avg_2025_26": 9.997
+  },
+  {
+   "slug": "esp.1",
+   "name": "Spanish LALIGA",
+   "region": "europe",
+   "tier": "TIER_1",
+   "espn_id": "740",
+   "corner_baseline": 9.6,
+   "goals_baseline": 2.69,
+   "football_data": "SP1",
+   "goals_baseline_source": "football-data SP1 2025(/26), n=380",
+   "corner_baseline_source": "v4.2 LEAGUE_DEFAULTS (unchanged)",
+   "fd_corners_avg_2025_26": 9.666
+  },
+  {
+   "slug": "ger.1",
+   "name": "German Bundesliga",
+   "region": "europe",
+   "tier": "TIER_1",
+   "espn_id": "720",
+   "corner_baseline": 9.6,
+   "goals_baseline": 3.23,
+   "football_data": "D1",
+   "goals_baseline_source": "football-data D1 2025(/26), n=306",
+   "corner_baseline_source": "v4.2 LEAGUE_DEFAULTS (unchanged)",
+   "fd_corners_avg_2025_26": 9.755
+  },
+  {
+   "slug": "ita.1",
+   "name": "Italian Serie A",
+   "region": "europe",
+   "tier": "TIER_1",
+   "espn_id": "730",
+   "corner_baseline": 9.8,
+   "goals_baseline": 2.43,
+   "football_data": "I1",
+   "goals_baseline_source": "football-data I1 2025(/26), n=380",
+   "corner_baseline_source": "v4.2 LEAGUE_DEFAULTS (unchanged)",
+   "fd_corners_avg_2025_26": 8.821
+  },
+  {
+   "slug": "fra.1",
+   "name": "French Ligue 1",
+   "region": "europe",
+   "tier": "TIER_1",
+   "espn_id": "710",
+   "corner_baseline": 9.5,
+   "goals_baseline": 2.82,
+   "football_data": "F1",
+   "goals_baseline_source": "football-data F1 2025(/26), n=306",
+   "corner_baseline_source": "v4.2 LEAGUE_DEFAULTS (unchanged)",
+   "fd_corners_avg_2025_26": 9.595
+  },
+  {
+   "slug": "uefa.champions",
+   "name": "UEFA Champions League",
+   "region": "europe",
+   "tier": "TIER_1",
+   "espn_id": "775",
+   "corner_baseline": 10.0,
+   "goals_baseline": 3.0,
+   "corner_baseline_source": "v4.2 LEAGUE_DEFAULTS (unchanged)"
+  },
+  {
+   "slug": "uefa.europa",
+   "name": "UEFA Europa League",
+   "region": "europe",
+   "tier": "TIER_1",
+   "espn_id": "776",
+   "corner_baseline": 10.0,
+   "goals_baseline": 2.8,
+   "corner_baseline_source": "v4.2 LEAGUE_DEFAULTS (unchanged)"
+  },
+  {
+   "slug": "usa.1",
+   "name": "MLS",
+   "region": "americas",
+   "tier": "TIER_1",
+   "espn_id": "770",
+   "corner_baseline": 9.8,
+   "football_data": "USA",
+   "goals_baseline": 3.02,
+   "goals_baseline_source": "football-data USA 2025(/26), n=540",
+   "corner_baseline_source": "user-supplied (v4.3 brief)"
+  },
+  {
+   "slug": "bra.1",
+   "name": "Brazilian Serie A",
+   "region": "americas",
+   "tier": "TIER_1",
+   "espn_id": "630",
+   "corner_baseline": 10.5,
+   "football_data": "BRA",
+   "goals_baseline": 2.52,
+   "goals_baseline_source": "football-data BRA 2025(/26), n=380",
+   "corner_baseline_source": "user-supplied (v4.3 brief)"
+  },
+  {
+   "slug": "eng.2",
+   "name": "English League Championship",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3914",
+   "corner_baseline": 10.4,
+   "football_data": "E1",
+   "goals_baseline": 2.6,
+   "goals_baseline_source": "football-data E1 2025(/26), n=552",
+   "corner_baseline_source": "user-supplied (v4.3 brief)",
+   "fd_corners_avg_2025_26": 10.353
+  },
+  {
+   "slug": "esp.2",
+   "name": "Spanish LALIGA 2",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3921",
+   "football_data": "SP2",
+   "goals_baseline": 2.63,
+   "goals_baseline_source": "football-data SP2 2025(/26), n=462",
+   "fd_corners_avg_2025_26": 9.433
+  },
+  {
+   "slug": "ger.2",
+   "name": "German 2. Bundesliga",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3927",
+   "football_data": "D2",
+   "goals_baseline": 2.93,
+   "goals_baseline_source": "football-data D2 2025(/26), n=306",
+   "fd_corners_avg_2025_26": 10.036
+  },
+  {
+   "slug": "ita.2",
+   "name": "Italian Serie B",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3931",
+   "football_data": "I2",
+   "goals_baseline": 2.56,
+   "goals_baseline_source": "football-data I2 2025(/26), n=380",
+   "fd_corners_avg_2025_26": 9.542
+  },
+  {
+   "slug": "fra.2",
+   "name": "French Ligue 2",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3926",
+   "football_data": "F2",
+   "goals_baseline": 2.54,
+   "goals_baseline_source": "football-data F2 2025(/26), n=305",
+   "fd_corners_avg_2025_26": 9.249
+  },
+  {
+   "slug": "ned.1",
+   "name": "Dutch Eredivisie",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "725",
+   "football_data": "N1",
+   "goals_baseline": 3.18,
+   "goals_baseline_source": "football-data N1 2025(/26), n=306",
+   "fd_corners_avg_2025_26": 10.454
+  },
+  {
+   "slug": "mex.1",
+   "name": "Mexican Liga BBVA MX",
+   "region": "americas",
+   "tier": "TIER_2",
+   "espn_id": "760",
+   "corner_baseline": 9.7,
+   "football_data": "MEX",
+   "goals_baseline": 2.9,
+   "goals_baseline_source": "football-data MEX 2025(/26), n=336",
+   "corner_baseline_source": "user-supplied (v4.3 brief)"
+  },
+  {
+   "slug": "arg.1",
+   "name": "Argentine Liga Profesional de Fútbol",
+   "region": "americas",
+   "tier": "TIER_2",
+   "espn_id": "745",
+   "corner_baseline": 9.6,
+   "football_data": "ARG",
+   "goals_baseline": 1.95,
+   "goals_baseline_source": "football-data ARG 2025(/26), n=510",
+   "corner_baseline_source": "user-supplied (v4.3 brief)"
+  },
+  {
+   "slug": "den.1",
+   "name": "Danish Superliga",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3913"
+  },
+  {
+   "slug": "nor.1",
+   "name": "Norwegian Eliteserien",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3960"
+  },
+  {
+   "slug": "swe.1",
+   "name": "Swedish Allsvenskan",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3945"
+  },
+  {
+   "slug": "aus.1",
+   "name": "Australian A-League Men",
+   "region": "asia_oceania",
+   "tier": "TIER_2",
+   "espn_id": "3906",
+   "corner_baseline": 11.2,
+   "corner_baseline_source": "user-supplied (v4.3 brief)"
+  },
+  {
+   "slug": "jpn.1",
+   "name": "Japanese J.League",
+   "region": "asia_oceania",
+   "tier": "TIER_2",
+   "espn_id": "750",
+   "corner_baseline": 9.6,
+   "football_data": "JPN",
+   "goals_baseline": 2.4,
+   "goals_baseline_source": "football-data JPN 2025(/26), n=380",
+   "corner_baseline_source": "user-supplied (v4.3 brief)"
+  },
+  {
+   "slug": "por.1",
+   "name": "Portuguese Primeira Liga",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "715",
+   "football_data": "P1",
+   "goals_baseline": 2.68,
+   "goals_baseline_source": "football-data P1 2025(/26), n=306",
+   "fd_corners_avg_2025_26": 9.428
+  },
+  {
+   "slug": "bel.1",
+   "name": "Belgian Pro League",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3901",
+   "football_data": "B1",
+   "goals_baseline": 2.67,
+   "goals_baseline_source": "football-data B1 2025(/26), n=311",
+   "fd_corners_avg_2025_26": 10.167
+  },
+  {
+   "slug": "tur.1",
+   "name": "Turkish Super Lig",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3946",
+   "football_data": "T1",
+   "goals_baseline": 2.65,
+   "goals_baseline_source": "football-data T1 2025(/26), n=306",
+   "fd_corners_avg_2025_26": 9.444
+  },
+  {
+   "slug": "sco.1",
+   "name": "Scottish Premiership",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "735",
+   "football_data": "SC0",
+   "goals_baseline": 2.78,
+   "goals_baseline_source": "football-data SC0 2025(/26), n=228",
+   "fd_corners_avg_2025_26": 10.026
+  },
+  {
+   "slug": "aut.1",
+   "name": "Austrian Bundesliga",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3907"
+  },
+  {
+   "slug": "sui.1",
+   "name": "Swiss Super League",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3944"
+  },
+  {
+   "slug": "gre.1",
+   "name": "Greek Super League",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3955"
+  },
+  {
+   "slug": "uefa.europa.conf",
+   "name": "UEFA Conference League",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "20296"
+  },
+  {
+   "slug": "conmebol.libertadores",
+   "name": "CONMEBOL Libertadores",
+   "region": "americas",
+   "tier": "TIER_2",
+   "espn_id": "783"
+  },
+  {
+   "slug": "eng.fa",
+   "name": "English FA Cup",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3918"
+  },
+  {
+   "slug": "eng.league_cup",
+   "name": "English Carabao Cup",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3920"
+  },
+  {
+   "slug": "esp.copa_del_rey",
+   "name": "Spanish Copa del Rey",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3951"
+  },
+  {
+   "slug": "ger.dfb_pokal",
+   "name": "German Cup",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3954"
+  },
+  {
+   "slug": "ita.coppa_italia",
+   "name": "Coppa Italia",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3956"
+  },
+  {
+   "slug": "fra.coupe_de_france",
+   "name": "Coupe de France",
+   "region": "europe",
+   "tier": "TIER_2",
+   "espn_id": "3952"
+  },
+  {
+   "slug": "kor.1",
+   "name": "kor.1",
+   "region": "asia_oceania",
+   "tier": "TIER_2",
+   "espn_id": null,
+   "supported": false,
+   "note": "ESPN returns HTTP 400 for soccer/kor.1/scoreboard (checked 2026-10-25); dropped at runtime by learn_league_ids. K League matches may still appear via auto-discovery as TIER_3."
+  },
+  {
+   "slug": "bra.2",
+   "name": "Brazilian Serie B",
+   "region": "americas",
+   "tier": "TIER_3",
+   "espn_id": "4007"
+  },
+  {
+   "slug": "col.1",
+   "name": "Colombian Primera A",
+   "region": "americas",
+   "tier": "TIER_3",
+   "espn_id": "650"
+  },
+  {
+   "slug": "chi.1",
+   "name": "Chilean Primera División",
+   "region": "americas",
+   "tier": "TIER_3",
+   "espn_id": "640"
+  },
+  {
+   "slug": "conmebol.sudamericana",
+   "name": "CONMEBOL Sudamericana",
+   "region": "americas",
+   "tier": "TIER_3",
+   "espn_id": "5454"
+  },
+  {
+   "slug": "chn.1",
+   "name": "Chinese Super League",
+   "region": "asia_oceania",
+   "tier": "TIER_3",
+   "espn_id": "8376"
+  },
+  {
+   "slug": "afc.champions",
+   "name": "AFC Champions League Elite",
+   "region": "asia_oceania",
+   "tier": "TIER_3",
+   "espn_id": "3902"
+  },
+  {
+   "slug": "eng.3",
+   "name": "English League One",
+   "region": "europe",
+   "tier": "TIER_3",
+   "espn_id": "3915",
+   "football_data": "E2",
+   "goals_baseline": 2.63,
+   "goals_baseline_source": "football-data E2 2025(/26), n=552",
+   "fd_corners_avg_2025_26": 10.06
+  }
+ ],
+ "high_liquidity_leagues": [
+  "premier league",
+  "la liga",
+  "bundesliga",
+  "serie a",
+  "ligue 1",
+  "champions league",
+  "europa league",
+  "conference league",
+  "eredivisie",
+  "primeira liga",
+  "championship"
+ ],
+ "the_odds_api_sports": [
+  "soccer_epl",
+  "soccer_spain_la_liga",
+  "soccer_germany_bundesliga",
+  "soccer_italy_serie_a",
+  "soccer_france_ligue_one",
+  "soccer_uefa_champs_league"
+ ]
+}

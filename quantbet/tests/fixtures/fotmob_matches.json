@@ -1,0 +1,7 @@
+{"leagues": [{"id": 47, "name": "Premier League", "ccode": "ENG", "matches": [
+  {"id": 4813501, "home": {"id": 9825, "name": "Arsenal", "score": 0}, "away": {"id": 8455, "name": "Chelsea", "score": 1},
+   "status": {"started": true, "finished": false, "liveTime": {"short": "67’", "long": "66:30"}}},
+  {"id": 4813502, "home": {"name": "Everton", "score": 0}, "away": {"name": "Fulham", "score": 0},
+   "status": {"started": false, "finished": false}},
+  {"id": 4813503, "home": {"name": "Leeds", "score": 3}, "away": {"name": "Wolves", "score": 1},
+   "status": {"started": true, "finished": true}}]}]}

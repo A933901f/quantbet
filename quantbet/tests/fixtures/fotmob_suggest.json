@@ -1,0 +1,89 @@
+{
+ "took": 3,
+ "total": 5,
+ "matchSuggest": [
+  {
+   "text": "Fiorentina",
+   "offset": 0,
+   "length": 10,
+   "options": [
+    {
+     "text": "Fiorentina - Juventus",
+     "score": 0.0,
+     "payload": {
+      "matchDate": "2026-11-08T19:45:00Z",
+      "leagueId": 55,
+      "id": "5749742",
+      "homeTeamId": "8535",
+      "awayTeamId": "9885",
+      "homeName": "Fiorentina",
+      "awayName": "Juventus",
+      "leagueName": "Serie A",
+      "statusId": 1
+     }
+    },
+    {
+     "text": "Inter - Fiorentina",
+     "score": -5.0,
+     "payload": {
+      "matchDate": "2026-10-25T11:30:00Z",
+      "leagueId": 55,
+      "id": "5749714",
+      "homeTeamId": "8636",
+      "awayTeamId": "8535",
+      "homeName": "Inter",
+      "awayName": "Fiorentina",
+      "leagueName": "Serie A",
+      "statusId": 1
+     }
+    },
+    {
+     "text": "Fiorentina - Inter",
+     "score": -302.0,
+     "payload": {
+      "matchDate": "2027-02-21T17:30:00Z",
+      "leagueId": 55,
+      "id": "5749883",
+      "homeTeamId": "8535",
+      "awayTeamId": "8636",
+      "homeName": "Fiorentina",
+      "awayName": "Inter",
+      "leagueName": "Serie A",
+      "statusId": 1
+     }
+    }
+   ]
+  }
+ ],
+ "teamSuggest": [
+  {
+   "text": "Fiorentina",
+   "offset": 0,
+   "length": 10,
+   "options": [
+    {
+     "text": "Fiorentina|8535",
+     "score": 300097.0,
+     "payload": {
+      "matchDate": "0001-01-01T00:00:00",
+      "leagueId": 55,
+      "id": "8535",
+      "newsLanguages": [],
+      "leagueName": "Serie A"
+     }
+    },
+    {
+     "text": "Fiorentina (W)|856740",
+     "score": 300001.0,
+     "payload": {
+      "matchDate": "0001-01-01T00:00:00",
+      "leagueId": 10178,
+      "id": "856740",
+      "newsLanguages": [],
+      "leagueName": "Serie A Femminile"
+     }
+    }
+   ]
+  }
+ ]
+}

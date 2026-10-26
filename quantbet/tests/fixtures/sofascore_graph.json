@@ -1,0 +1,58 @@
+{
+ "graphPoints": [
+  {
+   "minute": 1,
+   "value": 10
+  },
+  {
+   "minute": 5,
+   "value": -20
+  },
+  {
+   "minute": 20,
+   "value": 30
+  },
+  {
+   "minute": 40,
+   "value": -15
+  },
+  {
+   "minute": 45.5,
+   "value": 5
+  },
+  {
+   "minute": 50,
+   "value": 40
+  },
+  {
+   "minute": 52,
+   "value": 55
+  },
+  {
+   "minute": 55,
+   "value": 60
+  },
+  {
+   "minute": 57,
+   "value": 35
+  },
+  {
+   "minute": 58,
+   "value": 50
+  },
+  {
+   "minute": 59,
+   "value": 70
+  },
+  {
+   "minute": 60,
+   "value": 45
+  },
+  {
+   "minute": 61,
+   "value": 80
+  }
+ ],
+ "periodTime": 45,
+ "periodCount": 2
+}

@@ -1,0 +1,17 @@
+{"general": {"matchId": "4813501", "leagueName": "Premier League", "homeTeam": {"name": "Arsenal", "id": 9825}, "awayTeam": {"name": "Chelsea", "id": 8455}, "started": true, "finished": false},
+ "header": {"teams": [{"name": "Arsenal", "score": 0}, {"name": "Chelsea", "score": 1}],
+            "status": {"started": true, "finished": false, "liveTime": {"short": "67’", "long": "66:30", "addedTime": 0}}},
+ "content": {
+  "stats": {"Periods": {"All": {"stats": [
+    {"title": "Top stats", "key": "top_stats", "stats": [
+      {"title": "Ball possession", "key": "BallPossesion", "stats": [62, 38]},
+      {"title": "Expected goals (xG)", "key": "expected_goals", "stats": ["1.48", "0.61"]},
+      {"title": "Shots on target", "key": "ShotsOnTarget", "stats": [5, 2]}]},
+    {"title": "Shots", "key": "shots", "stats": [
+      {"title": "Shots inside box", "key": "shots_inside_box", "stats": [11, 3]}]},
+    {"title": "Other", "key": "other", "stats": [
+      {"title": "Corners", "key": "corners", "stats": [7, 2]}]}]}}},
+  "matchFacts": {"events": {"events": [
+    {"type": "Goal", "time": 23, "isHome": false},
+    {"type": "Card", "card": "Red", "time": 55, "isHome": false}]}},
+  "momentum": {"main": {"data": [{"minute": 58, "value": 40}, {"minute": 62, "value": 60}, {"minute": 66, "value": 50}, {"minute": 30, "value": -90}]}}}}

@@ -1,0 +1,587 @@
+{
+ "rules_version": "v4.2",
+ "frozen_at": "2026-10-25T19:31:39Z",
+ "sha256": "40e806b910db93de34f9b26d9ebf361168077f1f38a8fe8d7dbc4e7cb6729aec",
+ "live_params": {
+  "goal_time_slope": 0.3,
+  "corner_time_slope": 0.15,
+  "first_half_stoppage": 2.0,
+  "second_half_stoppage_base": 3.5,
+  "stoppage_per_goal": 0.4,
+  "stoppage_per_red": 0.5,
+  "max_stoppage": 12.0,
+  "goal_correlation": 0.0,
+  "corner_dispersion": 149.56,
+  "favourite_supremacy_threshold": 0.6,
+  "urgency_minute": 60.0,
+  "fav_trailing_goal_mult": 1.25,
+  "fav_tied_goal_mult": 1.1,
+  "fav_trailing_corner_mult": 1.4,
+  "fav_tied_corner_mult": 1.2,
+  "underdog_goal_mult_when_chased": 1.05,
+  "underdog_corner_mult_when_chased": 0.9,
+  "red_card_attack_mult": 0.7,
+  "red_card_opponent_goal_mult": 1.25,
+  "red_card_corner_mult": 0.75,
+  "red_card_opponent_corner_mult": 1.15,
+  "expected_da_per10_total": 9.0,
+  "expected_sot_per10_total": 0.9,
+  "momentum_weight": 0.35,
+  "momentum_min": 0.85,
+  "momentum_max": 1.2,
+  "momentum_horizon_min": 15.0,
+  "momentum_graph_scale": 1.0,
+  "ah_from_current_score": true,
+  "max_goals": 15,
+  "max_corners": 40,
+  "shrinkage_enabled": true,
+  "shrinkage_max_weight": 0.5,
+  "game_state_dampener": true,
+  "dampener_goal_diff": 2,
+  "dampener_goal_mult": 1.0,
+  "dampener_leader_corner_mult": 0.952,
+  "fav_rule": "win_prob",
+  "fav_min_win_prob": 0.55,
+  "fav_chasing_min_minute": 55.0,
+  "fav_chasing_max_deficit": 1,
+  "chasing_corner_penalty": true,
+  "chasing_corner_window": [
+   55.0,
+   82.0
+  ],
+  "chasing_corner_line_margin": 1.5,
+  "chasing_corner_boost_keep": 0.5,
+  "shrinkage_mode": "corners_gamma_half",
+  "corner_prior_minutes": 180.0,
+  "dampener_corner_scope": "both",
+  "momentum_clip": [
+   0.85,
+   1.25
+  ],
+  "prior_only": false,
+  "chasing_corner_mode": "cap",
+  "chasing_corner_cap": 1.03,
+  "chasing_corner_cap_minute": 60.0,
+  "corner_half_ratio": 1.064,
+  "corner_down_shrink_minute": 55.0
+ },
+ "pricing": {
+  "target_edge": 0.025,
+  "abort_edge": 0.015,
+  "kelly_multiplier": 0.25,
+  "ladder_offsets": [
+   0.0,
+   0.05,
+   0.1,
+   0.15,
+   0.2,
+   0.3,
+   0.4,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "max_tiers": 6,
+  "line_step": 0.25,
+  "goal_line_span": 4.0,
+  "corner_line_span": 8.0,
+  "min_fair_odds": 1.3,
+  "max_fair_odds": 6.0,
+  "min_minute": 10.0,
+  "max_minute": 86.0,
+  "max_state_age_s": 90.0,
+  "require_stats": true,
+  "allow_default_ratings": false,
+  "alert_fair_odds_range": [
+   1.5,
+   3.2
+  ],
+  "lines_per_market": 2,
+  "momentum_trigger": 0.3,
+  "activity_trigger_mult": 1.04,
+  "alert_without_trigger": true,
+  "realert_cooldown_s": 600.0,
+  "realert_fair_move": 0.08,
+  "max_alerts_per_event_window": 4,
+  "event_window_s": 600.0,
+  "minute_windows": [
+   [
+    30.0,
+    43.0
+   ],
+   [
+    55.0,
+    85.0
+   ]
+  ],
+  "selection_mode": "fair_target",
+  "drop_negative_reference_ev": true,
+  "use_deduplicator": true,
+  "family_cooldown_min": 15.0,
+  "state_change_line_gap": 1.0,
+  "max_signals_per_family": 1,
+  "max_signals_per_match": 2,
+  "max_match_stake_frac": 0.05,
+  "corner_over_fotmob_after": 75.0,
+  "fair_target": 1.95,
+  "fair_target_range": [
+   1.75,
+   2.2
+  ],
+  "state_change_exception": false,
+  "blowout_block_diff": 3,
+  "lift_gate": 1.06,
+  "lift_suppress_net": 1.05,
+  "allow_unders": false
+ },
+ "superseded": [
+  {
+   "rules_version": "v4",
+   "sha256": "e3d1af358c4505e6466437b45d93152435d7c3c30ed09e426b6a168b9b77535c",
+   "frozen_at": "2026-10-25T18:50:49Z"
+  },
+  {
+   "rules_version": "v4.1",
+   "sha256": "1fa70e7a3cbe5cfbca9b4024277095be41c80f487b2b37e97fc43bf52ef62e4a",
+   "frozen_at": "2026-10-25T19:14:10Z"
+  }
+ ],
+ "frozen_sets": {
+  "v4.3-global": {
+   "rules_version": "v4.3-global",
+   "frozen_at": "2026-10-25T23:49:44Z",
+   "sha256": "971ab88662be2f23c0dd987484c7dcac1f36ed479bc4e650f99e60b0e1e9f77a",
+   "live_params": {
+    "goal_time_slope": 0.3,
+    "corner_time_slope": 0.15,
+    "first_half_stoppage": 2.0,
+    "second_half_stoppage_base": 3.5,
+    "stoppage_per_goal": 0.4,
+    "stoppage_per_red": 0.5,
+    "max_stoppage": 12.0,
+    "goal_correlation": 0.0,
+    "corner_dispersion": 149.56,
+    "favourite_supremacy_threshold": 0.6,
+    "urgency_minute": 60.0,
+    "fav_trailing_goal_mult": 1.25,
+    "fav_tied_goal_mult": 1.1,
+    "fav_trailing_corner_mult": 1.4,
+    "fav_tied_corner_mult": 1.2,
+    "underdog_goal_mult_when_chased": 1.05,
+    "underdog_corner_mult_when_chased": 0.9,
+    "red_card_attack_mult": 0.7,
+    "red_card_opponent_goal_mult": 1.25,
+    "red_card_corner_mult": 0.75,
+    "red_card_opponent_corner_mult": 1.15,
+    "expected_da_per10_total": 9.0,
+    "expected_sot_per10_total": 0.9,
+    "momentum_weight": 0.35,
+    "momentum_min": 0.85,
+    "momentum_max": 1.2,
+    "momentum_horizon_min": 15.0,
+    "momentum_graph_scale": 1.0,
+    "ah_from_current_score": true,
+    "max_goals": 15,
+    "max_corners": 40,
+    "shrinkage_enabled": true,
+    "shrinkage_max_weight": 0.5,
+    "game_state_dampener": true,
+    "dampener_goal_diff": 2,
+    "dampener_goal_mult": 1.0,
+    "dampener_leader_corner_mult": 0.952,
+    "fav_rule": "win_prob",
+    "fav_min_win_prob": 0.55,
+    "fav_chasing_min_minute": 55.0,
+    "fav_chasing_max_deficit": 1,
+    "chasing_corner_penalty": true,
+    "chasing_corner_window": [
+     55.0,
+     82.0
+    ],
+    "chasing_corner_line_margin": 1.5,
+    "chasing_corner_boost_keep": 0.5,
+    "shrinkage_mode": "corners_gamma_half",
+    "corner_prior_minutes": 180.0,
+    "dampener_corner_scope": "both",
+    "momentum_clip": [
+     0.85,
+     1.25
+    ],
+    "prior_only": false,
+    "chasing_corner_mode": "cap",
+    "chasing_corner_cap": 1.03,
+    "chasing_corner_cap_minute": 60.0,
+    "corner_half_ratio": 1.064,
+    "corner_down_shrink_minute": 55.0
+   },
+   "pricing": {
+    "target_edge": 0.025,
+    "abort_edge": 0.015,
+    "kelly_multiplier": 0.25,
+    "ladder_offsets": [
+     0.0,
+     0.05,
+     0.1,
+     0.15,
+     0.2,
+     0.3,
+     0.4,
+     0.5,
+     0.75,
+     1.0
+    ],
+    "max_tiers": 6,
+    "line_step": 0.25,
+    "goal_line_span": 4.0,
+    "corner_line_span": 8.0,
+    "min_fair_odds": 1.3,
+    "max_fair_odds": 6.0,
+    "min_minute": 10.0,
+    "max_minute": 86.0,
+    "max_state_age_s": 90.0,
+    "require_stats": true,
+    "allow_default_ratings": false,
+    "alert_fair_odds_range": [
+     1.5,
+     3.2
+    ],
+    "lines_per_market": 2,
+    "momentum_trigger": 0.3,
+    "activity_trigger_mult": 1.04,
+    "alert_without_trigger": true,
+    "realert_cooldown_s": 600.0,
+    "realert_fair_move": 0.08,
+    "max_alerts_per_event_window": 4,
+    "event_window_s": 600.0,
+    "minute_windows": [
+     [
+      30.0,
+      43.0
+     ],
+     [
+      55.0,
+      85.0
+     ]
+    ],
+    "selection_mode": "fair_target",
+    "drop_negative_reference_ev": true,
+    "use_deduplicator": true,
+    "family_cooldown_min": 15.0,
+    "state_change_line_gap": 1.0,
+    "max_signals_per_family": 1,
+    "max_signals_per_match": 2,
+    "max_match_stake_frac": 0.05,
+    "corner_over_fotmob_after": 75.0,
+    "fair_target": 1.95,
+    "fair_target_range": [
+     1.75,
+     2.2
+    ],
+    "state_change_exception": false,
+    "blowout_block_diff": 3,
+    "lift_gate": 1.06,
+    "lift_suppress_net": 1.05,
+    "allow_unders": false
+   },
+   "global": {
+    "telemetry_gate_minute": 30.0,
+    "tier_kelly_mult": {
+     "TIER_1": 1.0,
+     "TIER_2": 1.0,
+     "TIER_3": 0.5
+    },
+    "tier_max_units": {
+     "TIER_3": 15.0
+    },
+    "auto_discovery": true,
+    "espn_all_limit": 500,
+    "max_live_events": 40,
+    "summaries_per_cycle": 3,
+    "team_table_slugs": [
+     "eng.1"
+    ],
+    "lowconf_prior_alerts": false,
+    "registry": {
+     "defaults": {
+      "tier": "TIER_3",
+      "corner_baseline": 9.8,
+      "goals_baseline": 2.7
+     },
+     "auto_discovery": true,
+     "leagues": {
+      "afc.champions": {
+       "tier": "TIER_3",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "arg.1": {
+       "tier": "TIER_2",
+       "corner_baseline": 9.6,
+       "goals_baseline": 1.95,
+       "supported": true
+      },
+      "aus.1": {
+       "tier": "TIER_2",
+       "corner_baseline": 11.2,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "aut.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "bel.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 2.67,
+       "supported": true
+      },
+      "bra.1": {
+       "tier": "TIER_1",
+       "corner_baseline": 10.5,
+       "goals_baseline": 2.52,
+       "supported": true
+      },
+      "bra.2": {
+       "tier": "TIER_3",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "chi.1": {
+       "tier": "TIER_3",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "chn.1": {
+       "tier": "TIER_3",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "col.1": {
+       "tier": "TIER_3",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "conmebol.libertadores": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "conmebol.sudamericana": {
+       "tier": "TIER_3",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "den.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "eng.1": {
+       "tier": "TIER_1",
+       "corner_baseline": 10.4,
+       "goals_baseline": 2.75,
+       "supported": true
+      },
+      "eng.2": {
+       "tier": "TIER_2",
+       "corner_baseline": 10.4,
+       "goals_baseline": 2.6,
+       "supported": true
+      },
+      "eng.3": {
+       "tier": "TIER_3",
+       "corner_baseline": null,
+       "goals_baseline": 2.63,
+       "supported": true
+      },
+      "eng.fa": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "eng.league_cup": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "esp.1": {
+       "tier": "TIER_1",
+       "corner_baseline": 9.6,
+       "goals_baseline": 2.69,
+       "supported": true
+      },
+      "esp.2": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 2.63,
+       "supported": true
+      },
+      "esp.copa_del_rey": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "fra.1": {
+       "tier": "TIER_1",
+       "corner_baseline": 9.5,
+       "goals_baseline": 2.82,
+       "supported": true
+      },
+      "fra.2": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 2.54,
+       "supported": true
+      },
+      "fra.coupe_de_france": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "ger.1": {
+       "tier": "TIER_1",
+       "corner_baseline": 9.6,
+       "goals_baseline": 3.23,
+       "supported": true
+      },
+      "ger.2": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 2.93,
+       "supported": true
+      },
+      "ger.dfb_pokal": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "gre.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "ita.1": {
+       "tier": "TIER_1",
+       "corner_baseline": 9.8,
+       "goals_baseline": 2.43,
+       "supported": true
+      },
+      "ita.2": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 2.56,
+       "supported": true
+      },
+      "ita.coppa_italia": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "jpn.1": {
+       "tier": "TIER_2",
+       "corner_baseline": 9.6,
+       "goals_baseline": 2.4,
+       "supported": true
+      },
+      "kor.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": false
+      },
+      "mex.1": {
+       "tier": "TIER_2",
+       "corner_baseline": 9.7,
+       "goals_baseline": 2.9,
+       "supported": true
+      },
+      "ned.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 3.18,
+       "supported": true
+      },
+      "nor.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "por.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 2.68,
+       "supported": true
+      },
+      "sco.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 2.78,
+       "supported": true
+      },
+      "sui.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "swe.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "tur.1": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": 2.65,
+       "supported": true
+      },
+      "uefa.champions": {
+       "tier": "TIER_1",
+       "corner_baseline": 10.0,
+       "goals_baseline": 3.0,
+       "supported": true
+      },
+      "uefa.europa": {
+       "tier": "TIER_1",
+       "corner_baseline": 10.0,
+       "goals_baseline": 2.8,
+       "supported": true
+      },
+      "uefa.europa.conf": {
+       "tier": "TIER_2",
+       "corner_baseline": null,
+       "goals_baseline": null,
+       "supported": true
+      },
+      "usa.1": {
+       "tier": "TIER_1",
+       "corner_baseline": 9.8,
+       "goals_baseline": 3.02,
+       "supported": true
+      }
+     }
+    }
+   }
+  }
+ }
+}

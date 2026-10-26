@@ -1,0 +1,10 @@
+{"eventId": 12437791, "markets": [
+ {"marketId": 1, "marketName": "Full time", "isLive": true, "suspended": false, "choices": [
+   {"name": "1", "fractionalValue": "13/10"}, {"name": "X", "fractionalValue": "12/5"}, {"name": "2", "fractionalValue": "7/4"}]},
+ {"marketId": 9, "marketName": "Match goals", "isLive": true, "suspended": false, "choiceGroup": "2.5", "choices": [
+   {"name": "Over", "fractionalValue": "4/5"}, {"name": "Under", "fractionalValue": "evs"}]},
+ {"marketId": 17, "marketName": "Asian handicap", "isLive": true, "suspended": false, "choiceGroup": "-0.25", "choices": [
+   {"name": "(-0.25) Arsenal", "fractionalValue": "9/10"}, {"name": "(0.25) Chelsea", "fractionalValue": "19/20"}]},
+ {"marketId": 21, "marketName": "Corners 2-way", "isLive": true, "suspended": true, "choiceGroup": "10.5", "choices": [
+   {"name": "Over", "fractionalValue": "5/6"}, {"name": "Under", "fractionalValue": "5/6"}]}
+]}

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantbet"
+version = "0.2.0"
+description = "Read-only quantitative sports-betting signal & notification engine (no bet placement)."
+requires-python = ">=3.11"
+dependencies = [
+  "aiohttp>=3.9,<4", "aiosqlite>=0.20", "numpy>=1.26", "scipy>=1.11",
+  "pydantic>=2.6,<3", "pydantic-settings>=2.2", "rapidfuzz>=3.6", "pandas>=2.1",
+]
+
+[project.optional-dependencies]
+telegram-listener = ["telethon>=1.36"]
+telegram-bot = ["python-telegram-bot>=21"]
+http = ["curl_cffi>=0.7", "beautifulsoup4>=4.12"]
+paid = ["websockets>=12"]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+quantbet = "quantbet.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

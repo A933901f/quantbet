@@ -1,0 +1,506 @@
+{
+ "boxscore": {
+  "teams": [
+   {
+    "homeAway": "home",
+    "team": {
+     "id": "110",
+     "displayName": "Internazionale",
+     "shortDisplayName": "Inter Milan",
+     "abbreviation": "INT"
+    },
+    "statistics": [
+     {
+      "name": "foulsCommitted",
+      "displayValue": "6",
+      "label": "Fouls"
+     },
+     {
+      "name": "yellowCards",
+      "displayValue": "0",
+      "label": "Yellow Cards"
+     },
+     {
+      "name": "redCards",
+      "displayValue": "0",
+      "label": "Red Cards"
+     },
+     {
+      "name": "offsides",
+      "displayValue": "1",
+      "label": "Offsides"
+     },
+     {
+      "name": "wonCorners",
+      "displayValue": "3",
+      "label": "Corner Kicks"
+     },
+     {
+      "name": "saves",
+      "displayValue": "0",
+      "label": "Saves"
+     },
+     {
+      "name": "possessionPct",
+      "displayValue": "51.6",
+      "label": "Possession"
+     },
+     {
+      "name": "totalShots",
+      "displayValue": "7",
+      "label": "SHOTS"
+     },
+     {
+      "name": "shotsOnTarget",
+      "displayValue": "3",
+      "label": "ON GOAL"
+     },
+     {
+      "name": "shotPct",
+      "displayValue": "0.4",
+      "label": "On Target %"
+     },
+     {
+      "name": "penaltyKickGoals",
+      "displayValue": "0",
+      "label": "Penalty Goals"
+     },
+     {
+      "name": "penaltyKickShots",
+      "displayValue": "0",
+      "label": "Penalty Kicks Taken"
+     },
+     {
+      "name": "accuratePasses",
+      "displayValue": "202",
+      "label": "Accurate Passes"
+     },
+     {
+      "name": "totalPasses",
+      "displayValue": "222",
+      "label": "Passes"
+     },
+     {
+      "name": "passPct",
+      "displayValue": "0.9",
+      "label": "Pass Completion %"
+     },
+     {
+      "name": "accurateCrosses",
+      "displayValue": "3",
+      "label": "Accurate Crosses"
+     },
+     {
+      "name": "totalCrosses",
+      "displayValue": "12",
+      "label": "Crosses"
+     },
+     {
+      "name": "crossPct",
+      "displayValue": "0.3",
+      "label": "Cross %"
+     },
+     {
+      "name": "totalLongBalls",
+      "displayValue": "14",
+      "label": "Long Balls"
+     },
+     {
+      "name": "accurateLongBalls",
+      "displayValue": "9",
+      "label": "Accurate Long Balls"
+     },
+     {
+      "name": "longballPct",
+      "displayValue": "0.6",
+      "label": "Long Balls %"
+     },
+     {
+      "name": "blockedShots",
+      "displayValue": "0",
+      "label": "Blocked Shots"
+     },
+     {
+      "name": "effectiveTackles",
+      "displayValue": "4",
+      "label": "Effective Tackles"
+     },
+     {
+      "name": "totalTackles",
+      "displayValue": "7",
+      "label": "Tackles"
+     },
+     {
+      "name": "tacklePct",
+      "displayValue": "0.6",
+      "label": "Tackle %"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "6",
+      "label": "Interceptions"
+     },
+     {
+      "name": "effectiveClearance",
+      "displayValue": "5",
+      "label": "Effective Clearances"
+     },
+     {
+      "name": "totalClearance",
+      "displayValue": "5",
+      "label": "Clearances"
+     }
+    ]
+   },
+   {
+    "homeAway": "away",
+    "team": {
+     "id": "109",
+     "displayName": "Fiorentina",
+     "shortDisplayName": "Fiorentina",
+     "abbreviation": "FIO"
+    },
+    "statistics": [
+     {
+      "name": "foulsCommitted",
+      "displayValue": "5",
+      "label": "Fouls"
+     },
+     {
+      "name": "yellowCards",
+      "displayValue": "0",
+      "label": "Yellow Cards"
+     },
+     {
+      "name": "redCards",
+      "displayValue": "0",
+      "label": "Red Cards"
+     },
+     {
+      "name": "offsides",
+      "displayValue": "2",
+      "label": "Offsides"
+     },
+     {
+      "name": "wonCorners",
+      "displayValue": "0",
+      "label": "Corner Kicks"
+     },
+     {
+      "name": "saves",
+      "displayValue": "3",
+      "label": "Saves"
+     },
+     {
+      "name": "possessionPct",
+      "displayValue": "48.4",
+      "label": "Possession"
+     },
+     {
+      "name": "totalShots",
+      "displayValue": "3",
+      "label": "SHOTS"
+     },
+     {
+      "name": "shotsOnTarget",
+      "displayValue": "0",
+      "label": "ON GOAL"
+     },
+     {
+      "name": "shotPct",
+      "displayValue": "0.0",
+      "label": "On Target %"
+     },
+     {
+      "name": "penaltyKickGoals",
+      "displayValue": "0",
+      "label": "Penalty Goals"
+     },
+     {
+      "name": "penaltyKickShots",
+      "displayValue": "0",
+      "label": "Penalty Kicks Taken"
+     },
+     {
+      "name": "accuratePasses",
+      "displayValue": "182",
+      "label": "Accurate Passes"
+     },
+     {
+      "name": "totalPasses",
+      "displayValue": "214",
+      "label": "Passes"
+     },
+     {
+      "name": "passPct",
+      "displayValue": "0.9",
+      "label": "Pass Completion %"
+     },
+     {
+      "name": "accurateCrosses",
+      "displayValue": "2",
+      "label": "Accurate Crosses"
+     },
+     {
+      "name": "totalCrosses",
+      "displayValue": "3",
+      "label": "Crosses"
+     },
+     {
+      "name": "crossPct",
+      "displayValue": "0.7",
+      "label": "Cross %"
+     },
+     {
+      "name": "totalLongBalls",
+      "displayValue": "18",
+      "label": "Long Balls"
+     },
+     {
+      "name": "accurateLongBalls",
+      "displayValue": "10",
+      "label": "Accurate Long Balls"
+     },
+     {
+      "name": "longballPct",
+      "displayValue": "0.6",
+      "label": "Long Balls %"
+     },
+     {
+      "name": "blockedShots",
+      "displayValue": "3",
+      "label": "Blocked Shots"
+     },
+     {
+      "name": "effectiveTackles",
+      "displayValue": "6",
+      "label": "Effective Tackles"
+     },
+     {
+      "name": "totalTackles",
+      "displayValue": "9",
+      "label": "Tackles"
+     },
+     {
+      "name": "tacklePct",
+      "displayValue": "0.7",
+      "label": "Tackle %"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "1",
+      "label": "Interceptions"
+     },
+     {
+      "name": "effectiveClearance",
+      "displayValue": "11",
+      "label": "Effective Clearances"
+     },
+     {
+      "name": "totalClearance",
+      "displayValue": "11",
+      "label": "Clearances"
+     }
+    ]
+   }
+  ]
+ },
+ "header": {
+  "id": "401875036",
+  "league": {
+   "name": "Italian Serie A",
+   "slug": "ita.1"
+  },
+  "competitions": [
+   {
+    "id": "401875036",
+    "date": "2026-10-25T11:30Z",
+    "status": {
+     "displayClock": "43'",
+     "period": 1,
+     "type": {
+      "id": "25",
+      "name": "STATUS_FIRST_HALF",
+      "state": "in",
+      "completed": false,
+      "description": "First Half",
+      "detail": "43'",
+      "shortDetail": "43'",
+      "statusPrimary": "43'"
+     },
+     "displayPeriod": "1st"
+    },
+    "competitors": [
+     {
+      "id": "110",
+      "homeAway": "home",
+      "score": "0",
+      "team": {
+       "id": "110",
+       "displayName": "Internazionale",
+       "shortDisplayName": "Inter Milan",
+       "abbreviation": "INT"
+      }
+     },
+     {
+      "id": "109",
+      "homeAway": "away",
+      "score": "0",
+      "team": {
+       "id": "109",
+       "displayName": "Fiorentina",
+       "shortDisplayName": "Fiorentina",
+       "abbreviation": "FIO"
+      }
+     }
+    ],
+    "details": []
+   }
+  ]
+ },
+ "keyEvents": [
+  {
+   "id": "54265119",
+   "type": {
+    "id": "80",
+    "text": "Kickoff",
+    "type": "kickoff"
+   },
+   "text": "",
+   "clock": {
+    "value": 0.0,
+    "displayValue": ""
+   },
+   "period": {
+    "number": 1
+   },
+   "team": null
+  }
+ ],
+ "pickcenter": [
+  {
+   "provider": {
+    "id": "100",
+    "name": "DraftKings",
+    "priority": 1
+   },
+   "details": "INT -275",
+   "overUnder": 3.5,
+   "spread": -1.5,
+   "overOdds": 100.0,
+   "underOdds": -125.0,
+   "awayTeamOdds": {
+    "favorite": false,
+    "underdog": true,
+    "moneyLine": 550,
+    "spreadOdds": -140.0,
+    "team": {
+     "id": "109",
+     "location": "Fiorentina",
+     "name": "Fiorentina",
+     "abbreviation": "FIO",
+     "displayName": "Fiorentina",
+     "shortDisplayName": "Fiorentina",
+     "isActive": true
+    },
+    "favoriteAtOpen": false
+   },
+   "homeTeamOdds": {
+    "favorite": true,
+    "underdog": false,
+    "moneyLine": -275,
+    "spreadOdds": 100.0,
+    "team": {
+     "id": "110",
+     "location": "Internazionale",
+     "name": "Internazionale",
+     "abbreviation": "INT",
+     "displayName": "Internazionale",
+     "shortDisplayName": "Inter Milan",
+     "isActive": true
+    },
+    "favoriteAtOpen": true
+   },
+   "drawOdds": {
+    "moneyLine": 400.0
+   },
+   "moneyline": {
+    "displayName": "Moneyline",
+    "shortDisplayName": "ML",
+    "home": {
+     "close": {},
+     "open": {},
+     "live": {}
+    },
+    "away": {
+     "close": {},
+     "open": {},
+     "live": {}
+    },
+    "draw": {
+     "close": {},
+     "open": {},
+     "live": {}
+    }
+   },
+   "pointSpread": {
+    "displayName": "Spread",
+    "shortDisplayName": "Spread",
+    "home": {
+     "close": {
+      "line": "-1.5"
+     },
+     "open": {
+      "line": "-1.5"
+     },
+     "live": {
+      "line": "-0.5"
+     }
+    },
+    "away": {
+     "close": {
+      "line": "+1.5"
+     },
+     "open": {
+      "line": "+1.5"
+     },
+     "live": {
+      "line": "+0.5"
+     }
+    }
+   },
+   "total": {
+    "displayName": "Total",
+    "shortDisplayName": "Total",
+    "over": {
+     "close": {
+      "line": "o3.5"
+     },
+     "open": {
+      "line": "o3.5"
+     },
+     "live": {
+      "line": "o1.5"
+     }
+    },
+    "under": {
+     "close": {
+      "line": "u3.5"
+     },
+     "open": {
+      "line": "u3.5"
+     },
+     "live": {
+      "line": "u1.5"
+     }
+    }
+   },
+   "header": {
+    "text": "Game Odds"
+   },
+   "footer": {
+    "disclaimer": "GAMBLING PROBLEM? CALL 1-800-GAMBLER or 1-800-MY-RESET, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY). Call 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD), 1-800-981-0023 (PR). 21+ and present in most states. (18+ DC/KY/NH/PR/WY). Void in ONT. Eligibility restrictions apply. Terms: draftkings.com/sportsbook. On behalf of Boot Hill Casino (KS). Pass-thru of per wager tax may apply in IL."
+   }
+  }
+ ]
+}

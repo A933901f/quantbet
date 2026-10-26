@@ -1,0 +1,1014 @@
+{
+ "boxscore": {
+  "teams": [
+   {
+    "homeAway": "home",
+    "team": {
+     "id": "132",
+     "displayName": "Bayern Munich",
+     "shortDisplayName": "Bayern",
+     "abbreviation": "MUN"
+    },
+    "statistics": [
+     {
+      "name": "foulsCommitted",
+      "displayValue": "15",
+      "label": "Fouls"
+     },
+     {
+      "name": "yellowCards",
+      "displayValue": "0",
+      "label": "Yellow Cards"
+     },
+     {
+      "name": "redCards",
+      "displayValue": "0",
+      "label": "Red Cards"
+     },
+     {
+      "name": "offsides",
+      "displayValue": "2",
+      "label": "Offsides"
+     },
+     {
+      "name": "wonCorners",
+      "displayValue": "3",
+      "label": "Corner Kicks"
+     },
+     {
+      "name": "saves",
+      "displayValue": "3",
+      "label": "Saves"
+     },
+     {
+      "name": "possessionPct",
+      "displayValue": "46.1",
+      "label": "Possession"
+     },
+     {
+      "name": "totalShots",
+      "displayValue": "13",
+      "label": "SHOTS"
+     },
+     {
+      "name": "shotsOnTarget",
+      "displayValue": "5",
+      "label": "ON GOAL"
+     },
+     {
+      "name": "shotPct",
+      "displayValue": "0.4",
+      "label": "On Target %"
+     },
+     {
+      "name": "penaltyKickGoals",
+      "displayValue": "0",
+      "label": "Penalty Goals"
+     },
+     {
+      "name": "penaltyKickShots",
+      "displayValue": "1",
+      "label": "Penalty Kicks Taken"
+     },
+     {
+      "name": "accuratePasses",
+      "displayValue": "373",
+      "label": "Accurate Passes"
+     },
+     {
+      "name": "totalPasses",
+      "displayValue": "435",
+      "label": "Passes"
+     },
+     {
+      "name": "passPct",
+      "displayValue": "0.9",
+      "label": "Pass Completion %"
+     },
+     {
+      "name": "accurateCrosses",
+      "displayValue": "1",
+      "label": "Accurate Crosses"
+     },
+     {
+      "name": "totalCrosses",
+      "displayValue": "6",
+      "label": "Crosses"
+     },
+     {
+      "name": "crossPct",
+      "displayValue": "0.2",
+      "label": "Cross %"
+     },
+     {
+      "name": "totalLongBalls",
+      "displayValue": "43",
+      "label": "Long Balls"
+     },
+     {
+      "name": "accurateLongBalls",
+      "displayValue": "18",
+      "label": "Accurate Long Balls"
+     },
+     {
+      "name": "longballPct",
+      "displayValue": "0.4",
+      "label": "Long Balls %"
+     },
+     {
+      "name": "blockedShots",
+      "displayValue": "5",
+      "label": "Blocked Shots"
+     },
+     {
+      "name": "effectiveTackles",
+      "displayValue": "9",
+      "label": "Effective Tackles"
+     },
+     {
+      "name": "totalTackles",
+      "displayValue": "15",
+      "label": "Tackles"
+     },
+     {
+      "name": "tacklePct",
+      "displayValue": "0.6",
+      "label": "Tackle %"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "2",
+      "label": "Interceptions"
+     },
+     {
+      "name": "effectiveClearance",
+      "displayValue": "23",
+      "label": "Effective Clearances"
+     },
+     {
+      "name": "totalClearance",
+      "displayValue": "23",
+      "label": "Clearances"
+     }
+    ]
+   },
+   {
+    "homeAway": "away",
+    "team": {
+     "id": "359",
+     "displayName": "Arsenal",
+     "shortDisplayName": "Arsenal",
+     "abbreviation": "ARS"
+    },
+    "statistics": [
+     {
+      "name": "foulsCommitted",
+      "displayValue": "6",
+      "label": "Fouls"
+     },
+     {
+      "name": "yellowCards",
+      "displayValue": "2",
+      "label": "Yellow Cards"
+     },
+     {
+      "name": "redCards",
+      "displayValue": "0",
+      "label": "Red Cards"
+     },
+     {
+      "name": "offsides",
+      "displayValue": "1",
+      "label": "Offsides"
+     },
+     {
+      "name": "wonCorners",
+      "displayValue": "5",
+      "label": "Corner Kicks"
+     },
+     {
+      "name": "saves",
+      "displayValue": "3",
+      "label": "Saves"
+     },
+     {
+      "name": "possessionPct",
+      "displayValue": "53.9",
+      "label": "Possession"
+     },
+     {
+      "name": "totalShots",
+      "displayValue": "14",
+      "label": "SHOTS"
+     },
+     {
+      "name": "shotsOnTarget",
+      "displayValue": "5",
+      "label": "ON GOAL"
+     },
+     {
+      "name": "shotPct",
+      "displayValue": "0.4",
+      "label": "On Target %"
+     },
+     {
+      "name": "penaltyKickGoals",
+      "displayValue": "0",
+      "label": "Penalty Goals"
+     },
+     {
+      "name": "penaltyKickShots",
+      "displayValue": "0",
+      "label": "Penalty Kicks Taken"
+     },
+     {
+      "name": "accuratePasses",
+      "displayValue": "436",
+      "label": "Accurate Passes"
+     },
+     {
+      "name": "totalPasses",
+      "displayValue": "502",
+      "label": "Passes"
+     },
+     {
+      "name": "passPct",
+      "displayValue": "0.9",
+      "label": "Pass Completion %"
+     },
+     {
+      "name": "accurateCrosses",
+      "displayValue": "4",
+      "label": "Accurate Crosses"
+     },
+     {
+      "name": "totalCrosses",
+      "displayValue": "17",
+      "label": "Crosses"
+     },
+     {
+      "name": "crossPct",
+      "displayValue": "0.2",
+      "label": "Cross %"
+     },
+     {
+      "name": "totalLongBalls",
+      "displayValue": "48",
+      "label": "Long Balls"
+     },
+     {
+      "name": "accurateLongBalls",
+      "displayValue": "15",
+      "label": "Accurate Long Balls"
+     },
+     {
+      "name": "longballPct",
+      "displayValue": "0.3",
+      "label": "Long Balls %"
+     },
+     {
+      "name": "blockedShots",
+      "displayValue": "5",
+      "label": "Blocked Shots"
+     },
+     {
+      "name": "effectiveTackles",
+      "displayValue": "6",
+      "label": "Effective Tackles"
+     },
+     {
+      "name": "totalTackles",
+      "displayValue": "17",
+      "label": "Tackles"
+     },
+     {
+      "name": "tacklePct",
+      "displayValue": "0.4",
+      "label": "Tackle %"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "11",
+      "label": "Interceptions"
+     },
+     {
+      "name": "effectiveClearance",
+      "displayValue": "15",
+      "label": "Effective Clearances"
+     },
+     {
+      "name": "totalClearance",
+      "displayValue": "15",
+      "label": "Clearances"
+     }
+    ]
+   }
+  ]
+ },
+ "header": {
+  "id": "401915312",
+  "league": {
+   "name": "UEFA Champions League",
+   "slug": "uefa.champions"
+  },
+  "competitions": [
+   {
+    "id": "401915312",
+    "date": "2026-10-21T19:00Z",
+    "status": {
+     "type": {
+      "id": "28",
+      "name": "STATUS_FULL_TIME",
+      "state": "post",
+      "completed": true,
+      "description": "Full Time",
+      "detail": "FT",
+      "shortDetail": "FT"
+     }
+    },
+    "competitors": [
+     {
+      "id": "132",
+      "homeAway": "home",
+      "score": "2",
+      "team": {
+       "id": "132",
+       "displayName": "Bayern Munich",
+       "shortDisplayName": "Bayern",
+       "abbreviation": "MUN"
+      }
+     },
+     {
+      "id": "359",
+      "homeAway": "away",
+      "score": "2",
+      "team": {
+       "id": "359",
+       "displayName": "Arsenal",
+       "shortDisplayName": "Arsenal",
+       "abbreviation": "ARS"
+      }
+     }
+    ],
+    "details": [
+     {
+      "clock": {
+       "value": 1455.0,
+       "displayValue": "25'"
+      },
+      "scoringPlay": true,
+      "team": {
+       "id": "359",
+       "location": "Arsenal",
+       "name": "Arsenal",
+       "nickname": "Gunners",
+       "abbreviation": "ARS",
+       "displayName": "Arsenal"
+      },
+      "addedClock": {
+       "value": 0.0,
+       "displayValue": ""
+      },
+      "redCard": false,
+      "penaltyKick": false,
+      "ownGoal": false
+     },
+     {
+      "clock": {
+       "value": 2062.0,
+       "displayValue": "35'"
+      },
+      "scoringPlay": true,
+      "team": {
+       "id": "132",
+       "location": "Bayern Munich",
+       "name": "Bayern Munich",
+       "abbreviation": "MUN",
+       "displayName": "Bayern Munich"
+      },
+      "addedClock": {
+       "value": 0.0,
+       "displayValue": ""
+      },
+      "redCard": false,
+      "penaltyKick": false,
+      "ownGoal": false
+     },
+     {
+      "clock": {
+       "value": 3609.0,
+       "displayValue": "61'"
+      },
+      "scoringPlay": true,
+      "team": {
+       "id": "132",
+       "location": "Bayern Munich",
+       "name": "Bayern Munich",
+       "abbreviation": "MUN",
+       "displayName": "Bayern Munich"
+      },
+      "addedClock": {
+       "value": 0.0,
+       "displayValue": ""
+      },
+      "redCard": false,
+      "penaltyKick": true,
+      "ownGoal": false
+     },
+     {
+      "clock": {
+       "value": 4874.0,
+       "displayValue": "82'"
+      },
+      "scoringPlay": true,
+      "team": {
+       "id": "359",
+       "location": "Arsenal",
+       "name": "Arsenal",
+       "nickname": "Gunners",
+       "abbreviation": "ARS",
+       "displayName": "Arsenal"
+      },
+      "addedClock": {
+       "value": 0.0,
+       "displayValue": ""
+      },
+      "redCard": false,
+      "penaltyKick": false,
+      "ownGoal": false
+     }
+    ]
+   }
+  ]
+ },
+ "keyEvents": [
+  {
+   "id": "54009721",
+   "type": {
+    "id": "80",
+    "text": "Kickoff",
+    "type": "kickoff"
+   },
+   "text": "",
+   "clock": {
+    "value": 0.0,
+    "displayValue": ""
+   },
+   "period": {
+    "number": 1
+   },
+   "team": null
+  },
+  {
+   "id": "54010423",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "text": "Delay in match because of an injury Bukayo Saka (Arsenal).",
+   "clock": {
+    "value": 430.0,
+    "displayValue": "8'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54010424",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "text": "",
+   "clock": {
+    "value": 430.0,
+    "displayValue": "8'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54010618",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "text": "Delay over. They are ready to continue.",
+   "clock": {
+    "value": 560.0,
+    "displayValue": "10'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54010619",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "text": "",
+   "clock": {
+    "value": 560.0,
+    "displayValue": "10'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54010974",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Arsenal. Eberechi Eze replaces Bukayo Saka because of an injury.",
+   "clock": {
+    "value": 578.0,
+    "displayValue": "10'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54011195",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "text": "Kai Havertz (Arsenal) is shown the yellow card for a bad foul.",
+   "clock": {
+    "value": 743.0,
+    "displayValue": "13'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54013047",
+   "type": {
+    "id": "70",
+    "text": "Goal",
+    "type": "goal"
+   },
+   "text": "Goal! Bayern Munich 0, Arsenal 1. Eberechi Eze (Arsenal) left footed shot from the left side of the box to the bottom ri",
+   "clock": {
+    "value": 1455.0,
+    "displayValue": "25'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54013001",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "text": "",
+   "clock": {
+    "value": 1519.0,
+    "displayValue": "26'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54013003",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "text": "",
+   "clock": {
+    "value": 1530.0,
+    "displayValue": "26'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54013990",
+   "type": {
+    "id": "70",
+    "text": "Goal",
+    "type": "goal"
+   },
+   "text": "Goal! Bayern Munich 1, Arsenal 1. Alphonso Davies (Bayern Munich) right footed shot from the centre of the box to the bo",
+   "clock": {
+    "value": 2062.0,
+    "displayValue": "35'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54014730",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "text": "Ezri Konsa (Arsenal) is shown the yellow card for a bad foul.",
+   "clock": {
+    "value": 2314.0,
+    "displayValue": "39'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54015644",
+   "type": {
+    "id": "81",
+    "text": "Halftime",
+    "type": "halftime"
+   },
+   "text": "",
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'+2'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": null
+  },
+  {
+   "id": "54015965",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Bayern Munich. Jonathan Tah replaces Kim Min-Jae.",
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54015966",
+   "type": {
+    "id": "82",
+    "text": "Start 2nd Half",
+    "type": "start-2nd-half"
+   },
+   "text": "",
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": null
+  },
+  {
+   "id": "54017554",
+   "type": {
+    "id": "98",
+    "text": "Penalty - Scored",
+    "type": "penalty---scored"
+   },
+   "text": "Goal! Bayern Munich 2, Arsenal 1. Harry Kane (Bayern Munich) converts the penalty with a right footed shot to the top le",
+   "clock": {
+    "value": 3609.0,
+    "displayValue": "61'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54018368",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Bayern Munich. Luis D\u00edaz replaces Ismael Saibari.",
+   "clock": {
+    "value": 4045.0,
+    "displayValue": "68'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54018369",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Bayern Munich. Lennart Karl replaces Serge Gnabry.",
+   "clock": {
+    "value": 4061.0,
+    "displayValue": "68'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54018536",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Arsenal. Viktor Gy\u00f6keres replaces Kai Havertz.",
+   "clock": {
+    "value": 4073.0,
+    "displayValue": "68'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54018537",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Arsenal. Myles Lewis-Skelly replaces Bruno Guimar\u00e3es.",
+   "clock": {
+    "value": 4088.0,
+    "displayValue": "69'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54019836",
+   "type": {
+    "id": "70",
+    "text": "Goal",
+    "type": "goal"
+   },
+   "text": "Goal! Bayern Munich 2, Arsenal 2. Declan Rice (Arsenal) right footed shot from the right side of the box to the centre o",
+   "clock": {
+    "value": 4874.0,
+    "displayValue": "82'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54020240",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Arsenal. Mikel Merino replaces Martin \u00d8degaard.",
+   "clock": {
+    "value": 5057.0,
+    "displayValue": "85'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Arsenal"
+   }
+  },
+  {
+   "id": "54020352",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Bayern Munich. Nathaniel Brown replaces Alphonso Davies.",
+   "clock": {
+    "value": 5080.0,
+    "displayValue": "85'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54020779",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Bayern Munich. Bara Sapoko Ndiaye replaces Luis D\u00edaz because of an injury.",
+   "clock": {
+    "value": 5393.0,
+    "displayValue": "90'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Bayern Munich"
+   }
+  },
+  {
+   "id": "54021098",
+   "type": {
+    "id": "83",
+    "text": "End Regular Time",
+    "type": "end-regular-time"
+   },
+   "text": "",
+   "clock": {
+    "value": 5400.0,
+    "displayValue": "90'+3'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": null
+  }
+ ],
+ "pickcenter": [
+  {
+   "provider": {
+    "id": "100",
+    "name": "DraftKings",
+    "priority": 1
+   },
+   "details": "MUN +135",
+   "overUnder": 2.5,
+   "spread": -0.5,
+   "overOdds": -160.0,
+   "underOdds": 130.0,
+   "awayTeamOdds": {
+    "favorite": false,
+    "underdog": true,
+    "moneyLine": 185,
+    "spreadOdds": -175.0,
+    "team": {
+     "$ref": "http://sports.core.api.espn.pvt/v2/sports/soccer/leagues/uefa.champions/seasons/2026/teams/359?lang=en&region=us"
+    },
+    "teamId": "359",
+    "favoriteAtOpen": false
+   },
+   "homeTeamOdds": {
+    "favorite": true,
+    "underdog": false,
+    "moneyLine": 135,
+    "spreadOdds": 125.0,
+    "team": {
+     "$ref": "http://sports.core.api.espn.pvt/v2/sports/soccer/leagues/uefa.champions/seasons/2026/teams/132?lang=en&region=us"
+    },
+    "teamId": "132",
+    "favoriteAtOpen": true
+   },
+   "drawOdds": {
+    "moneyLine": 270.0
+   },
+   "moneyline": {
+    "displayName": "Moneyline",
+    "shortDisplayName": "ML",
+    "home": {
+     "close": {},
+     "open": {}
+    },
+    "away": {
+     "close": {},
+     "open": {}
+    },
+    "draw": {
+     "close": {},
+     "open": {}
+    }
+   },
+   "pointSpread": {
+    "displayName": "Spread",
+    "shortDisplayName": "Spread",
+    "home": {
+     "close": {
+      "line": "-0.5"
+     },
+     "open": {
+      "line": "-0.5"
+     }
+    },
+    "away": {
+     "close": {
+      "line": "+0.5"
+     },
+     "open": {
+      "line": "+0.5"
+     }
+    }
+   },
+   "total": {
+    "displayName": "Total",
+    "shortDisplayName": "Total",
+    "over": {
+     "close": {
+      "line": "o2.5"
+     },
+     "open": {
+      "line": "o2.5"
+     }
+    },
+    "under": {
+     "close": {
+      "line": "u2.5"
+     },
+     "open": {
+      "line": "u2.5"
+     }
+    }
+   },
+   "header": {
+    "text": "Game Odds"
+   },
+   "footer": {
+    "disclaimer": "GAMBLING PROBLEM? CALL 1-800-GAMBLER or 1-800-MY-RESET, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY). Call 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD), 1-800-981-0023 (PR). 21+ and present in most states. (18+ DC/KY/NH/PR/WY). Void in ONT. Eligibility restrictions apply. Terms: draftkings.com/sportsbook. On behalf of Boot Hill Casino (KS). Pass-thru of per wager tax may apply in IL."
+   }
+  }
+ ]
+}

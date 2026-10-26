@@ -1,0 +1,970 @@
+{
+ "boxscore": {
+  "teams": [
+   {
+    "homeAway": "home",
+    "team": {
+     "id": "110",
+     "displayName": "Internazionale",
+     "shortDisplayName": "Inter Milan",
+     "abbreviation": "INT"
+    },
+    "statistics": [
+     {
+      "name": "foulsCommitted",
+      "displayValue": "9",
+      "label": "Fouls"
+     },
+     {
+      "name": "yellowCards",
+      "displayValue": "2",
+      "label": "Yellow Cards"
+     },
+     {
+      "name": "redCards",
+      "displayValue": "1",
+      "label": "Red Cards"
+     },
+     {
+      "name": "offsides",
+      "displayValue": "2",
+      "label": "Offsides"
+     },
+     {
+      "name": "wonCorners",
+      "displayValue": "5",
+      "label": "Corner Kicks"
+     },
+     {
+      "name": "saves",
+      "displayValue": "4",
+      "label": "Saves"
+     },
+     {
+      "name": "possessionPct",
+      "displayValue": "44.9",
+      "label": "Possession"
+     },
+     {
+      "name": "totalShots",
+      "displayValue": "13",
+      "label": "SHOTS"
+     },
+     {
+      "name": "shotsOnTarget",
+      "displayValue": "5",
+      "label": "ON GOAL"
+     },
+     {
+      "name": "shotPct",
+      "displayValue": "0.4",
+      "label": "On Target %"
+     },
+     {
+      "name": "penaltyKickGoals",
+      "displayValue": "0",
+      "label": "Penalty Goals"
+     },
+     {
+      "name": "penaltyKickShots",
+      "displayValue": "0",
+      "label": "Penalty Kicks Taken"
+     },
+     {
+      "name": "accuratePasses",
+      "displayValue": "369",
+      "label": "Accurate Passes"
+     },
+     {
+      "name": "totalPasses",
+      "displayValue": "424",
+      "label": "Passes"
+     },
+     {
+      "name": "passPct",
+      "displayValue": "0.9",
+      "label": "Pass Completion %"
+     },
+     {
+      "name": "accurateCrosses",
+      "displayValue": "1",
+      "label": "Accurate Crosses"
+     },
+     {
+      "name": "totalCrosses",
+      "displayValue": "17",
+      "label": "Crosses"
+     },
+     {
+      "name": "crossPct",
+      "displayValue": "0.1",
+      "label": "Cross %"
+     },
+     {
+      "name": "totalLongBalls",
+      "displayValue": "37",
+      "label": "Long Balls"
+     },
+     {
+      "name": "accurateLongBalls",
+      "displayValue": "22",
+      "label": "Accurate Long Balls"
+     },
+     {
+      "name": "longballPct",
+      "displayValue": "0.6",
+      "label": "Long Balls %"
+     },
+     {
+      "name": "blockedShots",
+      "displayValue": "2",
+      "label": "Blocked Shots"
+     },
+     {
+      "name": "effectiveTackles",
+      "displayValue": "11",
+      "label": "Effective Tackles"
+     },
+     {
+      "name": "totalTackles",
+      "displayValue": "22",
+      "label": "Tackles"
+     },
+     {
+      "name": "tacklePct",
+      "displayValue": "0.5",
+      "label": "Tackle %"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "8",
+      "label": "Interceptions"
+     },
+     {
+      "name": "effectiveClearance",
+      "displayValue": "16",
+      "label": "Effective Clearances"
+     },
+     {
+      "name": "totalClearance",
+      "displayValue": "16",
+      "label": "Clearances"
+     }
+    ]
+   },
+   {
+    "homeAway": "away",
+    "team": {
+     "id": "493",
+     "displayName": "Shakhtar Donetsk",
+     "shortDisplayName": "Shakhtar",
+     "abbreviation": "SHK"
+    },
+    "statistics": [
+     {
+      "name": "foulsCommitted",
+      "displayValue": "10",
+      "label": "Fouls"
+     },
+     {
+      "name": "yellowCards",
+      "displayValue": "2",
+      "label": "Yellow Cards"
+     },
+     {
+      "name": "redCards",
+      "displayValue": "0",
+      "label": "Red Cards"
+     },
+     {
+      "name": "offsides",
+      "displayValue": "2",
+      "label": "Offsides"
+     },
+     {
+      "name": "wonCorners",
+      "displayValue": "4",
+      "label": "Corner Kicks"
+     },
+     {
+      "name": "saves",
+      "displayValue": "4",
+      "label": "Saves"
+     },
+     {
+      "name": "possessionPct",
+      "displayValue": "55.1",
+      "label": "Possession"
+     },
+     {
+      "name": "totalShots",
+      "displayValue": "12",
+      "label": "SHOTS"
+     },
+     {
+      "name": "shotsOnTarget",
+      "displayValue": "4",
+      "label": "ON GOAL"
+     },
+     {
+      "name": "shotPct",
+      "displayValue": "0.3",
+      "label": "On Target %"
+     },
+     {
+      "name": "penaltyKickGoals",
+      "displayValue": "0",
+      "label": "Penalty Goals"
+     },
+     {
+      "name": "penaltyKickShots",
+      "displayValue": "0",
+      "label": "Penalty Kicks Taken"
+     },
+     {
+      "name": "accuratePasses",
+      "displayValue": "484",
+      "label": "Accurate Passes"
+     },
+     {
+      "name": "totalPasses",
+      "displayValue": "533",
+      "label": "Passes"
+     },
+     {
+      "name": "passPct",
+      "displayValue": "0.9",
+      "label": "Pass Completion %"
+     },
+     {
+      "name": "accurateCrosses",
+      "displayValue": "3",
+      "label": "Accurate Crosses"
+     },
+     {
+      "name": "totalCrosses",
+      "displayValue": "10",
+      "label": "Crosses"
+     },
+     {
+      "name": "crossPct",
+      "displayValue": "0.3",
+      "label": "Cross %"
+     },
+     {
+      "name": "totalLongBalls",
+      "displayValue": "40",
+      "label": "Long Balls"
+     },
+     {
+      "name": "accurateLongBalls",
+      "displayValue": "21",
+      "label": "Accurate Long Balls"
+     },
+     {
+      "name": "longballPct",
+      "displayValue": "0.5",
+      "label": "Long Balls %"
+     },
+     {
+      "name": "blockedShots",
+      "displayValue": "5",
+      "label": "Blocked Shots"
+     },
+     {
+      "name": "effectiveTackles",
+      "displayValue": "5",
+      "label": "Effective Tackles"
+     },
+     {
+      "name": "totalTackles",
+      "displayValue": "18",
+      "label": "Tackles"
+     },
+     {
+      "name": "tacklePct",
+      "displayValue": "0.3",
+      "label": "Tackle %"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "8",
+      "label": "Interceptions"
+     },
+     {
+      "name": "effectiveClearance",
+      "displayValue": "23",
+      "label": "Effective Clearances"
+     },
+     {
+      "name": "totalClearance",
+      "displayValue": "23",
+      "label": "Clearances"
+     }
+    ]
+   }
+  ]
+ },
+ "header": {
+  "id": "401915390",
+  "league": {
+   "name": "UEFA Champions League",
+   "slug": "uefa.champions"
+  },
+  "competitions": [
+   {
+    "id": "401915390",
+    "date": "2026-10-21T19:00Z",
+    "status": {
+     "type": {
+      "id": "28",
+      "name": "STATUS_FULL_TIME",
+      "state": "post",
+      "completed": true,
+      "description": "Full Time",
+      "detail": "FT",
+      "shortDetail": "FT"
+     }
+    },
+    "competitors": [
+     {
+      "id": "110",
+      "homeAway": "home",
+      "score": "1",
+      "team": {
+       "id": "110",
+       "displayName": "Internazionale",
+       "shortDisplayName": "Inter Milan",
+       "abbreviation": "INT"
+      }
+     },
+     {
+      "id": "493",
+      "homeAway": "away",
+      "score": "0",
+      "team": {
+       "id": "493",
+       "displayName": "Shakhtar Donetsk",
+       "shortDisplayName": "Shakhtar",
+       "abbreviation": "SHK"
+      }
+     }
+    ],
+    "details": [
+     {
+      "clock": {
+       "value": 4080.0,
+       "displayValue": "68'"
+      },
+      "scoringPlay": false,
+      "team": {
+       "id": "110",
+       "location": "Internazionale",
+       "name": "Internazionale",
+       "abbreviation": "INT",
+       "displayName": "Internazionale"
+      },
+      "addedClock": {
+       "value": 0.0,
+       "displayValue": ""
+      },
+      "redCard": true,
+      "penaltyKick": false,
+      "ownGoal": false
+     },
+     {
+      "clock": {
+       "value": 4587.0,
+       "displayValue": "77'"
+      },
+      "scoringPlay": true,
+      "team": {
+       "id": "110",
+       "location": "Internazionale",
+       "name": "Internazionale",
+       "abbreviation": "INT",
+       "displayName": "Internazionale"
+      },
+      "addedClock": {
+       "value": 0.0,
+       "displayValue": ""
+      },
+      "redCard": false,
+      "penaltyKick": false,
+      "ownGoal": false
+     }
+    ]
+   }
+  ]
+ },
+ "keyEvents": [
+  {
+   "id": "54009729",
+   "type": {
+    "id": "80",
+    "text": "Kickoff",
+    "type": "kickoff"
+   },
+   "text": "",
+   "clock": {
+    "value": 0.0,
+    "displayValue": ""
+   },
+   "period": {
+    "number": 1
+   },
+   "team": null
+  },
+  {
+   "id": "54013639",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "text": "Delay in match because of an injury Pedrinho (Shakhtar Donetsk).",
+   "clock": {
+    "value": 1807.0,
+    "displayValue": "31'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54013638",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "text": "",
+   "clock": {
+    "value": 1807.0,
+    "displayValue": "31'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54013721",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "text": "Delay over. They are ready to continue.",
+   "clock": {
+    "value": 1868.0,
+    "displayValue": "32'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54013940",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "text": "",
+   "clock": {
+    "value": 1868.0,
+    "displayValue": "32'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54013722",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Shakhtar Donetsk. Yehor Nazaryna replaces Pedrinho because of an injury.",
+   "clock": {
+    "value": 1880.0,
+    "displayValue": "32'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54014390",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "text": "Oleh Ocheretko (Shakhtar Donetsk) is shown the yellow card for a bad foul.",
+   "clock": {
+    "value": 2122.0,
+    "displayValue": "36'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54015711",
+   "type": {
+    "id": "81",
+    "text": "Halftime",
+    "type": "halftime"
+   },
+   "text": "First Half ends, Inter Milan 0, Shakhtar Donetsk 0.",
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'+3'"
+   },
+   "period": {
+    "number": 1
+   },
+   "team": null
+  },
+  {
+   "id": "54016006",
+   "type": {
+    "id": "82",
+    "text": "Start 2nd Half",
+    "type": "start-2nd-half"
+   },
+   "text": "",
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": null
+  },
+  {
+   "id": "54017096",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "text": "Marcus Thuram (Inter Milan) is shown the yellow card.",
+   "clock": {
+    "value": 3236.0,
+    "displayValue": "54'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54017553",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Inter Milan. Piotr Zielinski replaces Hakan \u00c7alhanoglu.",
+   "clock": {
+    "value": 3501.0,
+    "displayValue": "59'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54017677",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Inter Milan. Andy Diouf replaces Djed Spence.",
+   "clock": {
+    "value": 3513.0,
+    "displayValue": "59'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54017678",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Inter Milan. Yann Bisseck replaces Federico Dimarco.",
+   "clock": {
+    "value": 3518.0,
+    "displayValue": "59'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54018365",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "text": "Alessandro Bastoni (Inter Milan) is shown the yellow card.",
+   "clock": {
+    "value": 3942.0,
+    "displayValue": "66'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54018683",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "text": "Marlon Gomes (Shakhtar Donetsk) is shown the yellow card.",
+   "clock": {
+    "value": 4055.0,
+    "displayValue": "68'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54018539",
+   "type": {
+    "id": "93",
+    "text": "Red Card",
+    "type": "red-card"
+   },
+   "text": "Second yellow card to Alessandro Bastoni (Inter Milan) for a bad foul.",
+   "clock": {
+    "value": 4080.0,
+    "displayValue": "68'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54018979",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "text": "Petar Sucic (Inter Milan) is shown the yellow card for a bad foul.",
+   "clock": {
+    "value": 4268.0,
+    "displayValue": "72'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54019014",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Shakhtar Donetsk. Isaque replaces Oleh Ocheretko.",
+   "clock": {
+    "value": 4301.0,
+    "displayValue": "72'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54019015",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Shakhtar Donetsk. Newerton replaces Gleiker Mendoza.",
+   "clock": {
+    "value": 4307.0,
+    "displayValue": "72'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54019016",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Shakhtar Donetsk. Lassina Traor\u00e9 replaces Kau\u00e3 Elias.",
+   "clock": {
+    "value": 4317.0,
+    "displayValue": "72'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54019017",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Inter Milan. Luis Henrique replaces Petar Sucic.",
+   "clock": {
+    "value": 4321.0,
+    "displayValue": "73'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54019328",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Inter Milan. Henrikh Mkhitaryan replaces Ange-Yoan Bonny.",
+   "clock": {
+    "value": 4480.0,
+    "displayValue": "75'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54019455",
+   "type": {
+    "id": "70",
+    "text": "Goal",
+    "type": "goal"
+   },
+   "text": "Goal! Inter Milan 1, Shakhtar Donetsk 0. Carlos Augusto (Inter Milan) left footed shot from the centre of the box to the",
+   "clock": {
+    "value": 4587.0,
+    "displayValue": "77'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Internazionale"
+   }
+  },
+  {
+   "id": "54020222",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "text": "Substitution, Shakhtar Donetsk. Bruninho replaces Alisson Santana.",
+   "clock": {
+    "value": 4940.0,
+    "displayValue": "83'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": {
+    "displayName": "Shakhtar Donetsk"
+   }
+  },
+  {
+   "id": "54021229",
+   "type": {
+    "id": "83",
+    "text": "End Regular Time",
+    "type": "end-regular-time"
+   },
+   "text": "Second Half ends, Inter Milan 1, Shakhtar Donetsk 0.",
+   "clock": {
+    "value": 5400.0,
+    "displayValue": "90'+4'"
+   },
+   "period": {
+    "number": 2
+   },
+   "team": null
+  }
+ ],
+ "pickcenter": [
+  {
+   "provider": {
+    "id": "100",
+    "name": "DraftKings",
+    "priority": 1
+   },
+   "details": "INT -370",
+   "overUnder": 3.5,
+   "spread": -1.5,
+   "overOdds": -115.0,
+   "underOdds": -105.0,
+   "awayTeamOdds": {
+    "favorite": false,
+    "underdog": true,
+    "moneyLine": 850,
+    "spreadOdds": 100.0,
+    "team": {
+     "$ref": "http://sports.core.api.espn.pvt/v2/sports/soccer/leagues/uefa.champions/seasons/2026/teams/493?lang=en&region=us"
+    },
+    "teamId": "493",
+    "favoriteAtOpen": false
+   },
+   "homeTeamOdds": {
+    "favorite": true,
+    "underdog": false,
+    "moneyLine": -370,
+    "spreadOdds": -140.0,
+    "team": {
+     "$ref": "http://sports.core.api.espn.pvt/v2/sports/soccer/leagues/uefa.champions/seasons/2026/teams/110?lang=en&region=us"
+    },
+    "teamId": "110",
+    "favoriteAtOpen": true
+   },
+   "drawOdds": {
+    "moneyLine": 550.0
+   },
+   "moneyline": {
+    "displayName": "Moneyline",
+    "shortDisplayName": "ML",
+    "home": {
+     "close": {},
+     "open": {}
+    },
+    "away": {
+     "close": {},
+     "open": {}
+    },
+    "draw": {
+     "close": {},
+     "open": {}
+    }
+   },
+   "pointSpread": {
+    "displayName": "Spread",
+    "shortDisplayName": "Spread",
+    "home": {
+     "close": {
+      "line": "-1.5"
+     },
+     "open": {
+      "line": "-2.5"
+     }
+    },
+    "away": {
+     "close": {
+      "line": "+1.5"
+     },
+     "open": {
+      "line": "+2.5"
+     }
+    }
+   },
+   "total": {
+    "displayName": "Total",
+    "shortDisplayName": "Total",
+    "over": {
+     "close": {
+      "line": "o3.5"
+     },
+     "open": {
+      "line": "o3.5"
+     }
+    },
+    "under": {
+     "close": {
+      "line": "u3.5"
+     },
+     "open": {
+      "line": "u3.5"
+     }
+    }
+   },
+   "header": {
+    "text": "Game Odds"
+   },
+   "footer": {
+    "disclaimer": "GAMBLING PROBLEM? CALL 1-800-GAMBLER or 1-800-MY-RESET, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY). Call 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD), 1-800-981-0023 (PR). 21+ and present in most states. (18+ DC/KY/NH/PR/WY). Void in ONT. Eligibility restrictions apply. Terms: draftkings.com/sportsbook. On behalf of Boot Hill Casino (KS). Pass-thru of per wager tax may apply in IL."
+   }
+  }
+ ]
+}

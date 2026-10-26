@@ -1,0 +1,543 @@
+{
+ "leagues": [
+  {
+   "id": "730",
+   "name": "Italian Serie A",
+   "slug": "ita.1"
+  }
+ ],
+ "day": {
+  "date": "2026-10-25"
+ },
+ "events": [
+  {
+   "id": "401875036",
+   "date": "2026-10-25T11:30Z",
+   "name": "Fiorentina at Internazionale",
+   "shortName": "FIO @ INT",
+   "competitions": [
+    {
+     "id": "401875036",
+     "date": "2026-10-25T11:30Z",
+     "startDate": "2026-10-25T11:30Z",
+     "attendance": 0,
+     "timeValid": true,
+     "recent": true,
+     "status": {
+      "clock": 2580.0,
+      "displayClock": "43'",
+      "period": 1,
+      "type": {
+       "id": "25",
+       "name": "STATUS_FIRST_HALF",
+       "state": "in",
+       "completed": false,
+       "description": "First Half",
+       "detail": "43'",
+       "shortDetail": "43'"
+      }
+     },
+     "altGameNote": "Serie A",
+     "competitors": [
+      {
+       "id": "110",
+       "type": "team",
+       "order": 0,
+       "homeAway": "home",
+       "winner": false,
+       "form": "DWLWD",
+       "score": "0",
+       "team": {
+        "id": "110",
+        "abbreviation": "INT",
+        "displayName": "Internazionale",
+        "shortDisplayName": "Inter Milan",
+        "name": "Internazionale",
+        "location": "Internazionale",
+        "isActive": true
+       },
+       "statistics": [
+        {
+         "name": "appearances",
+         "abbreviation": "APP",
+         "displayValue": "0"
+        },
+        {
+         "name": "foulsCommitted",
+         "abbreviation": "FC",
+         "displayValue": "6"
+        },
+        {
+         "name": "wonCorners",
+         "abbreviation": "CW",
+         "displayValue": "3"
+        },
+        {
+         "name": "goalAssists",
+         "abbreviation": "A",
+         "displayValue": "0"
+        },
+        {
+         "name": "possessionPct",
+         "abbreviation": "PP",
+         "displayValue": "51.6"
+        },
+        {
+         "name": "shotAssists",
+         "abbreviation": "SHAST",
+         "displayValue": "6"
+        },
+        {
+         "name": "shotsOnTarget",
+         "abbreviation": "SOG",
+         "displayValue": "3"
+        },
+        {
+         "name": "totalGoals",
+         "abbreviation": "G",
+         "displayValue": "0"
+        },
+        {
+         "name": "totalShots",
+         "abbreviation": "SHOT",
+         "displayValue": "7"
+        }
+       ]
+      },
+      {
+       "id": "109",
+       "type": "team",
+       "order": 1,
+       "homeAway": "away",
+       "winner": false,
+       "form": "DLDWW",
+       "score": "0",
+       "team": {
+        "id": "109",
+        "abbreviation": "FIO",
+        "displayName": "Fiorentina",
+        "shortDisplayName": "Fiorentina",
+        "name": "Fiorentina",
+        "location": "Fiorentina",
+        "isActive": true
+       },
+       "statistics": [
+        {
+         "name": "appearances",
+         "abbreviation": "APP",
+         "displayValue": "0"
+        },
+        {
+         "name": "foulsCommitted",
+         "abbreviation": "FC",
+         "displayValue": "5"
+        },
+        {
+         "name": "wonCorners",
+         "abbreviation": "CW",
+         "displayValue": "0"
+        },
+        {
+         "name": "goalAssists",
+         "abbreviation": "A",
+         "displayValue": "0"
+        },
+        {
+         "name": "possessionPct",
+         "abbreviation": "PP",
+         "displayValue": "48.4"
+        },
+        {
+         "name": "shotAssists",
+         "abbreviation": "SHAST",
+         "displayValue": "1"
+        },
+        {
+         "name": "shotsOnTarget",
+         "abbreviation": "SOG",
+         "displayValue": "0"
+        },
+        {
+         "name": "totalGoals",
+         "abbreviation": "G",
+         "displayValue": "0"
+        },
+        {
+         "name": "totalShots",
+         "abbreviation": "SHOT",
+         "displayValue": "3"
+        }
+       ]
+      }
+     ],
+     "details": [],
+     "wasSuspended": false,
+     "playByPlayAvailable": true,
+     "playByPlayAthletes": true
+    }
+   ],
+   "status": {
+    "clock": 2580.0,
+    "displayClock": "43'",
+    "period": 1,
+    "type": {
+     "id": "25",
+     "name": "STATUS_FIRST_HALF",
+     "state": "in",
+     "completed": false,
+     "description": "First Half",
+     "detail": "43'",
+     "shortDetail": "43'"
+    }
+   }
+  },
+  {
+   "id": "401874972",
+   "date": "2026-10-25T14:00Z",
+   "name": "Frosinone at Atalanta",
+   "shortName": "FRO @ ATA",
+   "competitions": [
+    {
+     "id": "401874972",
+     "date": "2026-10-25T14:00Z",
+     "startDate": "2026-10-25T14:00Z",
+     "attendance": 0,
+     "timeValid": true,
+     "recent": false,
+     "status": {
+      "clock": 0.0,
+      "displayClock": "0'",
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sun, October 25th at 10:00 AM EDT",
+       "shortDetail": "Scheduled"
+      }
+     },
+     "altGameNote": "Serie A",
+     "competitors": [
+      {
+       "id": "105",
+       "type": "team",
+       "order": 0,
+       "homeAway": "home",
+       "winner": false,
+       "form": "DLWWL",
+       "score": "0",
+       "team": {
+        "id": "105",
+        "abbreviation": "ATA",
+        "displayName": "Atalanta",
+        "shortDisplayName": "Atalanta",
+        "name": "Atalanta",
+        "location": "Atalanta",
+        "isActive": true
+       },
+       "statistics": []
+      },
+      {
+       "id": "4057",
+       "type": "team",
+       "order": 1,
+       "homeAway": "away",
+       "winner": false,
+       "form": "DLWDW",
+       "score": "0",
+       "team": {
+        "id": "4057",
+        "abbreviation": "FRO",
+        "displayName": "Frosinone",
+        "shortDisplayName": "Frosinone",
+        "name": "Frosinone",
+        "location": "Frosinone",
+        "isActive": true
+       },
+       "statistics": []
+      }
+     ],
+     "details": [],
+     "wasSuspended": false,
+     "playByPlayAvailable": true,
+     "playByPlayAthletes": true
+    }
+   ],
+   "status": {
+    "clock": 0.0,
+    "displayClock": "0'",
+    "type": {
+     "id": "1",
+     "name": "STATUS_SCHEDULED",
+     "state": "pre",
+     "completed": false,
+     "description": "Scheduled",
+     "detail": "Sun, October 25th at 10:00 AM EDT",
+     "shortDetail": "Scheduled"
+    }
+   }
+  },
+  {
+   "id": "401874952",
+   "date": "2026-10-25T14:00Z",
+   "name": "Venezia at Genoa",
+   "shortName": "VEN @ GEN",
+   "competitions": [
+    {
+     "id": "401874952",
+     "date": "2026-10-25T14:00Z",
+     "startDate": "2026-10-25T14:00Z",
+     "attendance": 0,
+     "timeValid": true,
+     "recent": false,
+     "status": {
+      "clock": 0.0,
+      "displayClock": "0'",
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sun, October 25th at 10:00 AM EDT",
+       "shortDetail": "Scheduled"
+      }
+     },
+     "altGameNote": "Serie A",
+     "competitors": [
+      {
+       "id": "3263",
+       "type": "team",
+       "order": 0,
+       "homeAway": "home",
+       "winner": false,
+       "form": "DWLWD",
+       "score": "0",
+       "team": {
+        "id": "3263",
+        "abbreviation": "GEN",
+        "displayName": "Genoa",
+        "shortDisplayName": "Genoa",
+        "name": "Genoa",
+        "location": "Genoa",
+        "isActive": true
+       },
+       "statistics": []
+      },
+      {
+       "id": "17530",
+       "type": "team",
+       "order": 1,
+       "homeAway": "away",
+       "winner": false,
+       "form": "DLLLL",
+       "score": "0",
+       "team": {
+        "id": "17530",
+        "abbreviation": "VEN",
+        "displayName": "Venezia",
+        "shortDisplayName": "Venezia",
+        "name": "Venezia",
+        "location": "Venezia",
+        "isActive": true
+       },
+       "statistics": []
+      }
+     ],
+     "details": [],
+     "wasSuspended": false,
+     "playByPlayAvailable": true,
+     "playByPlayAthletes": true
+    }
+   ],
+   "status": {
+    "clock": 0.0,
+    "displayClock": "0'",
+    "type": {
+     "id": "1",
+     "name": "STATUS_SCHEDULED",
+     "state": "pre",
+     "completed": false,
+     "description": "Scheduled",
+     "detail": "Sun, October 25th at 10:00 AM EDT",
+     "shortDetail": "Scheduled"
+    }
+   }
+  },
+  {
+   "id": "401874772",
+   "date": "2026-10-25T17:00Z",
+   "name": "Juventus at Lecce",
+   "shortName": "JUV @ LEC",
+   "competitions": [
+    {
+     "id": "401874772",
+     "date": "2026-10-25T17:00Z",
+     "startDate": "2026-10-25T17:00Z",
+     "attendance": 0,
+     "timeValid": true,
+     "recent": false,
+     "status": {
+      "clock": 0.0,
+      "displayClock": "0'",
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sun, October 25th at 1:00 PM EDT",
+       "shortDetail": "Scheduled"
+      }
+     },
+     "altGameNote": "Serie A",
+     "competitors": [
+      {
+       "id": "113",
+       "type": "team",
+       "order": 0,
+       "homeAway": "home",
+       "winner": false,
+       "form": "DLLWL",
+       "score": "0",
+       "team": {
+        "id": "113",
+        "abbreviation": "LEC",
+        "displayName": "Lecce",
+        "shortDisplayName": "Lecce",
+        "name": "Lecce",
+        "location": "Lecce",
+        "isActive": true
+       },
+       "statistics": []
+      },
+      {
+       "id": "111",
+       "type": "team",
+       "order": 1,
+       "homeAway": "away",
+       "winner": false,
+       "form": "DLWDW",
+       "score": "0",
+       "team": {
+        "id": "111",
+        "abbreviation": "JUV",
+        "displayName": "Juventus",
+        "shortDisplayName": "Juventus",
+        "name": "Juventus",
+        "location": "Juventus",
+        "isActive": true
+       },
+       "statistics": []
+      }
+     ],
+     "details": [],
+     "wasSuspended": false,
+     "playByPlayAvailable": true,
+     "playByPlayAthletes": true
+    }
+   ],
+   "status": {
+    "clock": 0.0,
+    "displayClock": "0'",
+    "type": {
+     "id": "1",
+     "name": "STATUS_SCHEDULED",
+     "state": "pre",
+     "completed": false,
+     "description": "Scheduled",
+     "detail": "Sun, October 25th at 1:00 PM EDT",
+     "shortDetail": "Scheduled"
+    }
+   }
+  },
+  {
+   "id": "401874779",
+   "date": "2026-10-25T19:45Z",
+   "name": "AC Milan at Udinese",
+   "shortName": "MIL @ UDI",
+   "competitions": [
+    {
+     "id": "401874779",
+     "date": "2026-10-25T19:45Z",
+     "startDate": "2026-10-25T19:45Z",
+     "attendance": 0,
+     "timeValid": true,
+     "recent": false,
+     "status": {
+      "clock": 0.0,
+      "displayClock": "0'",
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sun, October 25th at 3:45 PM EDT",
+       "shortDetail": "Scheduled"
+      }
+     },
+     "altGameNote": "Serie A",
+     "competitors": [
+      {
+       "id": "118",
+       "type": "team",
+       "order": 0,
+       "homeAway": "home",
+       "winner": false,
+       "form": "DLLLL",
+       "score": "0",
+       "team": {
+        "id": "118",
+        "abbreviation": "UDI",
+        "displayName": "Udinese",
+        "shortDisplayName": "Udinese",
+        "name": "Udinese",
+        "location": "Udinese",
+        "isActive": true
+       },
+       "statistics": []
+      },
+      {
+       "id": "103",
+       "type": "team",
+       "order": 1,
+       "homeAway": "away",
+       "winner": false,
+       "form": "DWWDW",
+       "score": "0",
+       "team": {
+        "id": "103",
+        "abbreviation": "MIL",
+        "displayName": "AC Milan",
+        "shortDisplayName": "Milan",
+        "name": "AC Milan",
+        "location": "AC Milan",
+        "isActive": true
+       },
+       "statistics": []
+      }
+     ],
+     "details": [],
+     "wasSuspended": false,
+     "playByPlayAvailable": true,
+     "playByPlayAthletes": true
+    }
+   ],
+   "status": {
+    "clock": 0.0,
+    "displayClock": "0'",
+    "type": {
+     "id": "1",
+     "name": "STATUS_SCHEDULED",
+     "state": "pre",
+     "completed": false,
+     "description": "Scheduled",
+     "detail": "Sun, October 25th at 3:45 PM EDT",
+     "shortDetail": "Scheduled"
+    }
+   }
+  }
+ ]
+}

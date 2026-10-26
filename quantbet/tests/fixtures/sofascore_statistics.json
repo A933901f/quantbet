@@ -1,0 +1,14 @@
+{"statistics": [
+ {"period": "ALL", "groups": [
+  {"groupName": "Match overview", "statisticsItems": [
+   {"name": "Ball possession", "home": "62%", "away": "38%", "homeValue": 62, "awayValue": 38, "key": "ballPossession"},
+   {"name": "Expected goals", "home": "1.48", "away": "0.61", "homeValue": 1.48, "awayValue": 0.61, "key": "expectedGoals"},
+   {"name": "Corner kicks", "home": "7", "away": "2", "homeValue": 7, "awayValue": 2, "key": "cornerKicks"},
+   {"name": "Red cards", "home": "0", "away": "1", "homeValue": 0, "awayValue": 1, "key": "redCards"}]},
+  {"groupName": "Shots", "statisticsItems": [
+   {"name": "Shots on target", "home": "5", "away": "2", "homeValue": 5, "awayValue": 2, "key": "shotsOnGoal"},
+   {"name": "Shots inside box", "home": "11", "away": "3", "homeValue": 11, "awayValue": 3, "key": "totalShotsInsideBox"}]}]},
+ {"period": "1ST", "groups": [
+  {"groupName": "Match overview", "statisticsItems": [
+   {"name": "Corner kicks", "homeValue": 3, "awayValue": 1, "key": "cornerKicks"}]}]}
+]}

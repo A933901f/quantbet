@@ -1,0 +1,7 @@
+{"incidents": [
+ {"incidentType": "card", "incidentClass": "red", "isHome": false, "time": 55, "player": {"name": "Defender"}},
+ {"incidentType": "period", "text": "HT", "time": 45, "homeScore": 0, "awayScore": 1},
+ {"incidentType": "injuryTime", "length": 2, "time": 45},
+ {"incidentType": "card", "incidentClass": "yellow", "isHome": true, "time": 30},
+ {"incidentType": "goal", "incidentClass": "regular", "isHome": false, "time": 23, "homeScore": 0, "awayScore": 1}
+]}
