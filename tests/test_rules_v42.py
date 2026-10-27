@@ -140,7 +140,7 @@ def test_v42_freeze_supersedes_v41_and_v4(tmp_path):
 def test_cli_default_v42():
     from quantbet.config import Settings
     from quantbet.main import parse_args, settings_from_args
-    assert Settings(_env_file=None).alert_rules == "v4.2"
+    assert Settings(_env_file=None).alert_rules == "v4.3-global"
     ok = Settings(_env_file=None).model_copy(update={"telegram_bot_token": "x", "telegram_chat_id": "1"})
     s = settings_from_args(parse_args(["--live"]), ok)
-    assert s.alert_rules == "v4.2"
+    assert s.alert_rules == "v4.3-global"
