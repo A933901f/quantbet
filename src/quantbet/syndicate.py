@@ -56,6 +56,11 @@ new behaviour is a method that the base class answers with the v4.4 value):
 * a cross-family direction lock: once a match has an Over (or Under) alert in any family, the other
   direction in any family is dropped as ``match_direction_conflict`` (paper cards: see
   :meth:`SyndicateDeduplicator.check`);
+* Bet365 line availability (lines patch): Goals / Corners primaries are ``.5`` half-lines only
+  (``prefer_half_lines``; fair odds in ``half_line_fair_range`` 1.55-2.50, closest to 1.95, every other gate
+  unchanged); passing ``.0`` / ``.25`` / ``.75`` neighbours of the primary are attached as
+  ``extra["asian_alternatives"]`` (substitutes for the primary, never extra bets); cards only in TIER_1
+  majors (``cards_leagues``), nets 1.18 / 0.85, one ``.5`` line with fair odds 1.80-2.10;
 * Total Cards under the Bet365 1/2 rule (yellow 1, red 2, second-yellow dismissal 3 per player)
   priced with a Negative Binomial (pooled Football-Data over-dispersion), PAPER ONLY: logged and
   graded, tagged on Telegram, never counted against the 3-alert / 5% match caps, never a combo leg;
@@ -131,6 +136,40 @@ def syndicate_family(market: MarketType) -> str:
 def is_half_line(line: float) -> bool:
     """``x.5`` lines only (no push, no half-settlement)."""
     return abs((line * 2.0) % 2.0 - 1.0) < 1e-9
+
+
+def fmt_line(line: float) -> str:
+    """``10.0`` / ``10.25`` / ``10.5`` / ``10.75`` (whole lines keep one decimal, as Bet365 shows them)."""
+    t = f"{float(line):.2f}"
+    if t.endswith("00"):
+        return t[:-1]
+    return t[:-1] if t.endswith("0") else t
+
+
+def asian_settlement_note(line: float, selection: Selection | str, family: str) -> str:
+    """How a Bet365 Asian (``.0`` / ``.25`` / ``.75``) total settles, for the ``[ASIAN ALTERNATIVES]`` card line.
+
+    A quarter line splits the stake equally over the two neighbouring lines (``10.25`` = half on
+    ``10.0`` + half on ``10.5``; ``10.75`` = half on ``10.5`` + half on ``11.0``); a whole line refunds the
+    stake on exactly that total. Totals count regular time incl. stoppage (no extra time), as the audit
+    grades them.
+    """
+    sel = selection.value if isinstance(selection, Selection) else str(selection)
+    over = sel == "over"
+    unit = {"corners": "corners", "cards": "cards"}.get(family, "goals")
+    frac = round((float(line) % 1.0) * 4) / 4.0
+    if frac == 0.0:
+        n = int(round(line))
+        return f"whole line: exactly {n} {unit} -> stake refunded"
+    if frac == 0.5:
+        return "half line: no push"
+    if frac == 0.25:
+        w = int(round(line - 0.25))
+        res = "half stake lost, half refunded" if over else "half stake won, half refunded"
+    else:  # .75
+        w = int(round(line + 0.25))
+        res = "half stake won, half refunded" if over else "half stake lost, half refunded"
+    return f"quarter line ({fmt_line(line - 0.25)} + {fmt_line(line + 0.25)}): exactly {w} {unit} -> {res}"
 
 
 # ---------------------------------------------------------------------------
@@ -247,9 +286,26 @@ class SyndicateParams:
         """Minimum model/prior remaining-lambda multiplier for an Over of ``family``."""
         return self.over_min_net
 
-    def tier_allows(self, tier: str | None, family: str) -> bool:
-        """v4.4: every family in every tier."""
+    def tier_allows(self, tier: str | None, family: str, slug: str | None = None) -> bool:
+        """v4.4: every family in every tier (``slug`` is used by v4.5-sharp for the cards league list)."""
         return True
+
+    def tier_block_reason(self, tier: str | None, family: str) -> str:
+        """Trace text when :meth:`tier_allows` refuses a family."""
+        return "tier3_market_blocked (TIER_3 = Goals Over/Under only)"
+
+    def prefer_half(self) -> bool:
+        """Lines patch: Goals/Corners primaries must be ``.5`` half-lines (v4.4: any line)."""
+        return False
+
+    def primary_fair_window(self, family: str) -> tuple[float, float] | None:
+        """Fair-odds window replacing ``PricingConfig.fair_target_range`` for a family's primary line
+        (``None`` = the PricingConfig window, as in v4.4)."""
+        return None
+
+    def asian_alternatives_max(self) -> int:
+        """Lines patch: how many ``.0`` / ``.25`` / ``.75`` alternatives are attached (v4.4: none)."""
+        return 0
 
     def hygiene_block(self, slug: str | None, listed: bool, home: str, away: str) -> str | None:
         """v4.4: no league / team-name hygiene (the v4.3 registry and telemetry gate only)."""
@@ -357,6 +413,17 @@ class SharpParams(SyndicateParams):
     cards_default_cards90: float = 4.6  # used only when the priors file has no cards_bet365 block
     # 5. combos
     combo_require_gated_families: bool = True
+    # 6. Bet365 market availability (lines patch, re-frozen). The user reports (live testing, not verified
+    # by us - we never read Bet365) that in-play Total Cards are only reliably open in the TIER_1 majors and
+    # that only .5 Goals / Corners lines are always open (Asian .0/.25/.75 lines only when the Asian tab is).
+    allow_tier2_cards: bool = False
+    cards_leagues: tuple[str, ...] = ("eng.1", "esp.1", "ger.1", "ita.1", "fra.1", "uefa.champions", "uefa.europa")
+    cards_net_over: float = 1.18
+    cards_net_under: float = 0.85
+    cards_fair_odds_range: tuple[float, float] = (1.80, 2.10)  # the single .5 main card line, closest to 1.95
+    prefer_half_lines: bool = True
+    half_line_fair_range: tuple[float, float] = (1.55, 2.50)  # .5 Goals/Corners primaries, closest to 1.95
+    asian_alternatives_n: int = 3
 
     def version(self) -> str:
         return SHARP_VERSION
@@ -367,14 +434,33 @@ class SharpParams(SyndicateParams):
     def over_net_min(self, family: str) -> float:
         return self.over_min_net_corners if family == "corners" else self.over_min_net_goals
 
-    def tier_allows(self, tier: str | None, family: str) -> bool:
-        if (tier or "TIER_3") != "TIER_3":
+    def tier_allows(self, tier: str | None, family: str, slug: str | None = None) -> bool:
+        t = tier or "TIER_3"
+        if family == "cards":  # lines patch: TIER_1 majors only (TIER_2 / TIER_3 only when explicitly allowed)
+            if t == "TIER_1":
+                return (slug or "").lower() in self.cards_leagues
+            return self.allow_tier2_cards if t == "TIER_2" else self.allow_tier3_cards
+        if t != "TIER_3":
             return True
         if family == "corners":
             return self.allow_tier3_corners
-        if family == "cards":
-            return self.allow_tier3_cards
         return True
+
+    def tier_block_reason(self, tier: str | None, family: str) -> str:
+        if family == "cards":
+            return "cards_league_blocked (Bet365 live Total Cards: TIER_1 majors only)"
+        return "tier3_market_blocked (TIER_3 = Goals Over/Under only)"
+
+    def prefer_half(self) -> bool:
+        return self.prefer_half_lines
+
+    def primary_fair_window(self, family: str) -> tuple[float, float] | None:
+        if family == "cards":
+            return self.cards_fair_odds_range
+        return self.half_line_fair_range if self.prefer_half_lines else None
+
+    def asian_alternatives_max(self) -> int:
+        return self.asian_alternatives_n if self.prefer_half_lines else 0
 
     def hygiene_block(self, slug: str | None, listed: bool, home: str, away: str) -> str | None:
         if self.block_unmapped_leagues and (not slug or slug.startswith(self.unmapped_prefix) or not listed):
@@ -506,6 +592,10 @@ def price_from_settlement(market: MarketType, selection: Selection, line: float,
                    _ceil2(sp.min_acceptable_odds(cfg.abort_edge)), cfg.target_edge, cfg.abort_edge)
     lp.tiers = build_stake_tiers(sp, lp.min_odds, cfg, sizer)
     return lp
+
+
+# Bet365 names of the always-open .5 line markets (user-supplied convention, not read from Bet365).
+BET365_HALF_LINE_MARKET = {"goals": "Match Goals", "corners": "2-Way Corners"}
 
 
 def boost_required_odds(o_min: float, boost_pct: float = 0.25) -> float:
@@ -1041,7 +1131,8 @@ def evaluate_combo(legs: Sequence[Mapping[str, Any]], rho_table: Mapping[str, fl
 # ---------------------------------------------------------------------------
 # De-duplication (per match x family)
 # ---------------------------------------------------------------------------
-def combo_leg_selection(sp: SyndicateParams, family: str, net: float, tier: str | None) -> Selection | None:
+def combo_leg_selection(sp: SyndicateParams, family: str, net: float, tier: str | None,
+                        slug: str | None = None) -> Selection | None:
     """Direction of the extra combo leg for ``family`` (``None`` = no leg).
 
     v4.4: Over if the family's net multiplier >= 1 else Under (always a leg). v4.5-sharp
@@ -1051,7 +1142,7 @@ def combo_leg_selection(sp: SyndicateParams, family: str, net: float, tier: str 
     """
     if not sp.combo_gated():
         return Selection.OVER if net >= 1.0 else Selection.UNDER
-    if (family == "cards" and sp.cards_paper()) or not sp.tier_allows(tier, family):
+    if (family == "cards" and sp.cards_paper()) or not sp.tier_allows(tier, family, slug):
         return None
     o_min = sp.cards_net_over if family == "cards" else sp.over_net_min(family)
     u_max = sp.cards_net_under if family == "cards" else sp.under_max_net
@@ -1327,6 +1418,8 @@ class SyndicateSignalEngine(GlobalSignalEngine):
         tlo, thi = cfg.fair_target_range
         lo, hi = cfg.alert_fair_odds_range
         pools: dict[str, list[tuple[float, LinePrice, float | None, float | None]]] = {}
+        half_pref = sp.prefer_half()
+        alt_ok: dict[tuple[Any, Any], dict[int, LinePrice]] = {}  # (market, selection) -> {4 x line: LinePrice}
 
         def consider(lp: LinePrice, fam: str, pf: float | None, net: float, evr: float | None) -> None:
             k = (lp.market, lp.line, lp.selection)
@@ -1334,8 +1427,8 @@ class SyndicateSignalEngine(GlobalSignalEngine):
             if key in self.blowout and over:
                 trace[k] = "blowout"
                 return
-            if not sp.tier_allows(tier, fam):
-                trace[k] = "tier3_market_blocked (TIER_3 = Goals Over/Under only)"
+            if not sp.tier_allows(tier, fam, slug):
+                trace[k] = sp.tier_block_reason(tier, fam)
                 return
             if fam == "cards":
                 if over and net < sp.cards_net_over:
@@ -1399,8 +1492,18 @@ class SyndicateSignalEngine(GlobalSignalEngine):
             if cfg.drop_negative_reference_ev and evr is not None and evr < 0:
                 trace[k] = "neg_ref_ev"
                 return
-            if not (tlo <= lp.fair_odds <= thi):
-                trace[k] = "fair_target_range"
+            if half_pref and fam != "cards":
+                # every gate above passed: usable as an [ASIAN ALTERNATIVE] of a .5 primary of this direction
+                alt_ok.setdefault((lp.market, lp.selection), {})[round(lp.line * 4)] = lp
+                if not is_half_line(lp.line):
+                    trace[k] = "asian_line: not a .5 primary (alternative only)"
+                    return
+            if fam == "cards" and sp.primary_fair_window("cards") is not None and not is_half_line(lp.line):
+                trace[k] = "cards: .5 lines only"
+                return
+            wlo, whi = sp.primary_fair_window(fam) or (tlo, thi)
+            if not (wlo <= lp.fair_odds <= whi):
+                trace[k] = "fair_target_range" if (wlo, whi) == (tlo, thi) else "primary_fair_window %.2f-%.2f" % (wlo, whi)
                 return
             trace[k] = "not_best"
             pools.setdefault(fam, []).append((-abs(lp.fair_odds - cfg.fair_target), lp, pf, evr))
@@ -1461,6 +1564,11 @@ class SyndicateSignalEngine(GlobalSignalEngine):
                 if fam != "cards":
                     sig.extra["syndicate"]["lift_cap"] = sp.lift_cap(fam)
             sig.extra["boost_target"] = self._boost_target(lp, pf, margin)
+            if half_pref and fam != "cards":
+                sig.extra["bet365_market"] = BET365_HALF_LINE_MARKET.get(fam)
+                alts = self._asian_alternatives(lp, fam, alt_ok.get((lp.market, lp.selection), {}))
+                if alts:
+                    sig.extra["asian_alternatives"] = alts
             sig.extra["dedup"] = {"syndicate": True, "family": fam, "selection": lp.selection.value, "line": lp.line,
                                   "p": round(lp.p_true, 5), "stake": stake, "minute": state.minute,
                                   "reason": "first" if last is None else "material_change"}
@@ -1476,7 +1584,7 @@ class SyndicateSignalEngine(GlobalSignalEngine):
                 sig.extra["fotmob_required"] = "dominance"
                 sig.extra["dominant_side"] = fc[0] if fc else ("home" if mh >= ma else "away")
             if sp.combo_enabled and not paper:
-                combos = self._combos(key, lp, fam, lift, card_res, card_prices, prices, tier, stake + pend_stake)
+                combos = self._combos(key, lp, fam, lift, card_res, card_prices, prices, tier, stake + pend_stake, slug)
                 if combos:
                     sig.extra["combos"] = combos
             trace[k] = "emitted"
@@ -1488,6 +1596,28 @@ class SyndicateSignalEngine(GlobalSignalEngine):
                 pend_n += 1
             signals.append(sig)
         return signals
+
+    def _asian_alternatives(self, lp: LinePrice, fam: str, ok: Mapping[int, LinePrice]) -> list[dict[str, Any]]:
+        """Up to ``asian_alternatives_max()`` Asian lines next to the ``.5`` primary ``lp`` (same market and
+        direction) that passed every gate of the primary except the primary fair-odds window:
+        ``line - 0.25``, the whole line (``line -/+ 0.50``, the one with fair odds closest to the target) and
+        ``line + 0.25``. They are SUBSTITUTES for the primary when Bet365's Asian tab is open - one bet per
+        family, never in addition; the stake shown is that line's own first-tier stake."""
+        n = self.sp.asian_alternatives_max()
+        if n <= 0 or not ok:
+            return []
+        q = round(lp.line * 4)
+        wholes = [ok[w] for w in (q - 2, q + 2) if w in ok]
+        whole = min(wholes, key=lambda x: (abs(x.fair_odds - self.pricing.fair_target), x.line)) if wholes else None
+        out = []
+        for alt in (ok.get(q - 1), whole, ok.get(q + 1)):
+            if alt is None or not alt.tiers or len(out) >= n:
+                continue
+            out.append({"line": alt.line, "selection": alt.selection.value,
+                        "settlement_note": asian_settlement_note(alt.line, alt.selection, fam),
+                        "fair_odds": round(alt.fair_odds, 4), "min_odds": alt.min_odds, "abort_floor": alt.abort_floor,
+                        "first_tier_stake": alt.tiers[0].stake})
+        return out
 
     def _p_of(self, key: str, market: MarketType, line: float, sel: Selection) -> float | None:
         for lp in self.last_prices.get(key, []):
@@ -1512,7 +1642,7 @@ class SyndicateSignalEngine(GlobalSignalEngine):
 
     def _combos(self, key: str, lp: LinePrice, fam: str, lift: Mapping[str, Any], card_res: CardsModelResult | None,
                 card_prices: list[tuple[LinePrice, float]], prices: list[LinePrice], tier: str,
-                committed_here: float) -> list[dict[str, Any]]:
+                committed_here: float, slug: str | None = None) -> list[dict[str, Any]]:
         """Informational same-match builder: the alert leg (nearest half line) + best leg of each other family."""
         sp = self.sp
         flo, fhi = sp.combo_leg_fair_range
@@ -1532,7 +1662,7 @@ class SyndicateSignalEngine(GlobalSignalEngine):
             if other == fam or not fam_prices[other]:
                 continue
             net = card_res.net if (other == "cards" and card_res) else (lift.get(other) or {}).get("net", 1.0)
-            sel = combo_leg_selection(sp, other, net, tier)
+            sel = combo_leg_selection(sp, other, net, tier, slug)
             if sel is None:
                 continue
             leg = pick(fam_prices[other], sel)
@@ -1560,7 +1690,7 @@ class SyndicateSignalEngine(GlobalSignalEngine):
 
 __all__ = [
     "SYNDICATE_VERSION", "SHARP_VERSION", "FAMILIES", "DEFAULT_PRIORS_PATH", "is_syndicate", "is_sharp",
-    "syndicate_family", "is_half_line", "SyndicateParams", "SharpParams", "youth_reserve_hit", "load_priors",
+    "syndicate_family", "is_half_line", "fmt_line", "asian_settlement_note", "BET365_HALF_LINE_MARKET", "SyndicateParams", "SharpParams", "youth_reserve_hit", "load_priors",
     "priors_frozen_view", "sharp_priors_frozen_view", "syndicate_params_dict", "poisson_total_settlement",
     "negbin_total_settlement", "price_from_settlement", "boost_required_odds", "MomentumReading", "MomentumView",
     "is_knockout", "SustainedMomentumTracker", "CardsInputs", "CardsModelResult", "team_card_points", "cards_inputs", "combo_leg_selection",

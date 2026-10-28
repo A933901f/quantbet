@@ -190,6 +190,11 @@ workflow choice).
 | cards distribution | `cards_distribution` | NegBin, pooled r | Poisson |
 | `cards_paper_only` | `cards_paper_only` (`cards_paper()`) | True | False |
 | combo gating | `combo_require_gated_families` (`combo_gated()`) | True | False |
+| cards leagues (lines patch) | `cards_leagues`, `allow_tier2_cards` / `allow_tier3_cards` (`tier_allows(tier, family, slug)`) | TIER_1 and slug in eng.1, esp.1, ger.1, ita.1, fra.1, uefa.champions, uefa.europa; TIER_2 / TIER_3 off (`cards_league_blocked`) | every tier |
+| cards nets (lines patch) | `cards_net_over` / `cards_net_under` | 1.18 / 0.85 | 1.10 / 0.90 |
+| card line (lines patch) | `cards_fair_odds_range` (`primary_fair_window("cards")`) | one `.5` line, 1.80 ≤ fair ≤ 2.10, closest to 1.95 | `fair_target_range` 1.75-2.20 |
+| `.5` primaries (lines patch) | `prefer_half_lines`, `half_line_fair_range` (`prefer_half()`, `primary_fair_window()`) | Goals / Corners primary is always a `.5` line, 1.55 ≤ fair ≤ 2.50, closest to 1.95 | any line (quarter lines too), 1.75-2.20 |
+| Asian alternatives (lines patch) | `asian_alternatives_n` (`asian_alternatives_max()`) | up to 3 (`.25` either side, one whole line) | none |
 
 * **League hygiene** - only slugs in `config/leagues.json` may alert. Any `espn.*` / unlisted slug gets the trace
   `unmapped_league_blocked` and NO alerts at all (base-engine signals included). Youth or reserve sides are blocked
@@ -232,8 +237,10 @@ workflow choice).
     r → ∞ gives the Poisson.
   * **PAPER ONLY - UNCALIBRATED**: cards signals are logged to SQLite and graded by `scripts/audit_run.py` as
     Bet365 Total Cards (regular time, per player). They are tagged `[PAPER ONLY - UNCALIBRATED]` and show no stake
-    ladder. They never use the 3-alert / 5% match cap and are never combo legs. TIER_3 cards are blocked. Keep
-    this until 50 live games with foul telemetry have been graded.
+    ladder. They never use the 3-alert / 5% match cap and are never combo legs. Since the lines patch they are
+    **stored but not sent to Telegram** (`QB_SEND_PAPER_ALERTS=false`), and only the seven TIER_1 majors in
+    `cards_leagues` can produce them (usa.1 / bra.1 and every TIER_2 / TIER_3 league: `cards_league_blocked`).
+    Keep this until 50 live games with foul telemetry have been graded.
 * **Combos** - `[BET BUILDER / 3-WAY COMBO]` gets a leg from another family only when that family independently
   passes its directional net gate: Over net ≥ its `over_net_min`, or Under net ≤ `under_max_net`.
 * **Corner dispersion** - r = 65.0 with a 200-minute prior, from the Football-Data full-time within-division fit
@@ -242,11 +249,61 @@ workflow choice).
   `by_market_replay`, `by_tier_replay`, `decision_counts`). The 27-Oct replay is **in-sample** because the
   thresholds were picked after seeing that run. Treat it as an implementation check, not validation.
 
+### Lines patch: only lines Bet365 shows (re-frozen `3e1ccaa0…5368`)
+
+Live testing showed two problems: `[PAPER ONLY]` cards flooding Telegram, and primaries on `.0 / .25 / .75`
+Asian lines when (per your live observation) Bet365 in-play reliably shows only `.5` lines. This patch re-freezes
+v4.5-sharp: `3e1ccaa0a84e1b067884bd84fb3e6d0faa0e840cbea65d3d7c6ab7d160ee5368`. The previous freeze `20e12b59…6fdb` is kept
+under `superseded`. The v4.2, v4.3-global and v4.4-syndicate hashes are unchanged.
+
+1. **Paper alerts are not sent.** `QB_SEND_PAPER_ALERTS` (`Settings.send_paper_alerts`, default `false`; set to
+   `"false"` in the workflow and `.env.example`). Every signal is still written to the alerts DB (`emit()`), but
+   `main.notify_signal()` (the only call to `notifier.send_signal` in `main.py`, used by both `emit()` and
+   `consume()`) skips `extra.paper_only` signals and logs `paper signal not sent (QB_SEND_PAPER_ALERTS=false)`.
+   Set it to `true` only if you want to see paper cards again.
+2. **Cards.** Only TIER_1 matches in `cards_leagues` (eng.1, esp.1, ger.1, ita.1, fra.1, uefa.champions,
+   uefa.europa). Nets 1.18 (Over) / 0.85 (Under). One `.5` line with 1.80 ≤ fair ≤ 2.10, closest to 1.95.
+   Cards stay paper-only.
+3. **`.5` primaries.** For Goals and Corners every line is priced and gated as before. A line that passes every
+   gate but is not `.5` gets `asian_line: not a .5 primary (alternative only)` and can only be an alternative. The
+   primary is the `.5` line with 1.55 ≤ fair ≤ 2.50 closest to 1.95 (`primary_fair_window 1.55-2.50` otherwise).
+   If only a quarter / whole line passes, there is no alert. The card label names the Bet365 market:
+   `Over 10.5 Corners - Bet365 2-Way Corners`, `Over 2.5 Goals - Bet365 Match Goals`. Combos and the boost target
+   use the `.5` primary.
+4. **`[ASIAN ALTERNATIVES]`** (`extra.asian_alternatives`, up to 3): `line - 0.25`, one whole line (`line ± 0.5`,
+   the one with fair odds nearer 1.95) and `line + 0.25`, same market and direction. Each passed every gate of
+   the primary (net / lift / momentum / tier hurdle, so its minimum odds already include the EV hurdle) except
+   the `.5` fair window, and lies inside `alert_fair_odds_range` 1.50-3.20. One line under the stake ladder:
+   ```
+   🔀 [ASIAN ALTERNATIVES] (if Asian tab is open): Over 10.25 ≥ 1.88 (€25) | Over 10.0 ≥ 1.76 (€30) | Over 10.75 ≥ 2.12 (€20)
+   ↳ bet ONE of these instead of the .5 line above, never in addition (same family, same match cap) | 10.25: quarter line ...
+   ```
+   The amount is that line's own first-tier stake. They are **substitutes**: one bet per card. Unders are `.5`
+   only (`unders_half_lines_only`), so Under cards never show alternatives.
+   * Settlement (90 minutes + stoppage time, as Bet365 Asian lines): whole line `Over 10.0`: exactly 10 → stake
+     refunded. Quarter `Over 10.25` = half on 10.0 + half on 10.5: exactly 10 → half stake lost, half refunded.
+     Quarter `Over 10.75` = half on 10.5 + half on 11.0: exactly 11 → half stake won, half refunded. Unders mirror
+     this.
+
+**27-Oct replay (in-sample, consistency check only):**
+
+| | before (20e12b59) | after (3e1ccaa0) | ablation: `.5` window 1.75-2.20 |
+|---|---|---|---|
+| alerts | 14 | 13 | 11 |
+| record | 6 W, 2 HW, 6 L | 7 W, 6 L | 5 W, 6 L |
+| flat | +1.055u | +1.030u | -0.910u |
+| staked / P&L | 295 / +42.82 | 335 / +11.00 | 245 / -15.45 |
+| Brier | 0.2615 | 0.2633 | 0.2492 |
+
+Nine of the 14 earlier alerts moved to the neighbouring `.5` line, three were already `.5`, two dropped (Oxford
+O2.0, MK Dons O4.0: no `.5` line passed) and one is new (Recreativo O2.5 at fair 1.56, admitted by the wider
+1.55-2.50 window). The 27-Oct log has no foul / yellow telemetry, so the cards changes cannot be replayed.
+
 ## Forward-run operating guide (v4.5-sharp, 2-week forward run)
 
-The v4.5-sharp parameters stay frozen (`20e12b59…6fdb`). The four changes below are runtime plumbing only and
-leave every model threshold and frozen value alone. The 27-Oct replay is unchanged: 14 alerts, flat +1.055u,
-+42.82 on 295 staked, Brier 0.2615.
+The four changes below are runtime plumbing only and left every model threshold and frozen value alone
+(`20e12b59…6fdb` at the time: 14 alerts, flat +1.055u, +42.82 on 295 staked, Brier 0.2615). The later lines patch
+(above) re-froze v4.5-sharp as `3e1ccaa0…5368`.
 
 ### 1. Paper-only cards are never staked
 
@@ -373,7 +430,11 @@ python scripts/audit_run.py --log logs/live_<run_id>.log --alerts-db data/quantb
 1. Keep `QB_ALERT_RULES=v4.5-sharp`. The pre-flight pytest checks the frozen hash on every run.
 2. Check that each run log shows `dedup hydrated from alerts DB` (0 rows on the very first run is normal) and
    `checkpointed data/quantbet.sqlite3`.
-3. Record every staked card, filled or skipped, within the day. Leave paper cards alone.
+3. Record every staked card, filled or skipped, within the day. Paper cards are not sent any more
+   (`QB_SEND_PAPER_ALERTS=false`); they are still in the alerts DB and graded by `audit_run.py`. If you take an
+   `[ASIAN ALTERNATIVES]` line instead of the `.5` primary, record its line in the reason (`record_fill.py <id> --odds 1.90
+   --reason "asian 10.25"`, or the CSV `fill_reason`). The audit grades the card's `.5` primary, so realized P&L
+   for such a fill is approximate.
 4. Once a week, download the latest artifact and run `audit_run.py --fills --summary-db`. Compare realized
    with theoretical and watch the fill rate. Do not change thresholds during the 2 weeks.
 

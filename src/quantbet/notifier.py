@@ -49,6 +49,31 @@ def settlement_note(sp: list[float] | tuple[float, ...]) -> str:
     return "half line"
 
 
+def _fmt_line(line: float) -> str:
+    """``10.0`` / ``10.25`` / ``10.5`` / ``10.75`` (same as quantbet.syndicate.fmt_line)."""
+    t = f"{float(line):.2f}"
+    if t.endswith("00"):
+        return t[:-1]
+    return t[:-1] if t.endswith("0") else t
+
+
+def asian_alternatives_lines(alts: list[dict], currency: str) -> list[str]:  # type: ignore[type-arg]
+    """Lines patch: the compact ``[ASIAN ALTERNATIVES]`` block shown under the stake ladder.
+
+    ``🔀 [ASIAN ALTERNATIVES] (if Asian tab is open): Over 10.25 ≥ 1.88 (€25) | Over 10.0 ≥ 1.76 (€30) | ...``
+    plus one short line saying they replace the main bet and how quarter / whole lines settle.
+    Empty list when there are no alternatives.
+    """
+    if not alts:
+        return []
+    parts = [f"{str(a['selection']).capitalize()} {_fmt_line(a['line'])} ≥ {float(a['min_odds']):.2f} "
+             f"({money(float(a['first_tier_stake']), currency)})" for a in alts]
+    notes = "; ".join(f"{_fmt_line(a['line'])}: {a['settlement_note']}" for a in alts if a.get("settlement_note"))
+    return ["🔀 [ASIAN ALTERNATIVES] (if Asian tab is open): " + html.escape(" | ".join(parts)),
+            "↳ bet ONE of these <b>instead of</b> the .5 line above, never in addition (same family, same match cap)"
+            + (f" | {html.escape(notes)}" if notes else "")]
+
+
 def _tier_line(lines: list[str], s: Signal) -> None:
     """v4.3-global: ``[LIQUIDITY: TIER 3 - SMALL LEAGUE]`` (and tier 1/2) under the header, then
     ``[PROBATION: n/150]`` when ``extra["probation"]`` is set; no-op otherwise."""
@@ -140,6 +165,8 @@ def format_min_odds_signal(s: Signal) -> str:
     label = s.describe_market()
     if (x.get("cards_model") or {}).get("rule") == "bet365" and label.endswith(" Cards"):
         label = label[: -len(" Cards")] + " Total Cards"  # v4.5: Bet365 "Total Cards" (Y=1, R=2)
+    if x.get("bet365_market"):  # lines patch: the always-open Bet365 .5 market ("Match Goals" / "2-Way Corners")
+        label += f" - Bet365 {x['bet365_market']}"
     lines.append(f"🎯 <b>{e(label)}</b>" + (f"  ({e(settlement_note(x['settlement']))})" if x.get("settlement") else ""))
     lines.append(f"⚖️ Fair Odds: <b>{s.fair_odds:.2f}</b>  (p={s.p_true:.3f})")
     if paper:
@@ -151,6 +178,7 @@ def format_min_odds_signal(s: Signal) -> str:
         tiers = x.get("tiers") or []
         if tiers:
             lines.append("🧮 " + e(format_tier_line(tiers, s.currency)))
+        lines.extend(asian_alternatives_lines(x.get("asian_alternatives") or [], s.currency))
     lift = x.get("lift")
     if lift and lift.get("prior_fair"):
         lines.append(f"📈 Prior fair {lift['prior_fair']:.2f} -> model {s.fair_odds:.2f} "

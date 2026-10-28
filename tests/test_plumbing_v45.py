@@ -30,7 +30,8 @@ from quantbet.syndicate import SharpParams, SyndicateDeduplicator, mark_paper_on
 ROOT = Path(__file__).resolve().parents[1]
 FIX = ROOT / "tests" / "fixtures"
 SH = SharpParams()
-V45_HASH = "20e12b5951ed5e8dafa2076a243d5721aca24a221e56caf3266cecb846eb6fdb"
+# the plumbing patch left 20e12b59... untouched; the later lines patch re-froze v4.5-sharp (test_lines_v45.py)
+V45_HASH = "3e1ccaa0a84e1b067884bd84fb3e6d0faa0e840cbea65d3d7c6ab7d160ee5368"
 
 
 def run(coro):  # noqa: ANN001, ANN201

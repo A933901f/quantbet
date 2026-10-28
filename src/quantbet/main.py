@@ -21,7 +21,7 @@ import aiohttp
 from .config import Settings, get_settings
 from .database import AlertDatabase
 from .engine import EngineConfig, FreeSignalEngine, LiveModelParams, PricingConfig, RatingsResolver, SignalEngine
-from .models import MarketKey, MarketType, Selection
+from .models import MarketKey, MarketType, Selection, Signal
 from .notifier import TelegramNotifier
 from .poller import (
     APIFootballAdapter,
@@ -84,7 +84,23 @@ def build_adapters(s: Settings, session: aiohttp.ClientSession, matcher: EventMa
     return adapters, odds_io
 
 
-async def consume(queue: asyncio.Queue[PollerMessage], engine: SignalEngine, risk: RiskManager, db: AlertDatabase, notifier: TelegramNotifier, stop: asyncio.Event) -> None:
+def is_paper_signal(sig: Signal) -> bool:
+    """``[PAPER ONLY]`` signals (v4.5 Total Cards): logged and graded, never a bet."""
+    return bool((sig.extra or {}).get("paper_only"))
+
+
+async def notify_signal(notifier: TelegramNotifier, sig: Signal, send_paper: bool = False) -> bool:
+    """The only place a signal card goes to Telegram. Paper-only signals are skipped unless
+    ``send_paper`` (``QB_SEND_PAPER_ALERTS``); returns whether the card was sent."""
+    if is_paper_signal(sig) and not send_paper:
+        log.info("paper signal not sent (QB_SEND_PAPER_ALERTS=false)", extra={"id": sig.signal_id,
+                                                                            "market": sig.describe_market()})
+        return False
+    await notifier.send_signal(sig)
+    return True
+
+
+async def consume(queue: asyncio.Queue[PollerMessage], engine: SignalEngine, risk: RiskManager, db: AlertDatabase, notifier: TelegramNotifier, stop: asyncio.Event, send_paper: bool = False) -> None:
     """Engine loop: evaluate every queued batch, size, log and notify."""
     while not stop.is_set():
         try:
@@ -101,8 +117,8 @@ async def consume(queue: asyncio.Queue[PollerMessage], engine: SignalEngine, ris
             signals = engine.process(msg.odds)
         for sig in risk.size_all(signals):
             await db.insert_signal(sig)
-            await notifier.send_signal(sig)
-            log.info("signal", extra={"id": sig.signal_id, "urgency": sig.urgency.value, "market": sig.describe_market(), "odds": sig.bookmaker_odds, "ev": round(sig.ev, 4), "stake": sig.stake_currency})
+            sent = await notify_signal(notifier, sig, send_paper)
+            log.info("signal", extra={"id": sig.signal_id, "urgency": sig.urgency.value, "market": sig.describe_market(), "odds": sig.bookmaker_odds, "ev": round(sig.ev, 4), "stake": sig.stake_currency, "sent": sent})
         log.debug("batch evaluated", extra={"provider": msg.provider, "ms": round((time.perf_counter() - t0) * 1000, 2)})
         queue.task_done()
 
@@ -235,15 +251,18 @@ def build_risk(s: Settings) -> RiskManager:
     ))
 
 
-async def emit(signals: list, risk: RiskManager, db: AlertDatabase, notifier: TelegramNotifier) -> int:  # type: ignore[type-arg]
-    """Size, persist and notify; returns the number sent."""
+async def emit(signals: list, risk: RiskManager, db: AlertDatabase, notifier: TelegramNotifier,  # type: ignore[type-arg]
+               send_paper: bool = False) -> int:
+    """Size, persist (always, paper included) and notify; returns the number sent to Telegram.
+    Paper-only signals are sent only when ``send_paper`` (``Settings.send_paper_alerts``)."""
     n = 0
     for sig in risk.size_all(signals):
         await db.insert_signal(sig)
-        await notifier.send_signal(sig)
-        n += 1
+        sent = await notify_signal(notifier, sig, send_paper)
+        n += int(sent)
         log.info("signal", extra={"id": sig.signal_id, "urgency": sig.urgency.value, "market": sig.describe_market(),
-                                  "odds": sig.bookmaker_odds, "ev": round(sig.ev, 4), "stake": sig.stake_currency})
+                                  "odds": sig.bookmaker_odds, "ev": round(sig.ev, 4), "stake": sig.stake_currency,
+                                  "sent": sent})
     return n
 
 
@@ -462,7 +481,7 @@ async def run_free(s: Settings, stop: asyncio.Event, max_runtime_s: float | None
                 snaps = await odds_src.fetch_event_odds(st.source_event_id, st.event_key, st.home, st.away,  # type: ignore[attr-defined]
                                                         st.league, st.commence_time, True)  # type: ignore[attr-defined]
                 sigs += free.on_odds(snaps)
-            await emit(sigs, risk, db, notifier)
+            await emit(sigs, risk, db, notifier, s.send_paper_alerts)
             if hooks is not None and sigs and hasattr(hooks, "on_alerts"):
                 await hooks.on_alerts(sigs, st)  # type: ignore[attr-defined]
 
@@ -579,7 +598,7 @@ async def run(settings: Settings | None = None) -> None:
             return
         tasks = [
             asyncio.create_task(Poller(adapters, matcher, queue, stop).run(), name="poller"),
-            asyncio.create_task(consume(queue, engine, risk, db, notifier, stop), name="engine"),
+            asyncio.create_task(consume(queue, engine, risk, db, notifier, stop, s.send_paper_alerts), name="engine"),
             asyncio.create_task(closing_line_job(engine, db, stop), name="clv"),
         ]
         if s.enable_odds_api_io_ws and odds_io and s.odds_api_io_key:

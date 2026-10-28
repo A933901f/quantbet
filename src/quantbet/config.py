@@ -60,6 +60,9 @@ class Settings(BaseSettings):
     espn_prekick_refresh_min: float = 10.0  # one late pre-match refresh inside the last 10 min (0 = off)
     # plumbing: rebuild the syndicate dedup / match caps from the alerts DB on start-up (3 h back)
     dedup_hydrate_lookback_s: float = 10800.0
+    # lines patch: [PAPER ONLY] signals (v4.5 Total Cards) are always written to the alerts DB for offline
+    # grading but are NOT sent to Telegram unless this is true (QB_SEND_PAPER_ALERTS=true)
+    send_paper_alerts: bool = False
     espn_use_summary: bool = True
     espn_use_pickcenter_prior: bool = True  # DraftKings pre-match lines on ESPN as a ratings prior
     synthetic_momentum: bool = True  # DeltaTracker momentum when no graph momentum exists

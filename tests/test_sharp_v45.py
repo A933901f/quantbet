@@ -169,7 +169,9 @@ def test_youth_team_blocks_even_in_mapped_league():
 def test_tier3_is_goals_over_under_only():
     assert SH.tier_allows("TIER_3", "goals") and not SH.tier_allows("TIER_3", "corners")
     assert not SH.tier_allows("TIER_3", "cards") and SH.tier_allows("TIER_2", "corners")
-    assert SH.tier_allows("TIER_1", "cards") and SyndicateParams().tier_allows("TIER_3", "corners")
+    # lines patch: TIER_1 cards need a listed major (cards_leagues); see tests/test_lines_v45.py
+    assert SH.tier_allows("TIER_1", "cards", "eng.1") and not SH.tier_allows("TIER_1", "cards")
+    assert SyndicateParams().tier_allows("TIER_3", "corners")
     eng = _engine()
     _drive(eng, "t3", range(20, 41), rate=2.0, slug="eng.3", league="League One")
     tr = eng.last_trace["t3"]
@@ -530,7 +532,9 @@ def test_v45_freeze_tamper_raises(tmp_path):
 # ---------------------------------------------------------------------------
 # v4.5 final patch
 # ---------------------------------------------------------------------------
-V45_HASH = "20e12b5951ed5e8dafa2076a243d5721aca24a221e56caf3266cecb846eb6fdb"
+# lines patch re-freeze (Bet365 line availability); the final-patch freeze 20e12b59... is in "superseded"
+V45_HASH = "3e1ccaa0a84e1b067884bd84fb3e6d0faa0e840cbea65d3d7c6ab7d160ee5368"
+V45_PATCH_HASH = "20e12b5951ed5e8dafa2076a243d5721aca24a221e56caf3266cecb846eb6fdb"
 
 
 def test_patch_freeze_hash_and_frozen_values():
@@ -541,6 +545,7 @@ def test_patch_freeze_hash_and_frozen_values():
     assert [list(w) for w in fs["pricing"]["minute_windows"]] == [[30.0, 43.0], [55.0, 85.0]]
     sp = fs["global"]["syndicate"]["params"]
     assert fs["superseded"][0]["sha256"].startswith("99e2bc1f")  # the pre-patch v4.5 freeze, recorded
+    assert fs["superseded"][1]["sha256"] == V45_PATCH_HASH  # the final-patch freeze, before the lines patch
     assert sp["sustained_over_index"] == 1.35 and sp["max_momentum_index"] == 2.90
     assert sp["max_lift_goals"] == 0.28 and sp["max_lift_corners"] == 0.35
     assert sp["stall2_enabled"] is False and sp["bus_from_minute"] == 65.0

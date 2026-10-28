@@ -1200,8 +1200,8 @@
   },
   "v4.5-sharp": {
    "rules_version": "v4.5-sharp",
-   "frozen_at": "2026-10-28T09:59:21Z",
-   "sha256": "20e12b5951ed5e8dafa2076a243d5721aca24a221e56caf3266cecb846eb6fdb",
+   "frozen_at": "2026-10-28T20:20:10Z",
+   "sha256": "3e1ccaa0a84e1b067884bd84fb3e6d0faa0e840cbea65d3d7c6ab7d160ee5368",
    "live_params": {
     "goal_time_slope": 0.3,
     "corner_time_slope": 0.15,
@@ -1710,8 +1710,8 @@
       ],
       "cards_urgency_max_gd": 1,
       "cards_urgency_mult": 1.11,
-      "cards_net_over": 1.1,
-      "cards_net_under": 0.9,
+      "cards_net_over": 1.18,
+      "cards_net_under": 0.85,
       "cards_default_cards90": 4.6,
       "cards_default_fouls90": 24.0,
       "cards_default_h2_share": 0.68,
@@ -1772,7 +1772,27 @@
       "cards_count": "bet365",
       "cards_distribution": "negbin",
       "cards_paper_only": true,
-      "combo_require_gated_families": true
+      "combo_require_gated_families": true,
+      "allow_tier2_cards": false,
+      "cards_leagues": [
+       "eng.1",
+       "esp.1",
+       "ger.1",
+       "ita.1",
+       "fra.1",
+       "uefa.champions",
+       "uefa.europa"
+      ],
+      "cards_fair_odds_range": [
+       1.8,
+       2.1
+      ],
+      "prefer_half_lines": true,
+      "half_line_fair_range": [
+       1.55,
+       2.5
+      ],
+      "asian_alternatives_n": 3
      },
      "priors": {
       "rho": {
@@ -1861,6 +1881,11 @@
      "rules_version": "v4.5-sharp",
      "sha256": "99e2bc1f147de1932cca5a7a7d4e0fbcee42a7e097f6e9802c8a54cee6e41a49",
      "frozen_at": "2026-10-28T09:20:45Z"
+    },
+    {
+     "rules_version": "v4.5-sharp",
+     "sha256": "20e12b5951ed5e8dafa2076a243d5721aca24a221e56caf3266cecb846eb6fdb",
+     "frozen_at": "2026-10-28T09:59:21Z"
     }
    ]
   }

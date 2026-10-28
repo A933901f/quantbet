@@ -201,6 +201,9 @@ class ReplaySyndicate(ReplayGlobal):
                     "combos": x.get("combos"), "dedup": x.get("dedup"), "prior_settlement": psett,
                     "paper_only": bool(x.get("paper_only")), "x": {"paper_only": bool(x.get("paper_only"))},
                     "_signal": sg,
+                    # lines patch (v4.5-sharp): the Bet365 .5 market name and the [ASIAN ALTERNATIVES] substitutes
+                    **({"bet365_market": x["bet365_market"]} if x.get("bet365_market") else {}),
+                    **({"asian_alternatives": x["asian_alternatives"]} if x.get("asian_alternatives") else {}),
                 })
 
 

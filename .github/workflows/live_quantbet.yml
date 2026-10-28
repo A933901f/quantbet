@@ -47,6 +47,8 @@ jobs:
       QB_MODE: free
       QB_ALERT_RULES: ${{ inputs.rules || 'v4.5-sharp' }}
       QB_LEAGUES_CONFIG_PATH: config/leagues.json
+      # [PAPER ONLY] signals are logged to the alerts DB (graded by audit_run.py) but never sent to Telegram
+      QB_SEND_PAPER_ALERTS: "false"
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       RUN_MINUTES: ${{ inputs.minutes || '340' }}
