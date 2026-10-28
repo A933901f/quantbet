@@ -667,7 +667,8 @@ def test_main_free_mode_wiring_without_network(tmp_path, monkeypatch):
 
     s = Settings(_env_file=None, db_path=tmp_path / "a.sqlite3", http_cache_path=tmp_path / "h.sqlite3",
                  odds_cache_path=tmp_path / "o.sqlite3", football_data_ratings_path=tmp_path / "none.json",
-                 engine_b_params_path=tmp_path / "none2.json", dry_run=True, alert_rules="v3")
+                 engine_b_params_path=tmp_path / "none2.json", dry_run=True, alert_rules="v3",
+                 espn_summary_db_path=tmp_path / "s.sqlite3")  # never touch (or migrate) the repo's data/ DB
     assert s.mode == "free" and not s.enable_api_football and not s.enable_odds_api_io and not s.enable_sofascore_odds
 
     async def go():

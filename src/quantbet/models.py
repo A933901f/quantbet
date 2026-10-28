@@ -17,6 +17,7 @@ class MarketType(str, Enum):
     ASIAN_HANDICAP = "ASIAN_HANDICAP"
     TOTAL_GOALS = "TOTAL_GOALS"
     TOTAL_CORNERS = "TOTAL_CORNERS"
+    TOTAL_CARDS = "TOTAL_CARDS"  # v4.4: yellow = 1, red = 1; v4.5-sharp: Bet365 Total Cards, yellow 1 / red 2 (model-only)
 
 
 class Selection(str, Enum):
@@ -164,6 +165,13 @@ class LiveMatchState(MatchState):
     momentum_mult_away: float | None = None
     momentum_mult_total: float | None = None
     activity_10m: dict[str, float] = field(default_factory=dict)  # e.g. ("api_football", "fotmob_page")
+    # v4.4-syndicate cards family: cumulative fouls (ESPN foulsCommitted). None -> no cards alert.
+    home_fouls: int | None = None
+    away_fouls: int | None = None
+    # v4.5-sharp: Bet365 "Total Cards" points per team - yellow 1, red 2, second-yellow dismissal 3
+    # (max 3 per player), reconstructed per player by quantbet.espn. None -> fall back to yellows + 2 x reds.
+    home_card_points: int | None = None
+    away_card_points: int | None = None
 
     @property
     def total_corners(self) -> int:
@@ -236,5 +244,5 @@ class Signal:
             line = self.line if self.selection is Selection.HOME else -self.line
             team = self.home if self.selection is Selection.HOME else self.away
             return f"Asian Handicap {team} {line:+g}"
-        unit = "Goals" if self.market is MarketType.TOTAL_GOALS else "Corners"
+        unit = {MarketType.TOTAL_GOALS: "Goals", MarketType.TOTAL_CARDS: "Cards"}.get(self.market, "Corners")
         return f"{sel} {self.line:g} {unit}"

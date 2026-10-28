@@ -227,6 +227,8 @@ class GlobalRatingsResolver(RatingsResolver):
         self.team_table_slugs = tuple(team_table_slugs)
         self.slugs: dict[str, str] = {}
         self.prior_info: dict[str, dict[str, Any]] = {}
+        # plumbing: event_key -> provenance of the pickcenter prior (pre / in-play fetch, minute, time, DK lines)
+        self.prior_meta_lookup: Callable[[str], dict[str, Any] | None] | None = None
 
     def slug_for(self, event_key: str) -> str | None:
         s = self.slugs.get(event_key)
@@ -276,6 +278,18 @@ class GlobalRatingsResolver(RatingsResolver):
         if market and ph is not None and pa is not None:
             info["fav_prob"] = round(float(max(ph, pa)), 4)
             info["fav"] = "home" if ph >= pa else "away"
+        if self.prior_meta_lookup is not None and sharp is not None and label != "pinnacle" and src == label:
+            try:
+                meta = self.prior_meta_lookup(event_key)
+            except Exception:  # noqa: BLE001 - provenance is informational only
+                meta = None
+            if meta:
+                info["fetch"] = {k: meta.get(k) for k in ("fetched_state", "fetched_minute", "fetched_at",
+                                                          "kickoff", "snapshot")}
+                info["fetch"]["true_pre_match"] = meta.get("fetched_state") == "pre"
+                for which in ("first", "latest"):
+                    if meta.get(which):
+                        info["dk_" + which] = dict(meta[which])
         prev = self.prior_info.get(event_key)
         if prev is None or prev.get("source") != src:
             log.info("v4.3 prior", extra={"event": event_key, **info})

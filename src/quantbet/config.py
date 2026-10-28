@@ -54,6 +54,12 @@ class Settings(BaseSettings):
     espn_scoreboard_poll_s: float = 60.0  # per league while live/about to start (30-60 recommended)
     espn_idle_poll_s: float = 600.0  # per league when nothing is live within 15 min
     espn_summary_poll_s: float = 60.0  # per in-play match
+    # plumbing (forward run, not model params): pre-kick-off /summary priority for listed leagues
+    espn_prekick_window_min: float = 45.0  # scheduled matches within 45 min of kick-off get their own budget
+    espn_prekick_summaries_per_cycle: int = 4  # extra /summary requests per ~60 s cycle for those matches
+    espn_prekick_refresh_min: float = 10.0  # one late pre-match refresh inside the last 10 min (0 = off)
+    # plumbing: rebuild the syndicate dedup / match caps from the alerts DB on start-up (3 h back)
+    dedup_hydrate_lookback_s: float = 10800.0
     espn_use_summary: bool = True
     espn_use_pickcenter_prior: bool = True  # DraftKings pre-match lines on ESPN as a ratings prior
     synthetic_momentum: bool = True  # DeltaTracker momentum when no graph momentum exists
@@ -101,8 +107,11 @@ class Settings(BaseSettings):
     realert_cooldown_s: float = 600.0
     # v3 alert rules (de-correlation, minute windows, shrinkage, game-state dampener,
     # chasing-corner penalty). "legacy" restores the pre-25-Oct-2026 policy.
-    alert_rules: str = "v4.2"  # legacy | v3 | v4 | v4.1 | v4.2 | v4.3-global (v4.x checked against config/engine_b_params.json)
+    alert_rules: str = "v4.5-sharp"  # legacy | v3 | v4 | v4.1 | v4.2 | v4.3-global | v4.4-syndicate | v4.5-sharp (v4.x checked against config/engine_b_params.json)
     leagues_config_path: Path = Path("config/leagues.json")  # v4.3-global league registry (tiers, baselines)
+    # v4.4-syndicate / v4.5-sharp priors (rho table for Bet Builder legs, card baselines, cards NegBin r);
+    # the used part is hashed into the v4.4 / v4.5 freezes.
+    syndicate_priors_path: Path = Path("config/syndicate_priors.json")
     # League probation counts (quantbet.probation; update with scripts/update_probation.py). Card tag only.
     probation_db_path: Path = Path("data/league_probation.sqlite3")
     max_match_stake_frac: float = 0.05

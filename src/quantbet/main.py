@@ -141,8 +141,25 @@ def load_live_params(path: object) -> LiveModelParams | None:
 
 
 def is_global(rules: str) -> bool:
-    """True for the v4.3-global layer (league registry, telemetry gate, tier sizing)."""
-    return rules.lower().startswith("v4.3")
+    """True for the v4.3-global layer (league registry, telemetry gate, tier sizing); v4.4 / v4.5 build on it."""
+    r = rules.lower()
+    return r.startswith("v4.3") or r.startswith("v4.4") or r.startswith("v4.5")
+
+
+def is_syndicate(rules: str) -> bool:
+    """True for v4.4-syndicate and v4.5-sharp (quantbet.syndicate on top of the global layer)."""
+    r = rules.lower()
+    return r.startswith("v4.4") or r.startswith("v4.5")
+
+
+def build_syndicate(s: Settings):  # type: ignore[no-untyped-def]
+    """(SyndicateParams | SharpParams, priors dict) from ``s.syndicate_priors_path``.
+
+    v4.5-sharp -> :class:`quantbet.syndicate.SharpParams`; v4.4-syndicate -> SyndicateParams (unchanged)."""
+    from .syndicate import SharpParams, SyndicateParams, is_sharp, load_priors
+
+    cls = SharpParams if is_sharp(s.alert_rules) else SyndicateParams
+    return cls(max_match_stake_frac=s.max_match_stake_frac), load_priors(s.syndicate_priors_path)
 
 
 def build_global(s: Settings):  # type: ignore[no-untyped-def]
@@ -154,9 +171,16 @@ def build_global(s: Settings):  # type: ignore[no-untyped-def]
 
 
 def global_params_dict(s: Settings) -> dict:  # type: ignore[type-arg]
-    """The ``global`` block hashed into the v4.3-global freeze (GlobalParams + registry tiers/baselines)."""
+    """The ``global`` block hashed into the v4.3-global freeze (GlobalParams + registry tiers/baselines).
+
+    v4.4-syndicate / v4.5-sharp add ``syndicate`` (Syndicate/SharpParams + the used part of the priors file)."""
     reg, gp = build_global(s)
-    return gp.to_dict(reg)
+    d = gp.to_dict(reg)
+    if is_syndicate(s.alert_rules):
+        from .syndicate import syndicate_params_dict
+
+        d["syndicate"] = syndicate_params_dict(*build_syndicate(s))
+    return d
 
 
 def build_rules(s: Settings, unfreeze: bool = False) -> tuple[PricingConfig, LiveModelParams, str]:
@@ -305,9 +329,22 @@ async def run_free(s: Settings, stop: asyncio.Event, max_runtime_s: float | None
                                    prior_lookup=prior_lookup)
     pricing, live_params, params_sha = build_rules(s, unfreeze)
     risk = build_risk(s)
-    if glob:
+    if glob and is_syndicate(s.alert_rules):
+        from .syndicate import SyndicateSignalEngine
+
+        sparams, spriors = build_syndicate(s)
+        free = SyndicateSignalEngine(registry, risk, resolver, pricing,
+                                     SignalEngine(build_engine_config(s), live_params),
+                                     sizer=lambda f, o: risk.stake_from_kelly(f), params=sparams, priors=spriors)
+        # plumbing: a restarted run (GitHub Actions every ~6 h) keeps the cooldown / caps / direction lock
+        try:
+            free.sdedup.load_recent_alerts(s.db_path, lookback_s=s.dedup_hydrate_lookback_s)
+        except Exception:  # noqa: BLE001 - never block start-up on hydration
+            log.exception("dedup hydration failed; starting with an empty dedup state")
+    elif glob:
         free = GlobalSignalEngine(registry, risk, resolver, pricing, SignalEngine(build_engine_config(s), live_params),
                                   sizer=lambda f, o: risk.stake_from_kelly(f))
+    if glob:
         try:
             from .probation import ProbationBook
 
@@ -412,7 +449,15 @@ async def run_free(s: Settings, stop: asyncio.Event, max_runtime_s: float | None
                 "activity": st.activity_10m, "status": st.status,  # type: ignore[attr-defined]
                 "ratings_src": resolver._cache.get(st.event_key, (None, "?"))[1], "alerts": len(sigs),  # type: ignore[attr-defined]
                 **({"slug": getattr(st, "league_slug", ""), "tier": registry.tier_of(getattr(st, "league_slug", ""))}
-                   if registry is not None else {})})
+                   if registry is not None else {}),
+                # v4.4: log the extra telemetry so the next audit can replay momentum and cards exactly
+                **({"shots": (getattr(st, "home_shots", None), getattr(st, "away_shots", None)),
+                    "fouls": (getattr(st, "home_fouls", None), getattr(st, "away_fouls", None)),
+                    "yellows": (getattr(st, "home_yellow_cards", None), getattr(st, "away_yellow_cards", None)),
+                    "reds": (st.home_red_cards, st.away_red_cards),  # type: ignore[attr-defined]
+                    # v4.5: Bet365 Total Cards points per team (yellow 1, red 2, 2nd-yellow dismissal 3)
+                    "card_points": (getattr(st, "home_card_points", None), getattr(st, "away_card_points", None))}
+                   if is_syndicate(s.alert_rules) else {})})
             if odds_src.enabled and getattr(st, "source", "") == "sofascore":
                 snaps = await odds_src.fetch_event_odds(st.source_event_id, st.event_key, st.home, st.away,  # type: ignore[attr-defined]
                                                         st.league, st.commence_time, True)  # type: ignore[attr-defined]
@@ -442,6 +487,9 @@ async def run_free(s: Settings, stop: asyncio.Event, max_runtime_s: float | None
                              espn_use_all=s.espn_use_all, espn_all_interval_s=max(s.espn_all_poll_s, s.polite_min_interval_s),
                              espn_summary_once=s.espn_summary_once,
                              summary_db_path=str(s.espn_summary_db_path) if s.espn_summary_db_path else None,
+                             prekick_window_min=s.espn_prekick_window_min,
+                             prekick_summaries_per_cycle=s.espn_prekick_summaries_per_cycle,
+                             prekick_refresh_min=s.espn_prekick_refresh_min,
                              **g_kw),  # type: ignore[arg-type]
             espn_endpoints=EspnEndpoints(base=s.espn_base), ratings_hint=ratings_of, enrichers=enrichers,
         )
@@ -449,6 +497,8 @@ async def run_free(s: Settings, stop: asyncio.Event, max_runtime_s: float | None
             poller.league_priority = registry.priority  # type: ignore[union-attr]
             poller.on_league_meta = registry.note_discovered  # type: ignore[union-attr]
         holder["poller"] = poller
+        if hasattr(resolver, "prior_meta_lookup"):  # plumbing: pre / in-play provenance onto extra["prior"]
+            resolver.prior_meta_lookup = lambda k: poller.prior_meta.get(k)  # type: ignore[union-attr]
         tasks = [asyncio.create_task(poller.run(stop), name="free-stats")]
         if heartbeat is not None:
             g = heartbeat.start()  # type: ignore[attr-defined]
@@ -552,8 +602,9 @@ def parse_args(argv: list[str] | None = None) -> "argparse.Namespace":
     ap.add_argument("--live", action="store_true",
                     help="free mode, Telegram ENABLED (needs TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in .env)")
     ap.add_argument("--dry-run", action="store_true", help="log notifications instead of sending them")
-    ap.add_argument("--rules", choices=("legacy", "v3", "v4", "v4.1", "v4.2", "v4.3-global"), default=None,
-                    help="alert rules (default QB_ALERT_RULES; v4.1 with --live)")
+    ap.add_argument("--rules", choices=("legacy", "v3", "v4", "v4.1", "v4.2", "v4.3-global", "v4.4-syndicate",
+                                        "v4.5-sharp"),
+                    default=None, help="alert rules (default QB_ALERT_RULES; v4.5-sharp with --live)")
     ap.add_argument("--unfreeze", action="store_true", help="allow v4 params that differ from config/engine_b_params.json")
     ap.add_argument("--leagues", default=None, help="comma-separated ESPN slugs (default QB_ESPN_LEAGUES)")
     ap.add_argument("--cups", action="store_true", help="add UCL/UEL/UECL and domestic cups to the league list")
@@ -577,7 +628,7 @@ def settings_from_args(a: "argparse.Namespace", base: Settings | None = None) ->
     if a.rules:
         upd["alert_rules"] = a.rules
     elif a.live:
-        upd["alert_rules"] = "v4.2"
+        upd["alert_rules"] = "v4.5-sharp"
     leagues = [x.strip() for x in a.leagues.split(",") if x.strip()] if a.leagues else list(s.espn_leagues)
     if a.cups:
         leagues += [x for x in CUP_LEAGUES if x not in leagues]

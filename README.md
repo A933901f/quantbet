@@ -62,7 +62,7 @@ cp .env.example .env
 
 | Tier | Source | What it gives | Default |
 |---|---|---|---|
-| 1 | ESPN `site.api.espn.com/.../soccer/all/scoreboard`: **one request every 60 s + 2–5 s jitter**, filtered in memory by league (event `uid` `l:<id>`). Per-league scoreboards, staggered ≥ 15 s, are used only as a fallback. `.../{league}/summary?event={id}` is fetched **once per match** (first sighting or pre-kick-off, 1 per cycle) and cached in SQLite. | score, clock incl. added time, HT/FT, corners, shots, shots on target, possession, red cards (scoreboard), DraftKings pre-match lines (summary) | **on** |
+| 1 | ESPN `site.api.espn.com/.../soccer/all/scoreboard`: **one request every 60 s + 2–5 s jitter**, filtered in memory by league (event `uid` `l:<id>`). Per-league scoreboards, staggered ≥ 15 s, are used only as a fallback. `.../{league}/summary?event={id}` is fetched **once per match** (first sighting or pre-kick-off, 1 per cycle) and cached in SQLite. Since the forward-run plumbing, listed leagues also get a pre-kick-off pass (≤ 45 min before KO, 4 per cycle, plus one refresh in the last 10 min); see the forward-run operating guide. | score, clock incl. added time, HT/FT, corners, shots, shots on target, possession, red cards (scoreboard), DraftKings pre-match lines (summary) | **on** |
 | – | `DeltaTracker` | 10-min velocity, `activity_10m` and the bounded momentum multiplier (see below) | on |
 | 2 | API-Football free `fixtures?live=all` + `fixtures/statistics` | xG (when provided), shots inside box, red cards | on only with `API_FOOTBALL_KEY` |
 | 3 | FotMob match page `__NEXT_DATA__` | xG, shots inside box, used to **confirm** an alert | on, gated: minute 50–85 and EV at the neutral reference ≥ +1.0 %, cached 5 min per match |
@@ -157,6 +157,252 @@ only in 30'–43' and 55'–85' (red cards too); shrinkage of observed pace towa
 the prior; comfortable-lead dampener; stricter favourite-chasing; FotMob
 dominance required for corner Overs after 75'. Details in ARCHITECTURE.md.
 Compare against the old rules: `python scripts/replay_rules.py`.
+
+## v4.5-sharp (DEFAULT: `QB_ALERT_RULES=v4.5-sharp` / `--rules v4.5-sharp`)
+
+v4.5 is built on v4.4-syndicate and uses the same code (`src/quantbet/syndicate.py`, `SharpParams`). It has its own
+freeze under `frozen_sets["v4.5-sharp"]` (`python scripts/freeze_params.py --rules v4.5-sharp`). The v4.2,
+v4.3-global and v4.4-syndicate hashes are untouched, and v4.4 is still selectable (`--rules v4.4-syndicate`,
+workflow choice).
+
+| Spec name | Code (field / where) | v4.5 | v4.4 |
+|---|---|---|---|
+| `achievability_gate` | `SharpParams.achievability_gate` | False | True (lift ≥ (1+h)/(1−m)) |
+| `max_lift_goals` / `max_lift_corners` | `max_lift_goals` / `max_lift_corners` (`lift_cap()`) | 0.28 / 0.35 | `max_lift` 0.45 |
+| `over_min_net` Goals / Corners | `over_min_net_goals` / `over_min_net_corners` (`over_net_min()`) | 1.06 / 1.08 | `over_min_net` 1.10 |
+| `over_suppress_net` | `over_suppress_net` | 1.05 | 1.05 |
+| tier hurdles | `tier_target_edge` | .035 / .045 / .060 | .040 / .055 / .070 |
+| `abort_ratio` | `abort_ratio` | 0.60 | 0.60 |
+| unmapped `espn.*` block | `block_unmapped_leagues`, `unmapped_prefix` (`hygiene_block()`) | on | off |
+| youth filter | `youth_tokens`, `youth_suffix_tokens`, `youth_name_exceptions` | u21, u23, u19, u20, u18, u17, reserves, academy, jong; " b", " ii", " iii" (`quantbet.youth`) | - |
+| TIER_3 = Goals O/U only | `allow_tier3_corners` / `allow_tier3_cards` (`tier_allows()`) | False / False | all markets |
+| `minute_windows` | `PricingConfig.minute_windows` (engine.py preset) | (30,43), (55,85) | (30,43), (55,85) |
+| `w_fav_trailing` | `w_fav_trailing` | 1.0 | 1.15 |
+| `sustained_over_index` over 3 polls | `sustained_over_index`, `momentum_polls` | 1.35, 3 | 1.70, 3 |
+| `max_momentum_index` | `max_momentum_index` (`flurry_cap()`) | 2.90 | - |
+| Over activity confirmation | `require_activity_confirm` (`activity_confirm_overs()`); `PricingConfig.activity_trigger_mult` | `momentum_mult_total` ≥ 1.04 or `fav_trailing`, else `no_activity_confirm` | - |
+| Under suppression by activity (spec "bullish") | `under_suppress_attack_momentum` / `under_suppress_mult_total` (`under_activity_suppress()`, `MomentumView.activity_bullish`) | abs(`attack_momentum`) ≥ 0.30 or `momentum_mult_total` ≥ 1.02 | - |
+| `bus_parking` | `bus_from_minute`, `bus_leader_share_max`, `bus_index_max` | 65', ≤ 0.25, ≤ 0.75 | 55', ≤ 0.35, ≤ 1.00 |
+| cross-family direction lock | `match_direction_lock` (`direction_lock()`), `SyndicateDeduplicator.check` | on: `match_direction_conflict` | off (only same-family `family_conflict`) |
+| `corner_prior_minutes` / `corner_dispersion` | `LiveModelParams` (engine.py preset) | 200 / 65.0 (Football-Data MLE 65.34, MoM 65.04) | 180 / 149.56 |
+| second-half `tempo_stall` | `stall2_*` (`second_half_stall()`) | OFF (`stall2_enabled=False`; mechanics kept: 55'–75', index ≤ 0.65 over 12', abs(gd) ≤ 1) | first half only |
+| card counting | `cards_count` (`card_rule()`) | "bet365": Y 1, R 2, 2nd yellow 3 | "y1_r1": Y 1, R 1 |
+| cards distribution | `cards_distribution` | NegBin, pooled r | Poisson |
+| `cards_paper_only` | `cards_paper_only` (`cards_paper()`) | True | False |
+| combo gating | `combo_require_gated_families` (`combo_gated()`) | True | False |
+
+* **League hygiene** - only slugs in `config/leagues.json` may alert. Any `espn.*` / unlisted slug gets the trace
+  `unmapped_league_blocked` and NO alerts at all (base-engine signals included). Youth or reserve sides are blocked
+  with `youth_reserve_blocked (<token>)`. Tokens are whole words, `U-21` / `U 21` / `Under 21` also match, and
+  " b" / " ii" / " iii" must be a separate trailing word, so `Club Brugge`, `Bayern` and `Benfica` do not match.
+  `Jong Ajax` / `Jong PSV` match `jong`; `Jonge Kracht` / `Jongbloed` do not. `Juan Pablo II` (a senior Peruvian
+  club) is an explicit exception.
+* **Youth guard in name matching** (all rule sets) - `poller.team_similarity` returns 0 unless both names are youth /
+  reserve sides or both are senior (`quantbet.youth.youth_compatible`), and `TeamRatingsTable._team` skips
+  incompatible keys. Before this, rapidfuzz `token_set_ratio("Arsenal U21", "Arsenal")` was 100, so a U21 side could
+  inherit the senior club's ratings (the base v4.2 resolver uses the team table in every league) or be matched to
+  the senior event. The 27-Oct Fleetwood Town v Arsenal alert was the senior Arsenal (Carabao Cup R4, ESPN
+  competitor 359, priors from the DraftKings pickcenter), so it was not affected; the guard closes the latent path.
+  It is code, not a frozen parameter, so no hash changes.
+* **Momentum** - Overs need a sustained index ≥ 1.35 on every poll (≥ 3 polls). The same Overs are blocked when
+  the latest reading is above 2.90 (`momentum_flurry_cap`: a flurry, not sustained pressure). Goals/Corners Overs
+  also need `momentum_mult_total` ≥ 1.04 (the v4.3 `activity_trigger_mult`) or a trailing favourite
+  (`no_activity_confirm`). The favourite-trailing
+  weight is 1.0 because the live model already applies `fav_trailing_goal_mult` / `corner_mult`.
+* **Unders** - first-half `tempo_stall` as v4.4. `bus_parking` (Goals Under) needs 65'+, abs(gd) == 1, the leader's
+  pressure share ≤ 0.25 and the adjusted index ≤ 0.75 on every poll of the persistence window. Any Under is
+  suppressed (`bullish`) when abs(`attack_momentum`) ≥ 0.30 or `momentum_mult_total` ≥ 1.02. The second-half
+  `tempo_stall` is off (`stall2_enabled=False`; set it True in a new freeze to bring it back).
+* **Direction lock** - once a match has alerted one direction in any family, the opposite direction in any family is
+  dropped (`match_direction_conflict`), including alerts pending in the same poll. Staked alerts are checked against
+  staked alerts only, so a paper card never blocks a real bet; paper cards are checked against staked and paper
+  alerts.
+* **Total Cards (Bet365)** - yellow = 1, straight red = 2, a second-yellow dismissal = 3 (the first yellow plus the
+  red; maximum 3 per player). This is the Bet365 **Total Cards** market. It is NOT the 10/25 **booking-points**
+  market, which is a different product priced on a different scale.
+  * ESPN: the boxscore `yellowCards` stat EXCLUDES the first yellow of a second-yellow dismissal. Scoreboard
+    `details` and summary `keyEvents` keep both entries, so `quantbet.espn.card_points*` counts per player from
+    them. `Y + 2R` from the stats is only the fallback.
+  * Priors: Football-Data `HY + AY + 2 × (HR + AR)` per 90 (`cards_bet365` in `config/syndicate_priors.json`:
+    pooled cards90, cards_var, per-division baselines). Football-Data `notes.txt`: English and Scottish divisions
+    exclude the first yellow of a second-yellow dismissal from HY/AY, so those priors undercount by ≤ reds/90
+    (`sy_bias_max` per division). European divisions include it, so the count is exact there.
+  * Pricing: Negative Binomial with the pooled within-division shape r (common-r MLE over division means). The
+    remaining-time mean is scaled. Gamma frailty means any sub-interval of a match with mean μ is NB(r, μ).
+    r → ∞ gives the Poisson.
+  * **PAPER ONLY - UNCALIBRATED**: cards signals are logged to SQLite and graded by `scripts/audit_run.py` as
+    Bet365 Total Cards (regular time, per player). They are tagged `[PAPER ONLY - UNCALIBRATED]` and show no stake
+    ladder. They never use the 3-alert / 5% match cap and are never combo legs. TIER_3 cards are blocked. Keep
+    this until 50 live games with foul telemetry have been graded.
+* **Combos** - `[BET BUILDER / 3-WAY COMBO]` gets a leg from another family only when that family independently
+  passes its directional net gate: Over net ≥ its `over_net_min`, or Under net ≤ `under_max_net`.
+* **Corner dispersion** - r = 65.0 with a 200-minute prior, from the Football-Data full-time within-division fit
+  (MLE 65.34, MoM 65.04; `corners_dispersion_check` in the priors file). The frozen v4.2 fit is 149.56.
+* Replay: `python scripts/replay_syndicate.py --rules v4.5-sharp ...` (output keys `replay`, `all_replay`,
+  `by_market_replay`, `by_tier_replay`, `decision_counts`). The 27-Oct replay is **in-sample** because the
+  thresholds were picked after seeing that run. Treat it as an implementation check, not validation.
+
+## Forward-run operating guide (v4.5-sharp, 2-week forward run)
+
+The v4.5-sharp parameters stay frozen (`20e12b59…6fdb`). The four changes below are runtime plumbing only and
+leave every model threshold and frozen value alone. The 27-Oct replay is unchanged: 14 alerts, flat +1.055u,
++42.82 on 295 staked, Brier 0.2615.
+
+### 1. Paper-only cards are never staked
+
+* `[PAPER ONLY - UNCALIBRATED]` signals (v4.5 Total Cards) are zeroed before they reach the alerts DB:
+  `stake_units`, `stake_currency`, `kelly_fraction` and `tiers` are all 0 or empty.
+* The paper minimum odds stay in `extra.paper_stake` and `extra.paper_tiers` for display and grading.
+* `AlertDatabase.report()` (the `session report` log line at shutdown) counts staked alerts only.
+* `scripts/audit_run.py` still grades paper cards separately, at 1u flat.
+
+### 2. Dedup / match-cap memory survives restarts
+
+* Every 6-hour GitHub Actions run used to start with an empty `SyndicateDeduplicator`. A match that already had
+  3 alerts or 5% exposure in the previous run could therefore alert again.
+* On start-up, `main.run_free` now calls `SyndicateDeduplicator.load_recent_alerts(db_path, lookback_s)`. It
+  replays the last `QB_DEDUP_HYDRATE_LOOKBACK_S` seconds (default 10800 = 3 h) of syndicate alerts from the DB.
+  This rebuilds:
+  * the per-match count and stake;
+  * the family cooldowns;
+  * the direction locks.
+* Paper rows rebuild only the paper state.
+* A missing DB, an old schema, and v4.3/v4.4 rows without `extra.dedup` are skipped. So is malformed JSON.
+* Cooldowns are kept in **match minutes**, so nothing has to be rebuilt from wall-clock time. The stored alert
+  minute is compared with the next observed match minute, exactly as in-process.
+* Look for `dedup hydrated from alerts DB` in the log, with the number of rows used.
+
+**Workflow cache:**
+
+* `data/*.sqlite3` does persist between runs. `actions/cache/restore` takes the newest `quantbet-state-*` entry
+  for the branch, and `save` writes a new key per run.
+* The alerts DB runs in WAL mode, and the `*.sqlite3` glob skips `-wal` files. So the last alerts of a run could
+  be lost. A new `Checkpoint SQLite (WAL -> main file)` step (`if: always()`) now folds the WAL into the main
+  file before the cache save and the artifact upload.
+* Caches unused for 7 days are evicted. After a pause of more than a week, the run starts empty and hydration
+  finds nothing, which is harmless.
+
+### 3. Pre-kickoff ESPN summaries (true pre-match priors)
+
+* **The problem:** on 27 Oct, 16 of the 39 alerts were priced from a summary that was first fetched while the
+  match was already in play. The ESPN DraftKings odds in that summary are then in-play odds, not a pre-match
+  line.
+* **What it does now:** listed (non-`espn.*`) leagues get their summary within `QB_ESPN_PREKICK_WINDOW_MIN`
+  (45) minutes of kick-off. Soonest kick-off goes first, on a separate budget of
+  `QB_ESPN_PREKICK_SUMMARIES_PER_CYCLE` (4) per cycle. The frozen `summaries_per_cycle` (3) is not touched.
+* **Never overwritten:** a summary fetched pre-match is never replaced by an in-play one. The DB upsert refuses
+  it.
+* **Optional late refresh:** one refresh in the last `QB_ESPN_PREKICK_REFRESH_MIN` (10) minutes, if the first
+  pre-match fetch was older than that. Set it to 0 to switch the refresh off. The refresh goes into
+  `latest_*` columns. It replaces the model prior only while the match is still `pre`.
+* **Data change:** the market prior is now the **latest pre-match** DraftKings line (≤ 10 min before KO when
+  refreshed) instead of whatever was fetched first.
+* **Provenance columns:** `espn_summary_once` gains `fetched_state`, `fetched_minute`, `kickoff`,
+  `latest_body`, `latest_fetched_at`, `latest_state` and `latest_minute`. The migration runs automatically and
+  backfills from the stored bodies.
+* **What the alerts carry:** `extra.global.fetch` holds `fetched_state`, `fetched_minute`, `fetched_at`,
+  `kickoff`, `snapshot` and `true_pre_match`, plus `dk_first` / `dk_latest`.
+* **Request budget:** up to 4 extra summary GETs per ~62 s cycle, and at most 2 per listed match (first +
+  refresh). They all go through `polite_http`: 15 s per URL, 1 s global gap, concurrency 2, honest UA.
+  * At peak that is 1 scoreboard + 4 pre-kickoff + 3 normal ≈ 8 req/min.
+  * 27 Oct (82 listed matches, peak 21 kick-offs in 45 min, 13 at 19:45): about 6 cycles to fetch the first
+    lines and 4 cycles for the 19:45 refreshes. That is ≤ 164 summary GETs a day on this path. Before, it was
+    about 82, so the net new traffic is mainly the ≤ 82 late refreshes.
+
+### 4. Recording what you actually did on Bet365 (`scripts/record_fill.py`)
+
+Every card ends with an `ID: <code>abc123def456</code>` line (the signal id, 12 hex characters).
+
+**Local clone:**
+
+```bash
+python scripts/record_fill.py abc123def456 --odds 2.10            # stake defaults to the alert's 1st-tier stake
+python scripts/record_fill.py abc123def456 --odds 2.05 --stake 15
+python scripts/record_fill.py abc123def456 --skipped --reason line_moved
+python scripts/record_fill.py --list --hours 72                   # staked alerts with no fill yet
+git add data/fills.csv && git commit -m "fills" && git push
+```
+
+* Validation:
+  * the odds must be > 1.01;
+  * the id must exist in the alerts DB (a unique prefix of ≥ 6 characters is accepted);
+  * a second fill of the same id is refused unless you pass `--force`;
+  * a paper-only card cannot be filled unless you pass `--force`;
+  * taken odds below the card's minimum Bet365 odds print a warning.
+* Each fill goes to **`data/fills.csv`** (committed, append-only). It also goes to the alerts DB columns
+  (`taken_odds`, `taken_stake`, `fill_status`, `fill_reason`, `filled_at`) when that DB is present locally.
+
+**GitHub Actions user (no local DB):**
+
+The alerts DB lives in the Actions cache and the run artifact, so it can't be written from your side. The
+durable record is the committed `data/fills.csv`. Either:
+
+* open `data/fills.csv` in the GitHub web editor (pencil icon) and append one row per alert, then commit to
+  the branch the workflow runs on:
+  ```
+  signal_id,fill_status,taken_odds,taken_stake,fill_reason,filled_at
+  abc123def456,filled,2.10,10,,2026-10-29T19:52:00+00:00
+  0f9e8d7c6b5a,skipped,,,line_moved,2026-10-29T20:05:00+00:00
+  ```
+  `fill_status` is `filled` or `skipped`. A skip has no odds. `filled_at` is ISO UTC, and the latest row per id
+  wins. Or:
+* download the run artifact `quantbet-<run_id>` (Actions → run → Artifacts), unzip it into `data/`, and run
+  `record_fill.py` locally. `--list` then shows the unfilled alerts. Commit `data/fills.csv` afterwards.
+  Without the artifact, `--no-db` writes the CSV row without the id check.
+
+**Audit:**
+
+```bash
+python scripts/audit_run.py --log logs/live_<run_id>.log --alerts-db data/quantbet.sqlite3 \
+    --http-db data/http_cache.sqlite3 --fills data/fills.csv --summary-db data/espn_summary.sqlite3
+```
+
+* **Fills line:**
+  * fill rate, over all staked alerts and over the recorded ones;
+  * skip reasons;
+  * average slippage versus the card's minimum odds (in odds and %), and how many fills were below the
+    minimum;
+  * **realized** P&L at the taken odds and stakes, against the **theoretical** P&L at the minimum odds, both
+    staked and 1u flat.
+* **Provenance line:** true pre-match vs in-play-fetched priors, plus a pre-match reference EV. This is the
+  EV difference between the latest pre-match DK line and the prior that was actually used, for Goals only.
+  It is **not** a Bet365 in-play CLV: Bet365 prices are never read.
+
+### Forward-run checklist
+
+1. Keep `QB_ALERT_RULES=v4.5-sharp`. The pre-flight pytest checks the frozen hash on every run.
+2. Check that each run log shows `dedup hydrated from alerts DB` (0 rows on the very first run is normal) and
+   `checkpointed data/quantbet.sqlite3`.
+3. Record every staked card, filled or skipped, within the day. Leave paper cards alone.
+4. Once a week, download the latest artifact and run `audit_run.py --fills --summary-db`. Compare realized
+   with theoretical and watch the fill rate. Do not change thresholds during the 2 weeks.
+
+## v4.4-syndicate (opt-in since v4.5: `QB_ALERT_RULES=v4.4-syndicate` / `--rules v4.4-syndicate`)
+
+Built on v4.3-global (registry, tiers, Live Stats Integrity Gate, tier sizing, `[LIQUIDITY: TIER 3 - SMALL LEAGUE]`,
+`[PROBATION: n/150]`). The frozen v4.2 and v4.3-global blocks and hashes are untouched; v4.4 has its own freeze
+under `frozen_sets["v4.4-syndicate"]` (`scripts/freeze_params.py --rules v4.4-syndicate`). That freeze hashes
+`SyndicateParams` and the used part of `config/syndicate_priors.json`. Code: `src/quantbet/syndicate.py`.
+
+* **Selectivity** - EV hurdle at the MINIMUM BET365 ODDS: TIER_1 4.0%, TIER_2 5.5%, TIER_3 7.0%. The abort floor
+  is 0.6 × the hurdle. The model must also beat the prior by (1+h)/(1−m), where m is an ASSUMED per-side Bet365
+  margin by tier. Overs need a net λ multiplier ≥ 1.10 and a lift ≤ 45%, plus **sustained momentum**: a shots,
+  SOT and corners index ≥ 1.70× league pace on every poll of the last 4' (12' window). This replaces
+  `activity_high`. State weights: favourite trailing ×1.15, level knockout tie after 55' ×1.10, 2+ goal lead ×0.80.
+* **Unders** (half lines only, inside the windows) - lower tail of the same Poisson/NegBin. Triggered by
+  `tempo_stall` (first-half dead pace since 25') or `bus_parking` (≥55', one-goal lead, trailing side has ≥65%
+  of the pressure, goals only). Bullish states suppress Unders; bearish states suppress Overs.
+* **Cards** - ESPN fouls, yellows and reds (yellow = 1, red = 1). If any of them is missing, there is no alert.
+  The remaining λ is Poisson from Football-Data cards/fouls baselines, adjusted by foul and booking factors. An
+  urgency multiplier of ×1.11 applies at 60'–85' when |gd| ≤ 1 (from the ESPN 27-Oct finals). O/U half lines use
+  the same Kelly ladder and count toward the 5% match cap.
+* **Dedup** - 15' cooldown per match × family. A re-alert needs a ≥0.5 line move or a ≥4pp p shift. Max 1
+  goals + 1 corners + 1 cards signal per match.
+* **Cards text** - every alert carries `[BOOST TARGET]` (pre-boost price for a 25% winnings boost:
+  1 + (O_min − 1)/1.25). It also carries `[BET BUILDER / 3-WAY COMBO]`: pairwise Fréchet-clipped joint, a
+  3-leg seeded Gaussian-copula Monte Carlo, ρ priors from Football-Data, and fair / naive / Minimum Bet365 Combo
+  Odds. Combos are informational, and any stake stays inside the 5% cap.
+* Replay of the 27-Oct run: `python scripts/replay_syndicate.py --help`. The audit is in `AUDIT.md` of the upgrade bundle.
 
 ## v4.3-global layer (opt-in: `QB_ALERT_RULES=v4.3-global` / `--rules v4.3-global`)
 

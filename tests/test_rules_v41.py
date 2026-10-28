@@ -206,7 +206,8 @@ def test_cli_live_defaults_to_latest():
     from quantbet.main import parse_args, settings_from_args
 
     ok = Settings(_env_file=None).model_copy(update={"telegram_bot_token": "x", "telegram_chat_id": "1"})  # type: ignore[call-arg]
-    assert settings_from_args(parse_args(["--live"]), ok).alert_rules == "v4.2"
+    assert settings_from_args(parse_args(["--live"]), ok).alert_rules == "v4.5-sharp"  # latest (v4.5)
+    assert settings_from_args(parse_args(["--live", "--rules", "v4.2"]), ok).alert_rules == "v4.2"
     assert settings_from_args(parse_args(["--live", "--rules", "v3"]), ok).alert_rules == "v3"
     assert settings_from_args(parse_args(["--live", "--rules", "v4.1"]), ok).alert_rules == "v4.1"
 

@@ -62,6 +62,61 @@ def _tier_line(lines: list[str], s: Signal) -> None:
         lines.append(f"<b>{html.escape(str(prob))}</b>")
 
 
+def _syndicate_lines(lines: list[str], s: Signal, x: dict, min_odds: float) -> None:  # type: ignore[type-arg]
+    """v4.4-syndicate / v4.5-sharp blocks (hurdle, momentum, cards model, BOOST TARGET, BET BUILDER).
+    No-op for older rules."""
+    e = html.escape
+    sy = x.get("syndicate")
+    if sy and sy.get("achievability_gate") is False:  # v4.5-sharp
+        cap = f" | lift cap {sy['lift_cap'] * 100:.0f}%" if sy.get("lift_cap") is not None else ""
+        lines.append(f"🎚️ Tier hurdle: EV ≥ {sy['hurdle'] * 100:.1f}% at the minimum | abort floor at "
+                     f"{sy['abort_edge'] * 100:.1f}% EV{cap} | achievability gate off")
+    elif sy:
+        lines.append(f"🎚️ Tier hurdle: EV ≥ {sy['hurdle'] * 100:.1f}% at the minimum | abort floor at "
+                     f"{sy['abort_edge'] * 100:.1f}% EV | lift needed x{sy['lift_required']:.3f} "
+                     f"(assumed Bet365 margin {sy['assumed_margin'] * 100:.2f}%/side)")
+    mo = x.get("momentum")
+    if mo:
+        w = f" [{', '.join(mo.get('weights') or [])}]" if mo.get("weights") else ""
+        lines.append(f"🌊 Momentum {mo['span']:g}' window: index {mo['index']:.2f} -> {mo['adj_index']:.2f}{e(w)} "
+                     f"over {mo['polls']} polls ({e('/'.join(mo.get('inputs') or []))})")
+    cm = x.get("cards_model")
+    if cm:
+        if cm.get("rule") == "bet365":
+            rule = ("Bet365 Total Cards: yellow=1, red=2, 2nd-yellow red=3 - NOT the 10/25 booking-points market")
+        else:
+            rule = "yellow=1, red=1"
+        dist = f"NegBin r={cm['nb_r']:g}" if cm.get("nb_r") else "Poisson"
+        lines.append(f"🟨 Cards model ({dist}): λ remaining {cm['lam_remaining']:.2f} vs prior {cm['lam_prior']:.2f} "
+                     f"(net x{cm['net']:.2f}; fouls x{cm['foul_factor']:.2f}, bookings x{cm['booking_factor']:.2f}, "
+                     f"urgency x{cm['urgency']:.2f}) | {cm['current']} cards so far ({rule})")
+        if cm.get("cards90") is not None:
+            lines.append(f"📚 Cards baseline: {cm['cards90']:.2f} cards / {cm['fouls90']:.1f} fouls per 90 "
+                         f"({e(str(cm.get('baseline_source', '')))})")
+    bt = None if x.get("paper_only") else x.get("boost_target")
+    if bt:
+        txt = f"🚀 [BOOST TARGET] Bet only if the (boosted) Bet365 price is ≥ <b>{min_odds:.2f}</b>"
+        if bt.get("typical_unboosted"):
+            need = bt.get("boost_needed_pct") or 0.0
+            txt += (f". Typical unboosted ≈ {bt['typical_unboosted']:.2f} (ASSUMED: prior fair less margin) -> "
+                    + ("no boost needed" if need <= 0 else f"needs a ≥{need * 100:.0f}% winnings boost"))
+        if bt.get("pre_boost_odds"):
+            txt += (f". With a {bt['boost_pct'] * 100:.0f}% winnings boost a pre-boost price ≥ {bt['pre_boost_odds']:.2f} "
+                    "qualifies (only if Bet365 actually offers that boost on this market)")
+        lines.append(txt)
+    combos = x.get("combos") or []
+    if combos:
+        lines.append("🧩 <b>[BET BUILDER / 3-WAY COMBO]</b> (informational, same match; rho = Football-Data PRIORS)")
+        for c in combos:
+            legs = " + ".join(str(g["label"]) for g in c["legs"])
+            row = (f"• {e(legs)}: fair {c['fair_odds']:.2f} | naive independent {c['naive_odds']:.2f} | "
+                   f"<b>Minimum Bet365 Combo Odds {c['min_odds']:.2f}</b>")
+            if c.get("boost_required_odds"):
+                row += f" | {c['boost_pct'] * 100:.0f}% boost: pre-boost ≥ {c['boost_required_odds']:.2f}"
+            row += f" | max stake {c.get('max_stake', 0):g} {e(s.currency)} (inside the 5% match cap) [{e(c['method'])}]"
+            lines.append(row)
+
+
 def format_min_odds_signal(s: Signal) -> str:
     """Model-only (no live Bet365 price available) alert: the user checks the app.
 
@@ -72,20 +127,30 @@ def format_min_odds_signal(s: Signal) -> str:
     x = s.extra or {}
     min_odds = float(x.get("min_odds", s.bookmaker_odds))
     floor = float(x.get("abort_floor", s.min_acceptable_odds))
+    paper = bool(x.get("paper_only"))
     lines = [f"<b>[{e(s.urgency.value)}]</b>" + ("  ⚠️ <b>High Limit Risk</b>" if s.high_limit_risk else "")]
+    if paper:  # v4.5-sharp cards: logged + graded, never staked, outside the match caps
+        lines.append("📝 <b>[PAPER ONLY - UNCALIBRATED]</b> logged for grading - do NOT bet")
     _tier_line(lines, s)
     match = f"{e(s.home)} vs {e(s.away)}"
     if s.minute is not None:
         match += f"  |  {int(s.minute)}'  {e(s.score or '')}"
     lines.append(f"⚽ {match}")
     lines.append(f"🏆 {e(s.league)}")
-    lines.append(f"🎯 <b>{e(s.describe_market())}</b>" + (f"  ({e(settlement_note(x['settlement']))})" if x.get("settlement") else ""))
+    label = s.describe_market()
+    if (x.get("cards_model") or {}).get("rule") == "bet365" and label.endswith(" Cards"):
+        label = label[: -len(" Cards")] + " Total Cards"  # v4.5: Bet365 "Total Cards" (Y=1, R=2)
+    lines.append(f"🎯 <b>{e(label)}</b>" + (f"  ({e(settlement_note(x['settlement']))})" if x.get("settlement") else ""))
     lines.append(f"⚖️ Fair Odds: <b>{s.fair_odds:.2f}</b>  (p={s.p_true:.3f})")
-    lines.append(f"✅ MINIMUM BET365 ODDS TO BET: <b>{min_odds:.2f}</b>")
-    lines.append(f"🛑 Abort floor: <b>{floor:.2f}</b> (do not bet below)")
-    tiers = x.get("tiers") or []
-    if tiers:
-        lines.append("🧮 " + e(format_tier_line(tiers, s.currency)))
+    if paper:
+        lines.append(f"📝 Paper minimum odds (graded, not a bet): <b>{min_odds:.2f}</b> | paper abort floor {floor:.2f}")
+        lines.append("🧮 Stake: none (paper only; does not use the 3-alert / 5% match cap)")
+    else:
+        lines.append(f"✅ MINIMUM BET365 ODDS TO BET: <b>{min_odds:.2f}</b>")
+        lines.append(f"🛑 Abort floor: <b>{floor:.2f}</b> (do not bet below)")
+        tiers = x.get("tiers") or []
+        if tiers:
+            lines.append("🧮 " + e(format_tier_line(tiers, s.currency)))
     lift = x.get("lift")
     if lift and lift.get("prior_fair"):
         lines.append(f"📈 Prior fair {lift['prior_fair']:.2f} -> model {s.fair_odds:.2f} "
@@ -96,10 +161,15 @@ def format_min_odds_signal(s: Signal) -> str:
     src = [str(v) for v in (x.get("ratings_source"), x.get("source")) if v]
     if src:
         lines.append(f"📊 Ratings: {e(src[0])}" + (f" | Stats: {e(src[1])}" if len(src) > 1 else ""))
-    lines.append("ℹ️ Model-only: no live Bet365 price was read. Check the app; bet only at or above the minimum.")
+    _syndicate_lines(lines, s, x, min_odds)
+    if paper:
+        lines.append("ℹ️ Paper only: graded offline (Bet365 Total Cards rules) until 50 live games are calibrated.")
+    else:
+        lines.append("ℹ️ Model-only: no live Bet365 price was read. Check the app; bet only at or above the minimum.")
     for note in s.risk_notes:
         lines.append(f"• {e(note)}")
-    lines.append(f"<code>id {s.signal_id}</code>")
+    # plumbing: the id the user passes to scripts/record_fill.py (or writes into data/fills.csv)
+    lines.append(f"ID: <code>{e(s.signal_id)}</code>")
     return "\n".join(lines)
 
 
@@ -127,7 +197,7 @@ def format_signal(s: Signal) -> str:
         lines.append(f"📊 Sharp ref: {e(s.sharp_source)}")
     for note in s.risk_notes:
         lines.append(f"• {e(note)}")
-    lines.append(f"<code>id {s.signal_id}</code>")
+    lines.append(f"ID: <code>{e(s.signal_id)}</code>")
     return "\n".join(lines)
 
 

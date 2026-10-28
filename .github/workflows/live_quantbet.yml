@@ -1,4 +1,4 @@
-# quantbet v4.3-global live poller on GitHub Actions (read-only; Telegram notifications only).
+# quantbet v4.5-sharp live poller on GitHub Actions (read-only; Telegram notifications only).
 #
 # HONEST CAVEATS - read before enabling:
 #  * A GitHub-hosted job is hard-killed after 6 h (360 min). This workflow runs ~5h40m (timeout-minutes 350,
@@ -25,9 +25,9 @@ on:
     inputs:
       rules:
         description: "alert rules"
-        default: "v4.3-global"
+        default: "v4.5-sharp"
         type: choice
-        options: ["v4.3-global", "v4.2"]
+        options: ["v4.5-sharp", "v4.4-syndicate", "v4.3-global", "v4.2"]
       minutes:
         description: "run length in minutes (max ~340)"
         default: "340"
@@ -45,7 +45,7 @@ jobs:
     timeout-minutes: 350
     env:
       QB_MODE: free
-      QB_ALERT_RULES: ${{ inputs.rules || 'v4.3-global' }}
+      QB_ALERT_RULES: ${{ inputs.rules || 'v4.5-sharp' }}
       QB_LEAGUES_CONFIG_PATH: config/leagues.json
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -64,6 +64,10 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
 
+      # State persists ONLY through the Actions cache: restore-keys picks the newest quantbet-state-* entry of
+      # this branch, Save writes a new immutable key per run. Caches unused for 7 days (or beyond the 10 GB
+      # repo limit) are evicted - then the run starts with empty DBs (dedup hydration finds nothing).
+      # Manual fills are NOT in the cache: they live in the committed data/fills.csv (scripts/record_fill.py).
       - name: "Restore state (SQLite: paper trades, HTTP cache, ESPN summaries, heartbeat)"
         uses: actions/cache/restore@v4
         with:
@@ -84,6 +88,23 @@ jobs:
           timeout --signal=INT --kill-after=60s "${RUN_MINUTES}m" \
             python scripts/live.py ${MODE} --rules "${QB_ALERT_RULES}" --cups --no-keepalive \
             2>&1 | tee "logs/live_${GITHUB_RUN_ID}.log" || true
+
+      # The alerts DB runs in WAL mode and the cache/artifact globs only take data/*.sqlite3: fold any
+      # -wal journal into the main file first (a hard-killed poller would otherwise lose its last alerts).
+      - name: Checkpoint SQLite (WAL -> main file)
+        if: always()
+        run: |
+          python - <<'PY'
+          import glob, sqlite3
+          for p in sorted(glob.glob("data/*.sqlite3")):
+              try:
+                  c = sqlite3.connect(p)
+                  c.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+                  c.close()
+                  print("checkpointed", p)
+              except sqlite3.Error as exc:
+                  print("checkpoint failed", p, exc)
+          PY
 
       - name: Save state
         if: always()

@@ -1,0 +1,634 @@
+{
+  "_doc": "v4.4-syndicate priors. Generated offline by scripts/estimate_syndicate_priors.py; hashed into the v4.4-syndicate freeze (global.syndicate.priors). Re-freeze after editing.",
+  "cards_baselines": {
+    "bel.1": {
+      "cards90": 4.064,
+      "fd_code": "B1",
+      "fouls90": 22.768,
+      "n": 311
+    },
+    "eng.1": {
+      "cards90": 3.906,
+      "fd_code": "E0",
+      "fouls90": 21.508,
+      "n": 1900
+    },
+    "eng.2": {
+      "cards90": 3.812,
+      "fd_code": "E1",
+      "fouls90": 21.476,
+      "n": 552
+    },
+    "eng.3": {
+      "cards90": 3.784,
+      "fd_code": "E2",
+      "fouls90": 22.888,
+      "n": 552
+    },
+    "esp.1": {
+      "cards90": 5.023,
+      "fd_code": "SP1",
+      "fouls90": 25.616,
+      "n": 1900
+    },
+    "esp.2": {
+      "cards90": 5.491,
+      "fd_code": "SP2",
+      "fouls90": 26.766,
+      "n": 462
+    },
+    "fra.1": {
+      "cards90": 3.985,
+      "fd_code": "F1",
+      "fouls90": 24.218,
+      "n": 1678
+    },
+    "fra.2": {
+      "cards90": 4.233,
+      "fd_code": "F2",
+      "fouls90": 27.682,
+      "n": 305
+    },
+    "ger.1": {
+      "cards90": 4.041,
+      "fd_code": "D1",
+      "fouls90": 22.422,
+      "n": 1529
+    },
+    "ger.2": {
+      "cards90": 4.797,
+      "fd_code": "D2",
+      "fouls90": 24.578,
+      "n": 306
+    },
+    "ita.1": {
+      "cards90": 4.405,
+      "fd_code": "I1",
+      "fouls90": 25.11,
+      "n": 1900
+    },
+    "ita.2": {
+      "cards90": 4.689,
+      "fd_code": "I2",
+      "fouls90": 29.866,
+      "n": 380
+    },
+    "ned.1": {
+      "cards90": 3.395,
+      "fd_code": "N1",
+      "fouls90": 21.752,
+      "n": 306
+    },
+    "por.1": {
+      "cards90": 5.212,
+      "fd_code": "P1",
+      "fouls90": 27.51,
+      "n": 306
+    },
+    "sco.1": {
+      "cards90": 4.11,
+      "fd_code": "SC0",
+      "fouls90": 24.158,
+      "n": 228
+    },
+    "tur.1": {
+      "cards90": 4.853,
+      "fd_code": "T1",
+      "fouls90": 27.127,
+      "n": 306
+    }
+  },
+  "cards_bet365": {
+    "baselines": {
+      "bel.1": {
+        "cards90": 4.254,
+        "fd_code": "B1",
+        "fouls90": 22.768,
+        "n": 311
+      },
+      "eng.1": {
+        "cards90": 4.022,
+        "fd_code": "E0",
+        "fouls90": 21.508,
+        "n": 1900
+      },
+      "eng.2": {
+        "cards90": 3.911,
+        "fd_code": "E1",
+        "fouls90": 21.476,
+        "n": 552
+      },
+      "eng.3": {
+        "cards90": 3.895,
+        "fd_code": "E2",
+        "fouls90": 22.888,
+        "n": 552
+      },
+      "esp.1": {
+        "cards90": 5.282,
+        "fd_code": "SP1",
+        "fouls90": 25.616,
+        "n": 1900
+      },
+      "esp.2": {
+        "cards90": 5.768,
+        "fd_code": "SP2",
+        "fouls90": 26.766,
+        "n": 462
+      },
+      "fra.1": {
+        "cards90": 4.234,
+        "fd_code": "F1",
+        "fouls90": 24.218,
+        "n": 1678
+      },
+      "fra.2": {
+        "cards90": 4.475,
+        "fd_code": "F2",
+        "fouls90": 27.682,
+        "n": 305
+      },
+      "ger.1": {
+        "cards90": 4.191,
+        "fd_code": "D1",
+        "fouls90": 22.422,
+        "n": 1529
+      },
+      "ger.2": {
+        "cards90": 4.99,
+        "fd_code": "D2",
+        "fouls90": 24.578,
+        "n": 306
+      },
+      "ita.1": {
+        "cards90": 4.598,
+        "fd_code": "I1",
+        "fouls90": 25.11,
+        "n": 1900
+      },
+      "ita.2": {
+        "cards90": 4.926,
+        "fd_code": "I2",
+        "fouls90": 29.866,
+        "n": 380
+      },
+      "ned.1": {
+        "cards90": 3.569,
+        "fd_code": "N1",
+        "fouls90": 21.752,
+        "n": 306
+      },
+      "por.1": {
+        "cards90": 5.454,
+        "fd_code": "P1",
+        "fouls90": 27.51,
+        "n": 306
+      },
+      "sco.1": {
+        "cards90": 4.272,
+        "fd_code": "SC0",
+        "fouls90": 24.158,
+        "n": 228
+      },
+      "tur.1": {
+        "cards90": 5.069,
+        "fd_code": "T1",
+        "fouls90": 27.127,
+        "n": 306
+      }
+    },
+    "by_division": {
+      "B1": {
+        "cards90": 4.254,
+        "cards_var": 5.752,
+        "fouls90": 22.768,
+        "hy_includes_first_yellow": true,
+        "n": 311,
+        "nb_r_mom": 12.079,
+        "reds90": 0.1897,
+        "slugs": [
+          "bel.1"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "D1": {
+        "cards90": 4.191,
+        "cards_var": 5.833,
+        "fouls90": 22.422,
+        "hy_includes_first_yellow": true,
+        "n": 1529,
+        "nb_r_mom": 10.699,
+        "reds90": 0.1498,
+        "slugs": [
+          "ger.1"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "D2": {
+        "cards90": 4.99,
+        "cards_var": 6.323,
+        "fouls90": 24.578,
+        "hy_includes_first_yellow": true,
+        "n": 306,
+        "nb_r_mom": 18.678,
+        "reds90": 0.1928,
+        "slugs": [
+          "ger.2"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "E0": {
+        "cards90": 4.022,
+        "cards_var": 4.886,
+        "fouls90": 21.508,
+        "hy_includes_first_yellow": false,
+        "n": 1900,
+        "nb_r_mom": 18.702,
+        "reds90": 0.1153,
+        "slugs": [
+          "eng.1"
+        ],
+        "sy_bias_max": 0.1153
+      },
+      "E1": {
+        "cards90": 3.911,
+        "cards_var": 4.374,
+        "fouls90": 21.476,
+        "hy_includes_first_yellow": false,
+        "n": 552,
+        "nb_r_mom": 33.031,
+        "reds90": 0.0996,
+        "slugs": [
+          "eng.2"
+        ],
+        "sy_bias_max": 0.0996
+      },
+      "E2": {
+        "cards90": 3.895,
+        "cards_var": 3.866,
+        "fouls90": 22.888,
+        "hy_includes_first_yellow": false,
+        "n": 552,
+        "nb_r_mom": null,
+        "reds90": 0.1105,
+        "slugs": [
+          "eng.3"
+        ],
+        "sy_bias_max": 0.1105
+      },
+      "F1": {
+        "cards90": 4.234,
+        "cards_var": 5.647,
+        "fouls90": 24.218,
+        "hy_includes_first_yellow": true,
+        "n": 1678,
+        "nb_r_mom": 12.677,
+        "reds90": 0.2491,
+        "slugs": [
+          "fra.1"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "F2": {
+        "cards90": 4.475,
+        "cards_var": 5.063,
+        "fouls90": 27.682,
+        "hy_includes_first_yellow": true,
+        "n": 305,
+        "nb_r_mom": 34.116,
+        "reds90": 0.2426,
+        "slugs": [
+          "fra.2"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "I1": {
+        "cards90": 4.598,
+        "cards_var": 5.994,
+        "fouls90": 25.11,
+        "hy_includes_first_yellow": true,
+        "n": 1900,
+        "nb_r_mom": 15.141,
+        "reds90": 0.1932,
+        "slugs": [
+          "ita.1"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "I2": {
+        "cards90": 4.926,
+        "cards_var": 6.205,
+        "fouls90": 29.866,
+        "hy_includes_first_yellow": true,
+        "n": 380,
+        "nb_r_mom": 18.978,
+        "reds90": 0.2368,
+        "slugs": [
+          "ita.2"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "N1": {
+        "cards90": 3.569,
+        "cards_var": 4.892,
+        "fouls90": 21.752,
+        "hy_includes_first_yellow": true,
+        "n": 306,
+        "nb_r_mom": 9.621,
+        "reds90": 0.1732,
+        "slugs": [
+          "ned.1"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "P1": {
+        "cards90": 5.454,
+        "cards_var": 8.777,
+        "fouls90": 27.51,
+        "hy_includes_first_yellow": true,
+        "n": 306,
+        "nb_r_mom": 8.952,
+        "reds90": 0.2418,
+        "slugs": [
+          "por.1"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "SC0": {
+        "cards90": 4.272,
+        "cards_var": 4.566,
+        "fouls90": 24.158,
+        "hy_includes_first_yellow": false,
+        "n": 228,
+        "nb_r_mom": 61.973,
+        "reds90": 0.1623,
+        "slugs": [
+          "sco.1"
+        ],
+        "sy_bias_max": 0.1623
+      },
+      "SP1": {
+        "cards90": 5.282,
+        "cards_var": 8.259,
+        "fouls90": 25.616,
+        "hy_includes_first_yellow": true,
+        "n": 1900,
+        "nb_r_mom": 9.368,
+        "reds90": 0.2584,
+        "slugs": [
+          "esp.1"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "SP2": {
+        "cards90": 5.768,
+        "cards_var": 7.55,
+        "fouls90": 26.766,
+        "hy_includes_first_yellow": true,
+        "n": 462,
+        "nb_r_mom": 18.674,
+        "reds90": 0.2771,
+        "slugs": [
+          "esp.2"
+        ],
+        "sy_bias_max": 0.0
+      },
+      "T1": {
+        "cards90": 5.069,
+        "cards_var": 8.417,
+        "fouls90": 27.127,
+        "hy_includes_first_yellow": true,
+        "n": 306,
+        "nb_r_mom": 7.673,
+        "reds90": 0.2157,
+        "slugs": [
+          "tur.1"
+        ],
+        "sy_bias_max": 0.0
+      }
+    },
+    "counting": "Bet365 Total Cards: yellow = 1, red = 2 (second yellow -> red = 1 + 2 = 3; max 3 per player). NOT the 10/25 booking-points market.",
+    "fd_semantics": "HY + AY + 2 x (HR + AR). Football-Data notes.txt: English/Scottish HY exclude the first yellow of a second-yellow dismissal (undercount <= reds90 per match for E0/E1/E2/SC0); European divisions include it (exact).",
+    "nb_r": 13.647,
+    "nb_r_method": "MLE of a common shape r with division-specific means (Football-Data full time)",
+    "nb_r_mle_within": 13.647,
+    "nb_r_mom_within": 13.364,
+    "pooled": {
+      "cards90": 4.51,
+      "cards_var": 6.35,
+      "fouls90": 24.17,
+      "n": 12921,
+      "nb_r_pooled_naive": 11.05
+    }
+  },
+  "cards_by_division": {
+    "B1": {
+      "cards90": 4.064,
+      "cards_var": 4.768,
+      "fouls90": 22.768,
+      "n": 311,
+      "slugs": [
+        "bel.1"
+      ]
+    },
+    "D1": {
+      "cards90": 4.041,
+      "cards_var": 4.958,
+      "fouls90": 22.422,
+      "n": 1529,
+      "slugs": [
+        "ger.1"
+      ]
+    },
+    "D2": {
+      "cards90": 4.797,
+      "cards_var": 5.443,
+      "fouls90": 24.578,
+      "n": 306,
+      "slugs": [
+        "ger.2"
+      ]
+    },
+    "E0": {
+      "cards90": 3.906,
+      "cards_var": 4.432,
+      "fouls90": 21.508,
+      "n": 1900,
+      "slugs": [
+        "eng.1"
+      ]
+    },
+    "E1": {
+      "cards90": 3.812,
+      "cards_var": 4.051,
+      "fouls90": 21.476,
+      "n": 552,
+      "slugs": [
+        "eng.2"
+      ]
+    },
+    "E2": {
+      "cards90": 3.784,
+      "cards_var": 3.521,
+      "fouls90": 22.888,
+      "n": 552,
+      "slugs": [
+        "eng.3"
+      ]
+    },
+    "F1": {
+      "cards90": 3.985,
+      "cards_var": 4.405,
+      "fouls90": 24.218,
+      "n": 1678,
+      "slugs": [
+        "fra.1"
+      ]
+    },
+    "F2": {
+      "cards90": 4.233,
+      "cards_var": 4.113,
+      "fouls90": 27.682,
+      "n": 305,
+      "slugs": [
+        "fra.2"
+      ]
+    },
+    "I1": {
+      "cards90": 4.405,
+      "cards_var": 4.8,
+      "fouls90": 25.11,
+      "n": 1900,
+      "slugs": [
+        "ita.1"
+      ]
+    },
+    "I2": {
+      "cards90": 4.689,
+      "cards_var": 4.883,
+      "fouls90": 29.866,
+      "n": 380,
+      "slugs": [
+        "ita.2"
+      ]
+    },
+    "N1": {
+      "cards90": 3.395,
+      "cards_var": 3.932,
+      "fouls90": 21.752,
+      "n": 306,
+      "slugs": [
+        "ned.1"
+      ]
+    },
+    "P1": {
+      "cards90": 5.212,
+      "cards_var": 7.122,
+      "fouls90": 27.51,
+      "n": 306,
+      "slugs": [
+        "por.1"
+      ]
+    },
+    "SC0": {
+      "cards90": 4.11,
+      "cards_var": 4.054,
+      "fouls90": 24.158,
+      "n": 228,
+      "slugs": [
+        "sco.1"
+      ]
+    },
+    "SP1": {
+      "cards90": 5.023,
+      "cards_var": 6.85,
+      "fouls90": 25.616,
+      "n": 1900,
+      "slugs": [
+        "esp.1"
+      ]
+    },
+    "SP2": {
+      "cards90": 5.491,
+      "cards_var": 6.246,
+      "fouls90": 26.766,
+      "n": 462,
+      "slugs": [
+        "esp.2"
+      ]
+    },
+    "T1": {
+      "cards90": 4.853,
+      "cards_var": 7.04,
+      "fouls90": 27.127,
+      "n": 306,
+      "slugs": [
+        "tur.1"
+      ]
+    }
+  },
+  "cards_counting": "yellow = 1, red = 1 (a second yellow shown as a red counts the yellow and the red)",
+  "cards_pooled": {
+    "cards90": 4.318,
+    "cards_var": 5.308,
+    "fouls90": 24.17,
+    "n": 12921
+  },
+  "cards_time_profile": {
+    "cards": 333,
+    "first_half": 106,
+    "late_60_85_all_minutes": 2100,
+    "late_60_85_close_minutes": 1508,
+    "late_60_85_rate_all": 0.05714,
+    "late_60_85_rate_close": 0.06366,
+    "matches": 84,
+    "second_half": 227,
+    "second_half_share": 0.6817,
+    "urgency_ratio": 1.1141
+  },
+  "corners_dispersion_check": {
+    "nb_r_mle_within": 65.344,
+    "nb_r_mom_within": 65.044,
+    "note": "full-time both-team corners, division means; basis of LiveModelParams.corner_dispersion in the v4.5-sharp preset (65.0; v4.2 file 149.56)"
+  },
+  "generated_at": "2026-10-28T09:20:29Z",
+  "pearson_totals": {
+    "corners|cards": -0.0475,
+    "goals|cards": -0.0355,
+    "goals|corners": -0.0168
+  },
+  "rho": {
+    "corners|cards": -0.0351,
+    "goals|cards": -0.0233,
+    "goals|corners": -0.0121
+  },
+  "rho_label": "PRIOR: phi coefficient of full-time Over indicators at goals 2.5 / corners 9.5 / cards 4.5; pre-match-unconditional, applied to live remaining-time legs",
+  "rho_lines": {
+    "cards": 4.5,
+    "corners": 9.5,
+    "goals": 2.5
+  },
+  "source": {
+    "divisions": [
+      "B1",
+      "D1",
+      "D2",
+      "E0",
+      "E1",
+      "E2",
+      "F1",
+      "F2",
+      "I1",
+      "I2",
+      "N1",
+      "P1",
+      "SC0",
+      "SP1",
+      "SP2",
+      "T1"
+    ],
+    "espn_finals": "ESPN all/scoreboard final details (booking clocks)",
+    "football_data": "data/football_data/*.csv (Football-Data.co.uk; files with HF/AF/HY/AY/HR/AR/HC/AC)",
+    "matches": 12921
+  }
+}

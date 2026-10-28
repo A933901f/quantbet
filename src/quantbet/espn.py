@@ -184,6 +184,13 @@ class EspnEvent:
     away_stats: dict[str, float] = field(default_factory=dict)
     home_reds: int = 0
     away_reds: int = 0
+    # v4.4 cards family: yellow bookings counted from ``competitions[0].details`` (None if the
+    # scoreboard has no ``details`` list at all, i.e. booking telemetry is missing).
+    home_yellows: int | None = None
+    away_yellows: int | None = None
+    # v4.5-sharp: Bet365 Total Cards points per team from the same details, per player (see card_points).
+    home_card_points: int | None = None
+    away_card_points: int | None = None
 
     @property
     def live(self) -> bool:
@@ -192,6 +199,93 @@ class EspnEvent:
     @property
     def clock(self) -> tuple[float, int, float | None, str]:
         return espn_clock(self.status)
+
+
+def _count_yellows_from_details(details: Any, home_id: str, away_id: str) -> tuple[int | None, int | None]:
+    """Yellow bookings per side from scoreboard ``details`` (red / second-yellow-red entries excluded:
+    they are counted as reds). ``(None, None)`` if ``details`` is not a list (no booking telemetry).
+
+    Second-yellow semantics (verified on ESPN summaries/scoreboards, 28 Oct 2026): a second-yellow
+    dismissal appears in ``details`` as the player's earlier ``Yellow Card`` entry PLUS a ``Red Card``
+    entry (``redCard: true``), so this yellow count still contains the first yellow and
+    ``yellows + 2 x reds`` equals the Bet365 Total Cards count (yellow 1, red 2, max 3 per player).
+    The boxscore ``yellowCards`` stat does NOT contain it (the dismissed player shows 0 yellows,
+    1 red), so ``stat yellows + 2 x reds`` undercounts each second-yellow dismissal by 1 - use
+    :func:`card_points_from_details` / the summary keyEvents per player instead (build_state_from_espn)."""
+    if not isinstance(details, list):
+        return None, None
+    h = a = 0
+    for d in details:
+        if not isinstance(d, Mapping) or d.get("shootout"):
+            continue
+        txt = str((d.get("type") or {}).get("text") or "").lower()
+        if d.get("redCard") or txt in ("red card", "yellow-red card", "second yellow card"):
+            continue
+        if d.get("yellowCard") or txt == "yellow card":
+            tid = str((d.get("team") or {}).get("id") or "")
+            if tid == home_id:
+                h += 1
+            elif tid == away_id:
+                a += 1
+    return h, a
+
+
+SECOND_YELLOW_TEXTS = ("yellow-red card", "second yellow card", "yellow-red-card", "second-yellow-card", "yellow-red")
+
+
+def card_points(entries: Iterable[tuple[str | None, str, bool]]) -> int:
+    """Bet365 Total Cards points from ``(athlete id or None, "Y" | "R", second_yellow flag)`` entries.
+
+    Per player: a yellow only = 1; a straight red = 2; a dismissal after a yellow (second yellow, or
+    yellow then straight red) = 3 (Bet365 maximum per player). A red entry flagged as a second yellow
+    with no recorded first yellow still counts 3. Two yellows without a red entry count as a
+    dismissal (3). Entries without an athlete id are counted one by one (Y 1, R 2, second-yellow R 3).
+    """
+    per: dict[str, list[Any]] = {}
+    anon = 0
+    for aid, kind, sy in entries:
+        if not aid:
+            anon += 1 if kind == "Y" else (3 if sy else 2)
+            continue
+        rec = per.setdefault(str(aid), [0, 0, False])
+        if kind == "Y":
+            rec[0] += 1
+        else:
+            rec[1] += 1
+            rec[2] = rec[2] or bool(sy)
+    pts = anon
+    for y, r, sy in per.values():
+        if r >= 1 or y >= 2:
+            pts += 3 if (y >= 1 or sy) else 2
+        else:
+            pts += min(y, 1)
+    return pts
+
+
+def card_points_from_details(details: Any, home_id: str, away_id: str) -> tuple[int | None, int | None]:
+    """Bet365 Total Cards points per side from scoreboard ``details`` (per ``athletesInvolved``).
+
+    ``(None, None)`` if ``details`` is not a list (no booking telemetry). Shootout entries are ignored.
+    """
+    if not isinstance(details, list):
+        return None, None
+    side: dict[str, list[tuple[str | None, str, bool]]] = {home_id: [], away_id: []}
+    for d in details:
+        if not isinstance(d, Mapping) or d.get("shootout"):
+            continue
+        txt = str((d.get("type") or {}).get("text") or "").lower()
+        is_red = bool(d.get("redCard")) or txt in ("red card",) + SECOND_YELLOW_TEXTS
+        is_yel = not is_red and (bool(d.get("yellowCard")) or txt == "yellow card")
+        if not (is_red or is_yel):
+            continue
+        tid = str((d.get("team") or {}).get("id") or "")
+        if tid not in side:
+            continue
+        ath = d.get("athletesInvolved") or []
+        aid = str((ath[0] or {}).get("id") or "") if ath and isinstance(ath[0], Mapping) else ""
+        side[tid].append((aid or None, "R" if is_red else "Y", is_red and (txt in SECOND_YELLOW_TEXTS
+                                                                         or "second yellow" in txt)))
+    return card_points(side[home_id]), card_points(side[away_id])
 
 
 def _count_reds_from_details(details: Iterable[Mapping[str, Any]] | None, home_id: str, away_id: str) -> tuple[int, int]:
@@ -288,6 +382,8 @@ def parse_espn_scoreboard(payload: Mapping[str, Any], league: str | None = None)
             status = e.get("status") or comp.get("status") or {}
             hid, aid = str((h.get("team") or {}).get("id") or h.get("id") or ""), str((a.get("team") or {}).get("id") or a.get("id") or "")
             hr, ar = _count_reds_from_details(comp.get("details"), hid, aid)
+            hy, ay = _count_yellows_from_details(comp.get("details"), hid, aid)
+            hp, ap = card_points_from_details(comp.get("details"), hid, aid)
             out.append(
                 EspnEvent(
                     id=str(e["id"]),
@@ -307,6 +403,10 @@ def parse_espn_scoreboard(payload: Mapping[str, Any], league: str | None = None)
                     away_stats=stats_list_to_dict(a.get("statistics")),
                     home_reds=hr,
                     away_reds=ar,
+                    home_yellows=hy,
+                    away_yellows=ay,
+                    home_card_points=hp,
+                    away_card_points=ap,
                 )
             )
         except (KeyError, TypeError, IndexError) as exc:
@@ -337,10 +437,14 @@ class EspnSummary:
     key_events: list[dict[str, Any]] = field(default_factory=list)
     prior: SharpPrices | None = None
     prior_provider: str = ""
+    # v4.5-sharp: Bet365 Total Cards points per team from keyEvents (per participant athlete);
+    # None when the payload has no keyEvents list.
+    home_card_points: int | None = None
+    away_card_points: int | None = None
 
 
 def parse_espn_key_events(key_events: Iterable[Mapping[str, Any]] | None, home: str, away: str) -> tuple[list[dict[str, Any]], int, int]:
-    """Normalise ``keyEvents`` -> ([{type, minute, period, team, text}], home_reds, away_reds)."""
+    """Normalise ``keyEvents`` -> ([{type, minute, period, team, text, athlete_id}], home_reds, away_reds)."""
     out: list[dict[str, Any]] = []
     hr = ar = 0
     for k in key_events or []:
@@ -350,13 +454,39 @@ def parse_espn_key_events(key_events: Iterable[Mapping[str, Any]] | None, home: 
         disp = str(clk.get("displayValue") or "")
         m = _DISPLAY_RE.match(disp)
         minute = (float(m.group(1)) + (float(m.group(2)) if m.group(2) else 0.0)) if m else (_f(clk.get("value")) or 0.0) / 60.0
-        out.append({"type": t, "minute": minute, "period": (k.get("period") or {}).get("number"), "team": team, "text": k.get("text") or ""})
+        parts = k.get("participants") or []
+        ath = (parts[0].get("athlete") or {}) if parts and isinstance(parts[0], Mapping) else {}
+        out.append({"type": t, "minute": minute, "period": (k.get("period") or {}).get("number"), "team": team,
+                    "text": k.get("text") or "", "athlete_id": str(ath.get("id") or "") or None})
         if t in RED_KEY_TYPES:
             if team and team == home:
                 hr += 1
             elif team and team == away:
                 ar += 1
     return out, hr, ar
+
+
+def card_points_from_key_events(kev: Iterable[Mapping[str, Any]], home: str, away: str) -> tuple[int, int]:
+    """Bet365 Total Cards points per team from normalised keyEvents (:func:`parse_espn_key_events`).
+
+    ``yellow-card`` = Y; ``red-card`` / ``yellow-red-card`` / ... = R, flagged as a second yellow when the
+    type says so or the text reads "Second yellow card to ..." (UEFA feeds; DFB-Pokal feeds only say
+    "Red Card" - the player's earlier yellow-card event then supplies the third point).
+    """
+    side: dict[str, list[tuple[str | None, str, bool]]] = {"home": [], "away": []}
+    for k in kev:
+        t = str(k.get("type") or "")
+        if t not in ("yellow-card",) and t not in RED_KEY_TYPES:
+            continue
+        team = str(k.get("team") or "")
+        sd = "home" if team and team == home else ("away" if team and team == away else None)
+        if sd is None:
+            continue
+        red = t in RED_KEY_TYPES
+        sy = red and (t in ("yellow-red-card", "second-yellow-card", "yellow-red")
+                      or "second yellow" in str(k.get("text") or "").lower())
+        side[sd].append((k.get("athlete_id"), "R" if red else "Y", sy))
+    return card_points(side["home"]), card_points(side["away"])
 
 
 def american_to_decimal(v: Any) -> float | None:
@@ -406,6 +536,7 @@ def parse_espn_summary(payload: Mapping[str, Any]) -> EspnSummary:
     home = ((teams.get("home") or {}).get("team") or {}).get("displayName") or ((cs.get("home") or {}).get("team") or {}).get("displayName") or ""
     away = ((teams.get("away") or {}).get("team") or {}).get("displayName") or ((cs.get("away") or {}).get("team") or {}).get("displayName") or ""
     kev, hr, ar = parse_espn_key_events(payload.get("keyEvents"), home, away)
+    hp, ap = card_points_from_key_events(kev, home, away) if isinstance(payload.get("keyEvents"), list) else (None, None)
     prior, prov = parse_espn_pickcenter(payload.get("pickcenter"))
     return EspnSummary(
         event_id=str(header.get("id") or comp.get("id") or ""),
@@ -421,6 +552,8 @@ def parse_espn_summary(payload: Mapping[str, Any]) -> EspnSummary:
         key_events=kev,
         prior=prior,
         prior_provider=prov,
+        home_card_points=hp,
+        away_card_points=ap,
     )
 
 
@@ -434,6 +567,9 @@ def build_state_from_espn(
 
     Summary box-score stats override scoreboard stats when present; red cards
     are ``max(boxscore redCards, keyEvents red-card, scoreboard details redCard)``.
+    v4.5 Total Cards points (yellow 1, red 2, 2nd-yellow dismissal 3) are the max of the available
+    lower bounds: per-player scoreboard details, per-player summary keyEvents and the boxscore
+    ``yellowCards + 2 x reds`` (which misses the first yellow of a second-yellow dismissal).
     Momentum is left ``None`` - the poller fills it from the DeltaTracker.
     """
     now = time.time() if now is None else now
@@ -452,6 +588,12 @@ def build_state_from_espn(
 
     def _opt(d: Mapping[str, float], k: str) -> int | None:
         return int(d[k]) if k in d else None
+
+    def _points(ev_pts: int | None, sum_pts: int | None, stats: Mapping[str, float], reds: int) -> int | None:
+        c = [x for x in (ev_pts, sum_pts) if x is not None]
+        if "yellowCards" in stats:
+            c.append(int(stats["yellowCards"]) + 2 * reds)
+        return max(c) if c else None
 
     return LiveMatchState(
         event_key=event_key,
@@ -479,8 +621,12 @@ def build_state_from_espn(
         away_shots_on_target=_opt(as_, "shotsOnTarget"),
         home_shots=_opt(hs, "totalShots"),
         away_shots=_opt(as_, "totalShots"),
-        home_yellow_cards=_opt(hs, "yellowCards"),
-        away_yellow_cards=_opt(as_, "yellowCards"),
+        home_yellow_cards=_opt(hs, "yellowCards") if "yellowCards" in hs else ev.home_yellows,
+        away_yellow_cards=_opt(as_, "yellowCards") if "yellowCards" in as_ else ev.away_yellows,
+        home_fouls=_opt(hs, "foulsCommitted"),
+        away_fouls=_opt(as_, "foulsCommitted"),
+        home_card_points=_points(ev.home_card_points, summary.home_card_points if summary else None, hs, reds_h),
+        away_card_points=_points(ev.away_card_points, summary.away_card_points if summary else None, as_, reds_a),
         stats_available=ch is not None and ca is not None,
         fetched_at=now,
     )
@@ -504,6 +650,9 @@ __all__ = [
     "parse_espn_scoreboard",
     "parse_espn_summary",
     "parse_espn_key_events",
+    "card_points",
+    "card_points_from_details",
+    "card_points_from_key_events",
     "parse_espn_pickcenter",
     "american_to_decimal",
     "stats_list_to_dict",

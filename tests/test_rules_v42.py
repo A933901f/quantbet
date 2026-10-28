@@ -138,9 +138,18 @@ def test_v42_freeze_supersedes_v41_and_v4(tmp_path):
 
 
 def test_cli_default_v42():
+    """v4.5-sharp is now the default; v4.2 stays selectable and its frozen hash is unchanged."""
+    from pathlib import Path
+
     from quantbet.config import Settings
-    from quantbet.main import parse_args, settings_from_args
-    assert Settings(_env_file=None).alert_rules == "v4.3-global"
+    from quantbet.main import build_rules, parse_args, settings_from_args
+    assert Settings(_env_file=None).alert_rules == "v4.5-sharp"
     ok = Settings(_env_file=None).model_copy(update={"telegram_bot_token": "x", "telegram_chat_id": "1"})
     s = settings_from_args(parse_args(["--live"]), ok)
-    assert s.alert_rules == "v4.2"
+    assert s.alert_rules == "v4.5-sharp"
+    s42 = settings_from_args(parse_args(["--live", "--rules", "v4.2"]), ok)
+    assert s42.alert_rules == "v4.2"
+    path = Path(__file__).resolve().parents[1] / "config/engine_b_params.json"
+    frozen = json.loads(path.read_text())
+    assert frozen["rules_version"] == "v4.2"
+    assert build_rules(s42.model_copy(update={"engine_b_params_path": path}))[2] == frozen["sha256"] == "40e806b910db93de34f9b26d9ebf361168077f1f38a8fe8d7dbc4e7cb6729aec"

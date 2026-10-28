@@ -26,6 +26,7 @@ from scipy.special import gammaln
 from .auditor import ClosingRow
 from .engine import PreMatchRatings
 from .poller import normalize_team, team_similarity
+from .youth import youth_compatible
 
 log = logging.getLogger(__name__)
 
@@ -281,11 +282,18 @@ class TeamRatingsTable:
     min_similarity: float = 85.0
 
     def _team(self, name: str) -> str | None:
+        """Table key for ``name``: exact normalised name, else the best fuzzy match >= ``min_similarity``.
+
+        A youth / reserve name (``Arsenal U21``, ``Jong Ajax``, ``Barcelona B``) is never matched to a
+        senior club's key, nor a senior name to a youth key (:func:`quantbet.youth.youth_compatible`; the
+        same guard is inside ``team_similarity``)."""
         n = normalize_team(name)
-        if n in self.att_home_g:
+        if n in self.att_home_g and youth_compatible(name, n):
             return n
         best, score = None, 0.0
         for t in self.att_home_g:
+            if not youth_compatible(name, t):
+                continue
             s = team_similarity(name, t)
             if s > score:
                 best, score = t, s

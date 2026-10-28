@@ -98,6 +98,14 @@ class RiskManager:
     def size(self, signal: Signal) -> Signal:
         """Fill ``stake_units``, ``stake_currency``, ``high_limit_risk`` and notes in place."""
         c = self.cfg
+        if isinstance(signal.extra, dict) and signal.extra.get("paper_only"):
+            # paper-only (v4.5 cards): never staked, never counted in turnover or the match caps
+            signal.kelly_fraction = 0.0
+            signal.stake_currency = 0.0
+            signal.stake_units = 0.0
+            signal.currency = c.currency
+            signal.high_limit_risk = self.high_limit_risk(signal)
+            return signal
         tier = signal.extra.get("liquidity_tier") if isinstance(signal.extra, dict) else None
         f = kelly_fraction(signal.p_true, signal.bookmaker_odds, c.kelly_multiplier) * self.tier_mult(tier)
         signal.kelly_fraction = f
@@ -133,8 +141,10 @@ class RiskManager:
     def size_all(self, signals: Iterable[Signal]) -> list[Signal]:
         """Size many signals and drop those whose rounded stake is zero.
 
-        Model-only MIN-ODDS alerts are kept if their tier table has a non-zero stake.
+        Model-only MIN-ODDS alerts are kept if their tier table has a non-zero stake. Paper-only alerts are kept
+        unsized (stake 0) so they are still logged and graded.
         """
         return [
-            s for s in (self.size(x) for x in signals) if s.stake_currency > 0 or s.extra.get("tiers")
+            s for s in (self.size(x) for x in signals)
+            if s.stake_currency > 0 or s.extra.get("tiers") or s.extra.get("paper_only")
         ]

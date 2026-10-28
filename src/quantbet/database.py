@@ -54,6 +54,31 @@ CREATE INDEX IF NOT EXISTS ix_alerts_event ON alerts(event_key);
 CREATE INDEX IF NOT EXISTS ix_alerts_open ON alerts(closing_fair_odds, result);
 """
 
+# Plumbing (forward run): manual Bet365 fill record, added to existing DBs by a safe column migration.
+FILL_COLUMNS: tuple[tuple[str, str], ...] = (
+    ("taken_odds", "REAL"),
+    ("taken_stake", "REAL"),
+    ("fill_status", "TEXT"),  # 'filled' | 'skipped' (NULL = not recorded yet)
+    ("fill_reason", "TEXT"),
+    ("filled_at", "REAL"),
+)
+
+# Paper-only alerts (v4.5 cards) are logged for grading but never staked: excluded from the staked report.
+STAKED_ONLY = ("(CASE WHEN extra IS NOT NULL AND json_valid(extra) "
+               "THEN COALESCE(json_extract(extra, '$.paper_only'), 0) ELSE 0 END) = 0")
+
+
+def migrate_fill_columns(conn: Any) -> list[str]:
+    """Add the fill columns to an existing ``alerts`` table (sync ``sqlite3`` connection). Returns added names."""
+    have = {r[1] for r in conn.execute("PRAGMA table_info(alerts)").fetchall()}
+    added = []
+    for name, typ in FILL_COLUMNS:
+        if have and name not in have:
+            conn.execute(f"ALTER TABLE alerts ADD COLUMN {name} {typ}")
+            added.append(name)
+    return added
+
+
 _PAYOUT = {"win": 1.0, "half_win": 0.5, "push": 0.0, "half_loss": -0.5, "loss": -1.0, "void": 0.0}
 
 
@@ -95,6 +120,11 @@ class AlertDatabase:
         self._db.row_factory = aiosqlite.Row
         await self._db.execute("PRAGMA journal_mode=WAL")
         await self._db.executescript(SCHEMA)
+        cur = await self._db.execute("PRAGMA table_info(alerts)")
+        have = {r[1] for r in await cur.fetchall()}
+        for name, typ in FILL_COLUMNS:
+            if name not in have:
+                await self._db.execute(f"ALTER TABLE alerts ADD COLUMN {name} {typ}")
         await self._db.commit()
 
     async def close(self) -> None:
@@ -170,8 +200,22 @@ class AlertDatabase:
         await self.db.commit()
         return pnl
 
+    async def record_fill(self, alert_id: str, status: str, taken_odds: float | None = None,
+                          taken_stake: float | None = None, reason: str | None = None,
+                          filled_at: float | None = None) -> None:
+        """Store the user's manual Bet365 fill (``filled``) or skip (``skipped``) for one alert."""
+        if status not in ("filled", "skipped"):
+            raise ValueError(f"bad fill status {status!r}")
+        cur = await self.db.execute(
+            "UPDATE alerts SET taken_odds=?, taken_stake=?, fill_status=?, fill_reason=?, filled_at=? WHERE id=?",
+            (taken_odds, taken_stake, status, reason, time.time() if filled_at is None else filled_at, alert_id),
+        )
+        if cur.rowcount == 0:
+            raise KeyError(alert_id)
+        await self.db.commit()
+
     async def report(self, starting_bankroll: float) -> PerformanceReport:
-        """ROI, yield and CLV summary over all logged alerts."""
+        """ROI, yield and CLV summary over the STAKED alerts (paper-only alerts are excluded)."""
         q = """SELECT COUNT(*) n,
                   SUM(result IS NOT NULL) n_settled,
                   COALESCE(SUM(CASE WHEN result IS NOT NULL AND result != 'void' THEN stake END), 0) turnover,
@@ -180,7 +224,7 @@ class AlertDatabase:
                   AVG(clv) avg_clv,
                   AVG(CASE WHEN clv IS NOT NULL THEN (clv > 0) END) beat,
                   AVG(ev) avg_ev
-               FROM alerts"""
+               FROM alerts WHERE """ + STAKED_ONLY
         cur = await self.db.execute(q)
         r = await cur.fetchone()
         assert r is not None

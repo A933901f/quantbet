@@ -31,6 +31,7 @@ import aiohttp
 from rapidfuzz import fuzz
 
 from .models import EventInfo, MarketType, MatchState, OddsSnapshot, Selection
+from .youth import youth_compatible
 
 log = logging.getLogger(__name__)
 
@@ -121,7 +122,15 @@ def normalize_team(name: str) -> str:
 
 
 def team_similarity(a: str, b: str) -> float:
-    """0-100 similarity of two team names after normalisation."""
+    """0-100 similarity of two team names after normalisation.
+
+    Youth / reserve guard (v4.5): if exactly one name carries a youth / reserve marker (``U21``, ``U23``,
+    ``Jong``, ``Reserves``, `` B``, `` II`` ... - :func:`quantbet.youth.youth_reserve_hit`), or both do with
+    different markers, the score is 0. ``token_set_ratio("arsenal u21", "arsenal")`` is 100, so without
+    the guard a youth side was matched to the senior club's ratings / prices / events.
+    """
+    if not youth_compatible(a, b):
+        return 0.0
     na, nb = normalize_team(a), normalize_team(b)
     if na == nb:
         return 100.0

@@ -35,7 +35,7 @@ from typing import Any
 
 from .delta_tracker import DeltaTracker
 from .espn import (DEFAULT_LEAGUES, LEAGUE_IDS, league_id_from_scoreboard, register_league_id, EspnEndpoints, EspnSummary, build_state_from_espn, parse_espn_scoreboard,
-                   parse_espn_summary, split_all_scoreboard)
+                   espn_clock, parse_espn_summary, split_all_scoreboard)
 from .models import LiveMatchState
 from .polite_http import FetchResult, PoliteFetcher
 from .poller import EventMatcher, StatsTracker, team_similarity
@@ -528,6 +528,70 @@ def parse_fotmob_match_details(
 # ---------------------------------------------------------------------------
 # Poller
 # ---------------------------------------------------------------------------
+SUMMARY_COLUMNS = ("event_id", "league", "fetched_at", "body", "fetched_state", "fetched_minute", "kickoff",
+                   "latest_body", "latest_fetched_at", "latest_state", "latest_minute")
+_SUMMARY_NEW_COLUMNS = (("fetched_state", "TEXT"), ("fetched_minute", "REAL"), ("kickoff", "TEXT"),
+                        ("latest_body", "TEXT"), ("latest_fetched_at", "REAL"), ("latest_state", "TEXT"),
+                        ("latest_minute", "REAL"))
+
+
+def summary_body_status(body: Any) -> tuple[str | None, float | None, str | None]:
+    """(state, minute, kickoff ISO) of a stored /summary body AS FETCHED (header.competitions[0])."""
+    try:
+        comp = ((body or {}).get("header") or {}).get("competitions") or [{}]
+        comp = comp[0] or {}
+        status = comp.get("status") or {}
+        state = (status.get("type") or {}).get("state")
+        minute = None
+        if state == "in":
+            minute = float(espn_clock(status)[0])
+        return (str(state) if state else None), minute, comp.get("date")
+    except Exception:  # noqa: BLE001 - malformed body
+        return None, None, None
+
+
+def migrate_summary_db(conn: Any) -> list[str]:
+    """Add the provenance columns to an existing ``espn_summary_once`` table and backfill
+    ``fetched_state`` / ``fetched_minute`` / ``kickoff`` of old rows from the stored body's own status."""
+    import json as _json
+
+    have = {r[1] for r in conn.execute("PRAGMA table_info(espn_summary_once)").fetchall()}
+    added = []
+    for name, typ in _SUMMARY_NEW_COLUMNS:
+        if name not in have:
+            conn.execute(f"ALTER TABLE espn_summary_once ADD COLUMN {name} {typ}")
+            added.append(name)
+    rows = conn.execute("SELECT event_id, body FROM espn_summary_once WHERE fetched_state IS NULL").fetchall()
+    for ev_id, raw in rows:
+        body = None
+        with contextlib.suppress(Exception):
+            body = _json.loads(raw) if raw else None
+        st, mi, ko = summary_body_status(body)
+        conn.execute("UPDATE espn_summary_once SET fetched_state=?, fetched_minute=?, kickoff=? WHERE event_id=?",
+                     (st or "unknown", mi, ko, ev_id))
+    return added
+
+
+def event_minute(ev: Any) -> float | None:
+    """Match minute of a scoreboard event when in play (None before kick-off)."""
+    if getattr(ev, "state", None) != "in":
+        return None
+    with contextlib.suppress(Exception):
+        return float(espn_clock(ev.status)[0])
+    return None
+
+
+def dk_lines(body: Any) -> dict[str, Any]:
+    """DraftKings (pickcenter ``close`` node) moneyline / total of a /summary body, for provenance and CLV."""
+    out: dict[str, Any] = {}
+    with contextlib.suppress(Exception):
+        pr = parse_espn_summary(body).prior
+        if pr is not None:
+            out = {"dk_home": pr.home, "dk_draw": pr.draw, "dk_away": pr.away, "dk_total_line": pr.total_line,
+                   "dk_over": pr.over, "dk_under": pr.under}
+    return out
+
+
 @dataclass(frozen=True, slots=True)
 class FreePollerConfig:
     """Scheduling of the free poller (all intervals in seconds)."""
@@ -563,6 +627,14 @@ class FreePollerConfig:
     espn_summary_lookahead_h: float = 4.0
     espn_summaries_per_cycle: int = 1
     summary_db_path: str | None = None
+    # --- plumbing (forward run; all off by default = previous behaviour). Pre-kick-off /summary priority:
+    # scheduled matches of LISTED leagues within ``prekick_window_min`` of kick-off get their own budget of
+    # ``prekick_summaries_per_cycle`` fetches per cycle (on top of espn_summaries_per_cycle), so the DraftKings
+    # prior is a true pre-match line; a second fetch inside the last ``prekick_refresh_min`` minutes keeps the
+    # latest pre-match line too. A stored pre-match summary is never overwritten by an in-play fetch.
+    prekick_window_min: float = 0.0
+    prekick_summaries_per_cycle: int = 0
+    prekick_refresh_min: float = 0.0
     # --- v4.3-global (all off by default = v4.2 behaviour) ---
     espn_all_limit: int | None = None  # ?limit=N on soccer/all/scoreboard (ESPN default is 100 events!)
     auto_discover: bool = False  # also ingest live events of unlisted leagues (pseudo slug "espn.<id>")
@@ -611,7 +683,12 @@ class FreeStatsPoller:
             self._sdb = sqlite3.connect(self.cfg.summary_db_path)
             self._sdb.execute("CREATE TABLE IF NOT EXISTS espn_summary_once (event_id TEXT PRIMARY KEY, league TEXT,"
                               " fetched_at REAL, body TEXT)")
+            migrate_summary_db(self._sdb)
             self._sdb.commit()
+        # plumbing: provenance of every stored prior (event_key -> first / latest snapshot meta)
+        self.prior_meta: dict[str, dict[str, Any]] = {}
+        self._prekick_refreshed: set[str] = set()
+        self.n_prekick_fetches = 0
         self.last_source = ""
         self._fotmob_ids: dict[str, int] = {}
         self.stats_cache: dict[str, dict[str, tuple[float | None, float | None]]] = {}
@@ -709,26 +786,85 @@ class FreeStatsPoller:
         return st
 
     # -- ESPN summary once per match ------------------------------------------
-    def _load_summary(self, ev_id: str) -> Any | None:
+    def _summary_row(self, ev_id: str) -> dict[str, Any] | None:
+        """Stored summary row (first fetch + optional latest pre-match refresh), bodies parsed."""
         if self._sdb is None:
-            return None
-        row = self._sdb.execute("SELECT body FROM espn_summary_once WHERE event_id=?", (ev_id,)).fetchone()
-        if not row:
             return None
         import json as _json
 
-        with contextlib.suppress(Exception):
-            return _json.loads(row[0])
-        return None
+        cur = self._sdb.execute(f"SELECT {', '.join(SUMMARY_COLUMNS)} FROM espn_summary_once WHERE event_id=?",
+                                (ev_id,))
+        row = cur.fetchone()
+        if not row:
+            return None
+        d = dict(zip(SUMMARY_COLUMNS, row))
+        for k in ("body", "latest_body"):
+            raw, d[k] = d[k], None
+            if raw:
+                with contextlib.suppress(Exception):
+                    d[k] = _json.loads(raw)
+        return d
 
-    def _store_summary(self, ev_id: str, league: str, data: Any) -> None:
+    def _load_summary(self, ev_id: str) -> Any | None:
+        """Body to take the prior from: the latest PRE-match refresh if one is stored, else the first fetch."""
+        d = self._summary_row(ev_id)
+        if d is None:
+            return None
+        if d.get("latest_body") is not None and d.get("latest_state") == "pre":
+            return d["latest_body"]
+        return d.get("body")
+
+    def _store_summary(self, ev_id: str, league: str, data: Any, state: str | None = None,
+                       minute: float | None = None, kickoff: str | None = None) -> None:
+        """First fetch of a match. A stored PRE-match row is never replaced (e.g. by an in-play refetch)."""
         if self._sdb is None:
             return
         import json as _json
 
-        self._sdb.execute("INSERT OR REPLACE INTO espn_summary_once VALUES (?,?,?,?)",
-                          (ev_id, league, time.time(), _json.dumps(data)))
+        self._sdb.execute(
+            "INSERT INTO espn_summary_once (event_id, league, fetched_at, body, fetched_state, fetched_minute, kickoff)"
+            " VALUES (?,?,?,?,?,?,?) ON CONFLICT(event_id) DO UPDATE SET league=excluded.league,"
+            " fetched_at=excluded.fetched_at, body=excluded.body, fetched_state=excluded.fetched_state,"
+            " fetched_minute=excluded.fetched_minute, kickoff=excluded.kickoff"
+            " WHERE espn_summary_once.fetched_state IS NOT 'pre'",
+            (ev_id, league, time.time(), _json.dumps(data), state, minute, kickoff))
         self._sdb.commit()
+
+    def _store_latest(self, ev_id: str, data: Any, state: str, minute: float | None) -> None:
+        """Second (late pre-match) fetch: kept next to the first one, never replacing it."""
+        if self._sdb is None or state != "pre":
+            return
+        import json as _json
+
+        self._sdb.execute("UPDATE espn_summary_once SET latest_body=?, latest_fetched_at=?, latest_state=?,"
+                          " latest_minute=? WHERE event_id=?", (_json.dumps(data), time.time(), state, minute, ev_id))
+        self._sdb.commit()
+
+    def _note_prior_meta(self, key: str, which: str, state: str | None, minute: float | None,
+                         fetched_at: float | None, kickoff: str | None, data: Any) -> None:
+        """Record where the prior came from (``prior_info`` carries it onto every alert)."""
+        m = self.prior_meta.setdefault(key, {})
+        snap = {"fetched_state": state, "fetched_minute": minute, "fetched_at": fetched_at, "kickoff": kickoff,
+                **dk_lines(data)}
+        m[which] = snap
+        use = m.get("latest") if (m.get("latest") or {}).get("fetched_state") == "pre" else m.get("first")
+        if use:
+            m.update({"fetched_state": use["fetched_state"], "fetched_minute": use["fetched_minute"],
+                      "fetched_at": use["fetched_at"], "kickoff": use["kickoff"],
+                      "snapshot": "latest_pre" if use is m.get("latest") else "first"})
+
+    def _take_cached(self, key: str, ev: Any) -> bool:
+        d = self._summary_row(ev.id)
+        if d is None or d.get("body") is None:
+            return False
+        self._take_prior(key, self._load_summary(ev.id), ev.league)
+        self._note_prior_meta(key, "first", d.get("fetched_state"), d.get("fetched_minute"), d.get("fetched_at"),
+                              d.get("kickoff"), d["body"])
+        if d.get("latest_body") is not None and d.get("latest_state") == "pre":
+            self._note_prior_meta(key, "latest", "pre", d.get("latest_minute"), d.get("latest_fetched_at"),
+                                  d.get("kickoff"), d["latest_body"])
+            self._prekick_refreshed.add(key)
+        return True
 
     def _take_prior(self, key: str, data: Any, league: str | None = None) -> None:
         if league and league.startswith("espn.") and isinstance(data, Mapping):
@@ -753,24 +889,82 @@ class FreeStatsPoller:
         for key, ev in cands:
             if key in self._summary_done:
                 continue
-            cached = self._load_summary(ev.id)
-            if cached is not None:
-                self._take_prior(key, cached, ev.league)
+            if self._take_cached(key, ev):
                 self._summary_done.add(key)
                 continue
             if budget <= 0:
                 continue
             budget -= 1
-            lg = "all" if ev.league.startswith("espn.") else ev.league  # soccer/all/summary works for any league
-            sr = await self.f.get_json(self.espn.summary(lg, ev.id), cache_ttl_s=24 * 3600)
-            if sr.ok:
-                self._store_summary(ev.id, ev.league, sr.data)
-                self._take_prior(key, sr.data, ev.league)
-                self._summary_done.add(key)
-            elif sr.blocked or sr.status in (403, 429, 503):
+            r = await self._fetch_summary(key, ev, first=True)
+            if r == "stop":
                 return
-            elif sr.status in (400, 404):
+
+    async def _fetch_summary(self, key: str, ev: Any, first: bool) -> str:
+        """One /summary request: ``ok`` | ``stop`` (refused / backoff) | ``gone`` | ``retry``."""
+        lg = "all" if ev.league.startswith("espn.") else ev.league  # soccer/all/summary works for any league
+        # the late pre-match refresh must not be answered from the 24 h response cache
+        sr = await self.f.get_json(self.espn.summary(lg, ev.id), cache_ttl_s=24 * 3600 if first else 60.0)
+        state, minute, kickoff = ev.state, event_minute(ev), ev.start.isoformat() if ev.start else None
+        if sr.ok:
+            if first:
+                self._store_summary(ev.id, ev.league, sr.data, state, minute, kickoff)
+                self._take_prior(key, sr.data, ev.league)
+                self._note_prior_meta(key, "first", state, minute, time.time(), kickoff, sr.data)
+                self._summary_done.add(key)
+            elif state == "pre":
+                self._store_latest(ev.id, sr.data, state, minute)
+                with contextlib.suppress(Exception):
+                    summ = parse_espn_summary(sr.data)
+                    if summ.prior is not None:  # latest PRE-match line feeds the prior (still before kick-off)
+                        self.priors[key] = (summ.prior, f"espn_{summ.prior_provider.lower() or 'pickcenter'}")
+                self._note_prior_meta(key, "latest", state, minute, time.time(), kickoff, sr.data)
+            return "ok"
+        if sr.blocked or sr.status in (403, 429, 503):
+            return "stop"
+        if sr.status in (400, 404):
+            if first:
                 self._summary_done.add(key)  # no summary for this event - do not retry
+            return "gone"
+        return "retry"
+
+    async def _prekick_summaries(self, cands: list[tuple[str, Any]], wall: float) -> None:
+        """Plumbing: listed-league matches within ``prekick_window_min`` of kick-off (state ``pre``), soonest first.
+
+        First fetch for any not-yet-seen match, then (if ``prekick_refresh_min``) one late refresh inside the
+        last N minutes when the stored pre-match line is older than that. Own per-cycle budget; every request
+        still goes through PoliteFetcher (per-URL interval, global gap / concurrency, backoff).
+        """
+        c = self.cfg
+        budget = int(c.prekick_summaries_per_cycle)
+        for key, ev in cands:
+            if budget <= 0:
+                return
+            if key not in self._summary_done:
+                if self._take_cached(key, ev):
+                    self._summary_done.add(key)
+                else:
+                    budget -= 1
+                    self.n_prekick_fetches += 1
+                    if await self._fetch_summary(key, ev, first=True) == "stop":
+                        return
+                    continue
+            if c.prekick_refresh_min <= 0 or key in self._prekick_refreshed or ev.start is None:
+                continue
+            to_ko = ev.start.timestamp() - wall
+            meta = self.prior_meta.get(key) or {}
+            first = meta.get("first") or {}
+            if to_ko > c.prekick_refresh_min * 60 or first.get("fetched_state") != "pre":
+                continue
+            if (first.get("fetched_at") or 0.0) >= ev.start.timestamp() - c.prekick_refresh_min * 60:
+                self._prekick_refreshed.add(key)  # the first fetch already is a late pre-match line
+                continue
+            budget -= 1
+            self.n_prekick_fetches += 1
+            r = await self._fetch_summary(key, ev, first=False)
+            if r != "retry":
+                self._prekick_refreshed.add(key)
+            if r == "stop":
+                return
 
     def _note_event(self, key: str, ev: Any) -> None:
         self.scheduled[key] = {"league": ev.league, "home": ev.home, "away": ev.away, "state": ev.state,
@@ -812,6 +1006,7 @@ class FreeStatsPoller:
         c = self.cfg
         wall = time.time()
         cands: list[tuple[float, str, Any]] = []
+        pre_cands: list[tuple[float, str, Any]] = []
         live_n = 0
         if self.league_priority is not None:  # listed tiers first, auto-discovered last (stable)
             pr = self.league_priority
@@ -829,6 +1024,9 @@ class FreeStatsPoller:
             soon = ev.state == "pre" and ev.start is not None and (ev.start.timestamp() - wall) < c.espn_summary_lookahead_h * 3600
             if c.use_espn_summary and (ev.live or soon) and not (auto and key in self.telemetry_skips):
                 cands.append((0.0 if ev.live else ev.start.timestamp(), key, ev))  # type: ignore[union-attr]
+            if (c.prekick_window_min > 0 and not auto and ev.state == "pre" and ev.start is not None
+                    and (ev.start.timestamp() - wall) <= c.prekick_window_min * 60):
+                pre_cands.append((ev.start.timestamp(), key, ev))
             if not ev.live or live_n >= c.max_events:
                 continue
             if not self.telemetry_gate(key, ev):
@@ -844,6 +1042,9 @@ class FreeStatsPoller:
             self.apply_synthetic_momentum(st, now_)
             st = await self._enrich(st)
             states.append(st)
+        if c.use_espn_summary and c.espn_summary_once and pre_cands and c.prekick_summaries_per_cycle > 0:
+            pre_cands.sort(key=lambda x: x[0])
+            await self._prekick_summaries([(k, e) for _, k, e in pre_cands], wall)
         if c.use_espn_summary and c.espn_summary_once and cands:
             if self.league_priority is not None:
                 pr = self.league_priority

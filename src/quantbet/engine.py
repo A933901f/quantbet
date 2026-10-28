@@ -1454,7 +1454,7 @@ class LinePrice:
 
     def describe(self, home: str = "Home", away: str = "Away") -> str:
         """e.g. ``Over 10.25 Corners``."""
-        unit = "Goals" if self.market is MarketType.TOTAL_GOALS else "Corners"
+        unit = {MarketType.TOTAL_GOALS: "Goals", MarketType.TOTAL_CARDS: "Cards"}.get(self.market, "Corners")
         return f"{self.selection.value.capitalize()} {self.line:g} {unit}"
 
 
@@ -2327,7 +2327,7 @@ class FreeSignalEngine:
 # ---------------------------------------------------------------------------
 # Rule-set presets (legacy / v3 / v4)
 # ---------------------------------------------------------------------------
-RULE_VERSIONS = ("legacy", "v3", "v4", "v4.1", "v4.2", "v4.3-global")
+RULE_VERSIONS = ("legacy", "v3", "v4", "v4.1", "v4.2", "v4.3-global", "v4.4-syndicate", "v4.5-sharp")
 
 _LIVE_RULE_FIELDS: dict[str, dict[str, Any]] = {
     "legacy": dict(shrinkage_enabled=False, shrinkage_mode="linear", game_state_dampener=False, fav_rule="supremacy",
@@ -2380,6 +2380,31 @@ _PRICING_RULE_FIELDS["v4.2"] = dict(_PRICING_RULE_FIELDS["v4.1"], allow_unders=F
 # whose parameters are frozen separately under "global" in the v4.3-global freeze entry.
 _LIVE_RULE_FIELDS["v4.3-global"] = dict(_LIVE_RULE_FIELDS["v4.2"])
 _PRICING_RULE_FIELDS["v4.3-global"] = dict(_PRICING_RULE_FIELDS["v4.2"])
+# v4.4-syndicate = v4.3-global maths (identical live model fields) + quantbet.syndicate on top:
+# tier EV hurdles (T1 4% / T2 5.5% / T3 7%, abort 0.6x; target/abort below are the TIER_1 values, the
+# engine re-prices per tier), sustained momentum instead of activity_high, Unders back on (half lines,
+# tempo_stall / bus_parking triggers), a cards family, per-family cooldown + material-change re-alert and
+# max 3 signals per match (1 goals + 1 corners + 1 cards). Its own params are frozen under
+# global.syndicate of the v4.4-syndicate freeze entry; v4.2 / v4.3-global entries are untouched.
+_LIVE_RULE_FIELDS["v4.4-syndicate"] = dict(_LIVE_RULE_FIELDS["v4.3-global"])
+_PRICING_RULE_FIELDS["v4.4-syndicate"] = dict(_PRICING_RULE_FIELDS["v4.3-global"], allow_unders=True,
+                                              target_edge=0.04, abort_edge=0.024, max_signals_per_family=2,
+                                              max_signals_per_match=3, max_match_stake_frac=0.05,
+                                              family_cooldown_min=15.0)
+# v4.5-sharp = v4.4-syndicate + tighter selection (quantbet.syndicate.SharpParams, frozen under
+# global.syndicate of the v4.5-sharp freeze entry). Model/pricing rule fields that change:
+#   minute_windows (30-43, 55-85) - the v4.3/v4.4 windows (the pre-patch 34-43 / 55-83 cut first-poll and
+#   84'-85' winners once espn.* leagues were blocked);
+#   target_edge / abort_edge = the TIER_1 values of the new hurdles (3.5% / 0.6 x 3.5%); the engine re-prices per tier;
+#   corner_prior_minutes 200 (between the v4.2 180 and the pre-patch 240) and corner_dispersion 65.0 = the
+#   Football-Data within-division NegBin fit of full-time corners (MLE r 65.34, MoM r 65.04; see
+#   config/syndicate_priors.json corners_dispersion_check). The 149.56 in the v4.2 params file is near-Poisson.
+# v4.2 / v4.3-global / v4.4-syndicate presets and frozen entries are untouched.
+_LIVE_RULE_FIELDS["v4.5-sharp"] = dict(_LIVE_RULE_FIELDS["v4.4-syndicate"], corner_prior_minutes=200.0,
+                                       corner_dispersion=65.0)
+_PRICING_RULE_FIELDS["v4.5-sharp"] = dict(_PRICING_RULE_FIELDS["v4.4-syndicate"],
+                                          minute_windows=((30.0, 43.0), (55.0, 85.0)),
+                                          target_edge=0.035, abort_edge=0.021)
 
 
 def rules_preset(version: str, base_live: LiveModelParams | None = None, **pricing_kw: Any
